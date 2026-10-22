@@ -1,0 +1,17 @@
+/* In the `ui` cascade layer: a className passed from a page always wins over these defaults. */
+@layer ui {
+  .panel {
+    padding: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--line-strong) 80%, transparent);
+    border-radius: var(--radius-lg);
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(14px);
+  }
+
+  @media (min-width: 640px) {
+    .panel {
+      padding: 2rem;
+    }
+  }
+}

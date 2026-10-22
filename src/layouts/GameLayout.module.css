@@ -1,0 +1,272 @@
+.screen {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+}
+
+.skip {
+  position: absolute;
+  top: -10rem;
+  left: 0.75rem;
+  z-index: 50;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius);
+  background: var(--brand-500);
+  color: var(--ink-inverse);
+  font-weight: 700;
+}
+
+.skip:focus {
+  top: calc(var(--safe-top) + 0.5rem);
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────── */
+.hud {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: calc(var(--safe-top) + 0.5rem) 0.75rem 0.5rem;
+  background: linear-gradient(to bottom, rgb(5 10 8 / 0.9), rgb(5 10 8 / 0.5));
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.brand span {
+  color: var(--brand-400);
+}
+
+.campus {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: var(--brand-500);
+  color: var(--ink-inverse);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.campus:hover {
+  background: var(--brand-400);
+}
+
+/* desktop link row (hidden on phones: the bottom bar takes over) */
+.nav {
+  display: none;
+  min-width: 0;
+  gap: 0.15rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav > * {
+  flex-shrink: 0;
+}
+
+.link {
+  padding: 0.4rem 0.7rem;
+  border-radius: var(--radius-full);
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.link:hover {
+  color: var(--ink);
+}
+
+.linkActive {
+  composes: link;
+  background: color-mix(in srgb, var(--brand-500) 22%, transparent);
+  color: var(--brand-300);
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+  min-width: 0;
+}
+
+.playerName {
+  display: none;
+  overflow: hidden;
+  max-width: 9rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logout {
+  display: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: var(--radius);
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.logout:hover {
+  background: var(--surface-raised);
+  color: var(--ink);
+}
+
+.coins {
+  padding: 0.25rem 0.65rem;
+  border: 1px solid var(--gold-500);
+  border-radius: var(--radius-full);
+  color: var(--gold-300);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.coins span {
+  font-size: 0.6875rem;
+}
+
+/* ─── Content ────────────────────────────────────────────────────────── */
+.content {
+  width: 100%;
+  max-width: 64rem;
+  flex: 1;
+  margin-inline: auto;
+  /* room for the bottom bar on phones */
+  padding: 1rem 1rem calc(var(--safe-bottom) + 5.5rem);
+  outline: none;
+}
+
+/* ─── Phone bottom bar ───────────────────────────────────────────────── */
+.tabbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  padding: 0.3rem 0.25rem calc(var(--safe-bottom) + 0.3rem);
+  border-top: 1px solid var(--line);
+  background: rgb(8 15 12 / 0.96);
+  backdrop-filter: blur(8px);
+}
+
+.tab,
+.tabOn {
+  display: grid;
+  justify-items: center;
+  gap: 0.1rem;
+  padding: 0.35rem 0.2rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink-muted);
+  font: inherit;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tab svg,
+.tabOn svg {
+  font-size: 1.25rem;
+}
+
+.tabOn {
+  color: var(--brand-300);
+}
+
+/* "More" sheet */
+.grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+}
+
+.tile,
+.tileOn {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  gap: 0.3rem;
+  padding: 0.8rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tile svg,
+.tileOn svg {
+  color: var(--brand-300);
+  font-size: 1.4rem;
+}
+
+.tileOn {
+  border-color: var(--brand-600);
+}
+
+@media (min-width: 900px) {
+  .hud {
+    padding-inline: 1.5rem;
+  }
+
+  .nav {
+    display: flex;
+  }
+
+  .playerName {
+    display: block;
+  }
+
+  .logout {
+    display: grid;
+  }
+
+  .tabbar {
+    display: none;
+  }
+
+  .content {
+    padding: 2rem 1.5rem 3rem;
+  }
+}
+
+/* keep focused / scrolled-to controls clear of the fixed header and the phone bottom bar */
+:global(html):has(.tabbar) {
+  scroll-padding-top: 4.5rem;
+  scroll-padding-bottom: 6.5rem;
+}
+
+@media (min-width: 900px) {
+  :global(html):has(.tabbar) {
+    scroll-padding-bottom: 1rem;
+  }
+}

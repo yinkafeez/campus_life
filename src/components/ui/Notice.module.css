@@ -1,0 +1,33 @@
+/* In the `ui` cascade layer: a className passed from a page always wins over these defaults. */
+@layer ui {
+  .notice {
+    padding: 0.75rem 1rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    font-size: 0.9375rem;
+  }
+
+  .info {
+    border-color: var(--line-strong);
+    background: var(--neutral-soft);
+    color: var(--ink-soft);
+  }
+
+  .success {
+    border-color: color-mix(in srgb, var(--success) 40%, transparent);
+    background: var(--success-soft);
+    color: var(--success);
+  }
+
+  .warning {
+    border-color: color-mix(in srgb, var(--warning) 40%, transparent);
+    background: var(--warning-soft);
+    color: var(--warning);
+  }
+
+  .danger {
+    border-color: color-mix(in srgb, var(--danger) 40%, transparent);
+    background: var(--danger-soft);
+    color: var(--danger);
+  }
+}

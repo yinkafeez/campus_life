@@ -1,0 +1,18 @@
+.banner {
+  position: fixed;
+  top: calc(var(--safe-top) + 0.5rem);
+  left: 50%;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  max-width: calc(100% - 1.5rem);
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--warning);
+  border-radius: var(--radius-full);
+  background: rgb(40 28 0 / 0.95);
+  color: var(--gold-300);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  transform: translateX(-50%);
+}

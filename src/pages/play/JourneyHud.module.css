@@ -1,0 +1,94 @@
+.hud {
+  position: absolute;
+  top: calc(var(--safe-top) + 4.25rem);
+  left: 0.75rem;
+  z-index: 4;
+  width: min(17rem, calc(100% - 8rem));
+  border: 1px solid color-mix(in srgb, var(--gold-400) 45%, transparent);
+  border-radius: var(--radius-lg);
+  background: rgb(8 17 13 / 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.7rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--gold-300);
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.body {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0 0.7rem 0.65rem;
+}
+
+.bar {
+  display: block;
+  height: 0.3rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: rgb(255 255 255 / 0.1);
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: var(--gold-400);
+  transition: width 0.4s var(--ease-out);
+}
+
+.step {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.where {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+}
+
+.guide {
+  display: inline-flex;
+  justify-self: start;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.8rem;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--gold-400);
+  color: var(--ink-inverse);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.link {
+  color: var(--brand-300);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
