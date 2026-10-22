@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import { pinoHttp } from 'pino-http';
@@ -75,7 +76,7 @@ export function createApp({ env, logger }) {
   // security HTTP headers
   app.use(securityHeaders());
   // allow the frontend origins (with cookies)
-  app.use(corsPolicy(env.CLIENT_URL));
+  app.use(corsPolicy(env.CLIENT_URL || env.PROD_CLIENT_URLs));
 
   // limit requests from the same IP
   app.use('/api', apiRateLimit({ windowMs: env.RATE_LIMIT_WINDOW_MS, limit: env.RATE_LIMIT_MAX }));
