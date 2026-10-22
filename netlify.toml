@@ -1,7 +1,7 @@
 # Netlify build for the game (static SPA). Set VITE_API_URL in the Netlify UI, e.g.
 #   https://<your-api>.onrender.com/api/v1
 [build]
-  base = "campus-life"
+  base = "/"
   command = "npm ci && npm run build"
   publish = "dist"
 
