@@ -1,0 +1,23 @@
+.panel {
+  display: grid;
+  justify-items: start;
+  gap: 0.875rem;
+}
+
+.eyebrow {
+  color: var(--brand-300);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.text {
+  color: var(--ink-soft);
+}

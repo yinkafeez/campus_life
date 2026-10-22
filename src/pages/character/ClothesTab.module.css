@@ -1,0 +1,71 @@
+.stack {
+  display: grid;
+  gap: 1.25rem;
+  padding-bottom: 1rem;
+}
+
+.slot {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.slotTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.note {
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-full);
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.item:hover:not(:disabled) {
+  border-color: var(--brand-600);
+}
+
+.item:disabled {
+  border-style: dashed;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.itemOn {
+  composes: item;
+  border-color: var(--brand-400);
+  background: color-mix(in srgb, var(--brand-500) 22%, transparent);
+  color: var(--brand-300);
+}
+
+.lock {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.note a {
+  color: var(--brand-300);
+  text-decoration: underline;
+}

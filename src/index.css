@@ -1,0 +1,102 @@
+/* layer order: ui component defaults sit below Tailwind utilities; page modules (unlayered) beat both */
+@layer theme, base, ui, components, utilities;
+@import "tailwindcss";
+
+/*
+ * Global stylesheet — the ONLY place colours and design tokens are defined.
+ * Components style themselves with their own *.module.css using these variables.
+ * Tailwind utilities are used inline only for small layout tweaks.
+ */
+
+@theme {
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display:
+    "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  /* ─── Brand (campus green + gold) ─────────────────────────────────── */
+  --brand-300: #6ee7a8;
+  --brand-400: #34d389;
+  --brand-500: #16b46c;
+  --brand-600: #0e9356;
+  --brand-700: #0c7446;
+  --gold-300: #fcd34d;
+  --gold-400: #f5b70a;
+  --gold-500: #d99a00;
+
+  /* ─── Surfaces & ink (dark UI around the 3D world) ────────────────── */
+  --canvas: #0b1511;
+  --surface: #12201a;
+  --surface-raised: #182a22;
+  --line: #24392f;
+  --line-strong: #33503f;
+  --ink: #eef5f1;
+  --ink-soft: #c3d3ca;
+  --ink-muted: #8aa196;
+  --ink-inverse: #08110d;
+
+  /* ─── Feedback ─────────────────────────────────────────────────────── */
+  --success: #34d389;
+  --success-soft: color-mix(in srgb, var(--success) 14%, transparent);
+  --warning: #f5b70a;
+  --warning-soft: color-mix(in srgb, var(--warning) 14%, transparent);
+  --danger: #f87171;
+  --danger-soft: color-mix(in srgb, var(--danger) 14%, transparent);
+  --neutral-soft: color-mix(in srgb, var(--ink-muted) 16%, transparent);
+
+  /* ─── Shape, depth, motion ─────────────────────────────────────────── */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.35);
+  --ring: 0 0 0 3px color-mix(in srgb, var(--brand-400) 45%, transparent);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ─── Layout ───────────────────────────────────────────────────────── */
+  --header-h: 3.75rem;
+  --content-max: 68rem;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    background: var(--canvas);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-400);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--brand-700);
+    color: var(--ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

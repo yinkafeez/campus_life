@@ -1,0 +1,198 @@
+/* shared by the activity format views (quiz, ordering, matching, scenario, written) */
+.stack {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.instructions,
+.muted {
+  color: var(--ink-muted);
+  font-size: 0.8125rem;
+}
+
+.warn {
+  color: var(--gold-300);
+  font-size: 0.8125rem;
+}
+
+.intro {
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.question {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.prompt {
+  float: left;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.code {
+  clear: both;
+  overflow-x: auto;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: #050a08;
+  color: #c7f9d4;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.8125rem;
+  white-space: pre;
+}
+
+.options {
+  display: grid;
+  clear: both;
+  gap: 0.35rem;
+}
+
+.option,
+.optionOn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.optionOn {
+  border-color: var(--brand-500);
+  background: color-mix(in srgb, var(--brand-500) 14%, transparent);
+}
+
+.option input,
+.optionOn input {
+  margin-top: 0.2rem;
+  accent-color: var(--brand-500);
+}
+
+.orderList {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.orderItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.orderNumber {
+  display: grid;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-raised);
+  color: var(--brand-300);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.orderText {
+  min-width: 0;
+  flex: 1;
+}
+
+.orderButtons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.iconButton {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.iconButton:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.matchGrid {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.matchHead {
+  display: none;
+}
+
+.matchRow {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.matchLeft {
+  font-weight: 700;
+}
+
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--canvas);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.875rem;
+}
+
+.textarea {
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.rubric {
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--brand-500);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-size: 0.8125rem;
+}
+
+.rubric ul {
+  margin: 0.25rem 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.rubricTitle {
+  font-weight: 700;
+}
+
+@media (min-width: 40rem) {
+  .matchRow {
+    grid-template-columns: 1fr 1.4fr;
+    align-items: center;
+  }
+}

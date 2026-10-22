@@ -1,0 +1,89 @@
+.box {
+  position: absolute;
+  bottom: calc(var(--safe-bottom) + 4.5rem);
+  left: 50%;
+  width: min(30rem, calc(100% - 1.5rem));
+  padding: 0.9rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--gold-400) 50%, var(--line-strong));
+  border-radius: var(--radius-lg);
+  background: rgb(18 14 6 / 0.92);
+  box-shadow: var(--shadow-md);
+  transform: translateX(-50%);
+  backdrop-filter: blur(8px);
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.name {
+  color: var(--gold-300);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.role {
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+}
+
+.close {
+  display: grid;
+  width: 1.9rem;
+  height: 1.9rem;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: rgb(255 255 255 / 0.06);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.text {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.options {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+.option,
+.back {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 0.04);
+  color: var(--ink);
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.option:hover {
+  border-color: var(--gold-400);
+}
+
+.back {
+  color: var(--ink-muted);
+}
+
+.fineprint {
+  margin-top: 0.5rem;
+  color: var(--ink-muted);
+  font-size: 0.6875rem;
+}
+
+/* touch: above the joystick and Run button, never under them */
+@media (pointer: coarse) {
+  .box {
+    bottom: calc(var(--safe-bottom) + 10.5rem);
+    max-height: calc(100dvh - var(--safe-bottom) - 20rem);
+    overflow-y: auto;
+  }
+}

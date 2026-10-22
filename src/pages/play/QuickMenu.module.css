@@ -1,0 +1,32 @@
+.grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(5.75rem, 1fr));
+}
+
+.tile {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  gap: 0.3rem;
+  padding: 0.75rem 0.3rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tile svg {
+  color: var(--brand-300);
+  font-size: 1.35rem;
+}
+
+.tile:hover,
+.tile:focus-visible {
+  border-color: var(--brand-600);
+}

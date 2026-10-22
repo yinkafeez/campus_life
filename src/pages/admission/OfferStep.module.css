@@ -1,0 +1,81 @@
+/* a paper letter over the dark scene */
+.letter {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  overflow: hidden;
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  background: #f6f1e4;
+  box-shadow: var(--shadow-md);
+  color: #1d2620;
+}
+
+.watermark {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  color: rgb(185 28 28 / 0.12);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 9vw, 3.75rem);
+  font-weight: 700;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  white-space: nowrap;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #1d2620;
+  font-size: 0.8125rem;
+}
+
+.from {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.date {
+  color: #4b5a51;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.body {
+  line-height: 1.65;
+}
+
+.fine {
+  padding: 0.625rem 0.75rem;
+  border: 1px dashed #b45309;
+  border-radius: var(--radius-sm);
+  color: #7c2d12;
+  font-size: 0.8125rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* the ghost button needs dark text on paper */
+.actions button:last-child {
+  color: #4b5a51;
+}
+
+@media (min-width: 640px) {
+  .letter {
+    padding: 2.5rem 2.75rem;
+  }
+}

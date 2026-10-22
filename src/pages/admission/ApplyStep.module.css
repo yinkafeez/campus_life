@@ -1,0 +1,62 @@
+.heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.sub {
+  margin-top: 0.25rem;
+  color: var(--ink-muted);
+  font-size: 0.9375rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ─── Entry level chips ──────────────────────────────────────────────── */
+.levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.legend {
+  width: 100%;
+  margin-bottom: 0.375rem;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.level {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-full);
+  color: var(--ink-soft);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.level:hover {
+  border-color: var(--brand-600);
+}
+
+.levelOn {
+  composes: level;
+  border-color: var(--brand-400);
+  background: color-mix(in srgb, var(--brand-500) 22%, transparent);
+  color: var(--brand-300);
+}
+
+.level:focus-within {
+  box-shadow: var(--ring);
+}
+
+.error {
+  width: 100%;
+  color: var(--danger);
+  font-size: 0.8125rem;
+}

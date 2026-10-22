@@ -1,0 +1,49 @@
+.list {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.item {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+a.item:hover,
+a.item:focus-visible {
+  border-color: var(--brand-600);
+}
+
+.title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.text {
+  font-size: 0.875rem;
+}
+
+.time {
+  color: var(--ink-muted);
+  font-size: 0.7rem;
+}
+
+.empty {
+  padding: 0.5rem 0;
+  color: var(--ink-muted);
+  font-size: 0.875rem;
+}
+
+.clear {
+  margin-top: 0.6rem;
+  border: 0;
+  background: none;
+  color: var(--ink-muted);
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  cursor: pointer;
+}

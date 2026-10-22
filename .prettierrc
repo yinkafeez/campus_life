@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
   "singleQuote": true,
   "printWidth": 100
+=======
+  "semi": true,
+  "singleQuote": false
+>>>>>>> 8fbb0ef48b072c7c0fda67227c0f8fd52b800389
 }
