@@ -33,6 +33,26 @@ describe('parseEnv', () => {
     ).toBe(true);
   });
 
+  it('adds PROD_CLIENT_URL to the allowed origins (and uses only set origins in production)', () => {
+    const dev = parseEnv({ PROD_CLIENT_URL: 'https://campuxlife.netlify.app/' });
+    expect(dev.CLIENT_URL).toEqual(['http://localhost:5173', 'https://campuxlife.netlify.app']);
+
+    const secret = 'x'.repeat(40);
+    const prod = parseEnv(
+      {
+        NODE_ENV: 'production',
+        JWT_ACCESS_SECRET: secret,
+        PROD_CLIENT_URL: 'https://campuxlife.netlify.app',
+      },
+      { forServer: true },
+    );
+    expect(prod.CLIENT_URL).toEqual(['https://campuxlife.netlify.app']);
+    // production with no origin set at all is refused (instead of silently allowing localhost)
+    expect(() =>
+      parseEnv({ NODE_ENV: 'production', JWT_ACCESS_SECRET: secret }, { forServer: true }),
+    ).toThrow(/PROD_CLIENT_URL/);
+  });
+
   it('is silent by default in tests', () => {
     expect(parseEnv({ NODE_ENV: 'test' }).LOG_LEVEL).toBe('silent');
   });

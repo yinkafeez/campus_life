@@ -23,6 +23,9 @@ const envSchema = z.object({
 
   // comma-separated list of frontend origins allowed to call the API with cookies
   CLIENT_URL: csv.default(['http://localhost:5173']),
+  // the deployed game's origin(s), e.g. https://campuxlife.netlify.app — added to CLIENT_URL.
+  // In production only these (plus an explicitly set CLIENT_URL) are allowed.
+  PROD_CLIENT_URL: csv.optional(),
   // number of proxies in front of the app (Render, Nginx...) so req.ip is the real client
   TRUST_PROXY: z.coerce.number().int().min(0).default(0),
 
@@ -112,10 +115,24 @@ function credentialProblems({ MONGODB_URI, DB_USERNAME, DB_PASSWORD }) {
 
 // production must not run with development-only settings (cookies over plain http, etc.)
 function productionProblems({ CLIENT_URL }) {
+  if (!CLIENT_URL.length)
+    return [
+      '  - CLIENT_URL / PROD_CLIENT_URL: set the deployed game origin, e.g. https://your-game.netlify.app',
+    ];
   const insecure = CLIENT_URL.filter((origin) => !origin.startsWith('https://'));
   return insecure.length
     ? [`  - CLIENT_URL: production origins must use https:// (got ${insecure.join(', ')})`]
     : [];
+}
+
+/**
+ * The origins CORS (REST + Socket.IO) accepts: CLIENT_URL plus PROD_CLIENT_URL.
+ * In production the built-in localhost default is dropped — only origins you set count.
+ */
+function allowedOrigins(env, source) {
+  const base =
+    env.NODE_ENV === 'production' && source.CLIENT_URL === undefined ? [] : env.CLIENT_URL;
+  return [...new Set([...base, ...(env.PROD_CLIENT_URL ?? [])])];
 }
 
 const formatIssues = (issues) =>
@@ -139,7 +156,10 @@ export function parseEnv(source = process.env, { forServer = false } = {}) {
     if (!secrets.success) problems.push(...formatIssues(secrets.error.issues));
   }
 
-  if (result.success) problems.push(...credentialProblems(env));
+  if (result.success) {
+    env.CLIENT_URL = allowedOrigins(env, source);
+    problems.push(...credentialProblems(env));
+  }
   if (result.success && forServer && env.NODE_ENV === 'production')
     problems.push(...productionProblems(env));
 
