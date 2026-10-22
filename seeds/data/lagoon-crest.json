@@ -1,0 +1,196 @@
+{
+  "formatVersion": 1,
+  "university": {
+    "slug": "lagoon-crest",
+    "name": "Lagoon Crest University (Fictional)",
+    "shortName": "LCU",
+    "status": "draft",
+    "location": {
+      "city": "Fictional City",
+      "state": "Lagos",
+      "country": "NG"
+    },
+    "timezone": "Africa/Lagos",
+    "currency": "NGN",
+    "dataNotes": "ENTIRELY FICTIONAL development university. It exists to prove that a second campus with different rules needs data only, no code. Status is draft, so players never see it.",
+    "config": {
+      "matricNumber": {
+        "template": "LCU/{yyyy}/{programmeCode}/{seq:4}",
+        "sequenceScope": "programme"
+      },
+      "academicCalendar": {
+        "semesterNames": ["Harmattan", "Rain", "Long Vacation"]
+      },
+      "levels": {
+        "values": [1, 2, 3, 4],
+        "labelFormat": "Year {level}"
+      },
+      "grading": {
+        "cgpaScale": 4
+      },
+      "accommodation": {
+        "allocationStrategy": "priority",
+        "priorityGroups": ["freshers", "students-with-disabilities", "athletes"],
+        "applicationRequired": false,
+        "genderSeparated": false,
+        "maxSessionsPerStudent": 2
+      },
+      "academicActivities": {
+        "types": [
+          {
+            "key": "studio",
+            "name": "Studio Session",
+            "kind": "practical",
+            "graded": true,
+            "weightPercent": 50
+          },
+          {
+            "key": "final-exam",
+            "name": "Final Exam",
+            "kind": "exam",
+            "graded": true,
+            "weightPercent": 50
+          }
+        ]
+      },
+      "elections": {
+        "campaignDays": 7,
+        "votingHours": 12,
+        "voterEligibility": {
+          "requireGoodStanding": true
+        },
+        "defaultCandidateEligibility": {
+          "minLevel": 2,
+          "minCgpa": 2.5
+        }
+      },
+      "admission": {
+        "entryLevels": [1],
+        "reviewSeconds": 0
+      },
+      "onboarding": {
+        "steps": [
+          {
+            "key": "harbour-welcome",
+            "title": "Welcome mixer at Harbour Commons",
+            "location": "harbour-commons"
+          },
+          {
+            "key": "grab-a-grill",
+            "title": "Eat at Commons Grill",
+            "location": "commons-grill"
+          }
+        ]
+      }
+    }
+  },
+  "faculties": [
+    {
+      "code": "FCT",
+      "name": "Faculty of Computing and Testing",
+      "verification": {
+        "status": "proposed"
+      },
+      "departments": [
+        {
+          "code": "SWT",
+          "name": "Department of Software Testing",
+          "verification": {
+            "status": "proposed"
+          },
+          "programmes": [
+            {
+              "code": "QAE",
+              "name": "Quality Assurance Engineering",
+              "award": "B.Tech.",
+              "durationYears": 4,
+              "verification": {
+                "status": "proposed"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "name": "2026/2027",
+      "startsOn": "2026-09-14",
+      "endsOn": "2027-07-30",
+      "isCurrent": true
+    }
+  ],
+  "locations": [
+    {
+      "slug": "crest-gate",
+      "name": "Crest Gate",
+      "category": "gate",
+      "zone": "gate",
+      "verification": {
+        "status": "proposed"
+      }
+    },
+    {
+      "slug": "harbour-commons",
+      "name": "Harbour Commons",
+      "category": "recreation",
+      "zone": "waterfront",
+      "verification": {
+        "status": "proposed"
+      }
+    },
+    {
+      "slug": "commons-grill",
+      "name": "Commons Grill",
+      "category": "food",
+      "parent": "harbour-commons",
+      "zone": "waterfront",
+      "verification": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "hostels": [
+    {
+      "slug": "tide-house",
+      "name": "Tide House",
+      "residentGender": "mixed",
+      "residentType": "any",
+      "capacity": 300,
+      "location": "harbour-commons",
+      "allocation": {
+        "eligibleLevels": [1, 2],
+        "reservedFor": ["freshers"]
+      },
+      "verification": {
+        "status": "proposed"
+      }
+    }
+  ],
+  "leadershipPositions": [
+    {
+      "code": "GUILDPRES",
+      "title": "Guild President",
+      "body": "Student Guild",
+      "scope": "university",
+      "rank": 1,
+      "verification": {
+        "status": "proposed"
+      }
+    },
+    {
+      "code": "HOUSEREP",
+      "title": "House Representative",
+      "body": "Student Guild",
+      "scope": "hall",
+      "seats": 2,
+      "candidateEligibility": {
+        "requireScopeMembership": true
+      },
+      "verification": {
+        "status": "proposed"
+      }
+    }
+  ]
+}

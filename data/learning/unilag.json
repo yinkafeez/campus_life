@@ -1,0 +1,1465 @@
+{
+  "formatVersion": 1,
+  "university": "unilag",
+  "activities": [
+    {
+      "key": "library-research-skills",
+      "title": "Library research skills",
+      "summary": "Find, judge and cite sources the way you will for every course.",
+      "discipline": "General studies",
+      "engine": "quiz",
+      "difficulty": "easy",
+      "location": "university-library",
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "instructions": "Pick the best answer for each question.",
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "You copy two paragraphs from a website into your assignment without quotation marks or a reference. What is this?",
+            "options": [
+              { "id": "a", "text": "Plagiarism" },
+              { "id": "b", "text": "Paraphrasing" },
+              { "id": "c", "text": "Summarising" },
+              { "id": "d", "text": "Fair use" }
+            ],
+            "correct": "a",
+            "explanation": "Using someone else's words or ideas without credit is plagiarism. Quote and reference, or paraphrase and reference."
+          },
+          {
+            "id": "q2",
+            "prompt": "Which source is usually the most reliable for a course assignment?",
+            "options": [
+              { "id": "a", "text": "A forwarded WhatsApp message" },
+              { "id": "b", "text": "A peer-reviewed journal article" },
+              { "id": "c", "text": "An anonymous blog comment" },
+              { "id": "d", "text": "A screenshot with no date" }
+            ],
+            "correct": "b",
+            "explanation": "Peer-reviewed articles have been checked by other experts before publication."
+          },
+          {
+            "id": "q3",
+            "prompt": "What is the main purpose of a reference list?",
+            "options": [
+              { "id": "a", "text": "To make the work look longer" },
+              { "id": "b", "text": "So readers can find and check your sources" },
+              { "id": "c", "text": "To list every book in the library" },
+              { "id": "d", "text": "To thank your friends" }
+            ],
+            "correct": "b"
+          },
+          {
+            "id": "q4",
+            "prompt": "Where do you search to find which books the library holds?",
+            "options": [
+              { "id": "a", "text": "The library catalogue" },
+              { "id": "b", "text": "The cafeteria notice board" },
+              { "id": "c", "text": "The hostel porter" },
+              { "id": "d", "text": "The course outline" }
+            ],
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "key": "fresher-study-plan",
+      "title": "Plan your fresher week",
+      "summary": "Balance lectures, reading, rest and campus life in your first week.",
+      "discipline": "General studies",
+      "engine": "scenario",
+      "difficulty": "easy",
+      "dueDays": 7,
+      "rewards": { "xp": 40 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "intro": "It's your first week at Akoka. Lectures have started, your roommate wants to go out every evening, and your first assignment is due on Friday.",
+        "steps": [
+          {
+            "id": "s1",
+            "situation": "Monday: you have three lectures and no timetable printed yet. What do you do first?",
+            "choices": [
+              { "id": "a", "text": "Get the timetable from your department notice board or course rep and write it down", "points": 10, "feedback": "Good. Knowing where and when lectures hold saves you from missing the first classes." },
+              { "id": "b", "text": "Wait for someone to tell you", "points": 2, "feedback": "You might miss a lecture or two before anyone remembers to tell you." },
+              { "id": "c", "text": "Skip the first week — nothing happens then", "points": 0, "feedback": "First lectures often cover course outlines and assessment rules. Don't skip them." }
+            ]
+          },
+          {
+            "id": "s2",
+            "situation": "Wednesday evening: your roommate invites you to a hangout at the Lagoon Front, but you haven't started the assignment.",
+            "choices": [
+              { "id": "a", "text": "Go for an hour, then spend the next evening on the assignment", "points": 10, "feedback": "Balance. Friends matter, and you've kept time for the work." },
+              { "id": "b", "text": "Stay out late every night this week", "points": 1, "feedback": "Fun, but Friday will arrive with nothing written." },
+              { "id": "c", "text": "Refuse all invitations for the whole semester", "points": 4, "feedback": "Your work is safe, but making friends early helps you settle in." }
+            ]
+          },
+          {
+            "id": "s3",
+            "situation": "Thursday: you don't understand part of the assignment.",
+            "choices": [
+              { "id": "a", "text": "Ask the lecturer during office hours or ask classmates in your study group", "points": 10, "feedback": "Asking early is a strength, not a weakness." },
+              { "id": "b", "text": "Copy a friend's answer", "points": 0, "feedback": "That's academic dishonesty, and you still won't understand the topic." },
+              { "id": "c", "text": "Guess and hope for the best", "points": 3, "feedback": "Sometimes it works, but one question could have saved you." }
+            ]
+          }
+        ],
+        "debrief": "Good planners write down their timetable, keep time for rest and friends, and ask for help early."
+      }
+    },
+    {
+      "key": "cs-predict-output",
+      "title": "Predict the output",
+      "summary": "Short JavaScript puzzles: read the code, predict what it prints.",
+      "discipline": "Computing",
+      "engine": "quiz",
+      "difficulty": "easy",
+      "targets": { "faculties": ["CIN"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "instructions": "What does each snippet print?",
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "What is printed?",
+            "snippet": "let x = 3;\nx += 2 * 2;\nconsole.log(x);",
+            "options": [
+              { "id": "a", "text": "10" },
+              { "id": "b", "text": "7" },
+              { "id": "c", "text": "5" },
+              { "id": "d", "text": "12" }
+            ],
+            "correct": "b",
+            "explanation": "Multiplication first: 2 * 2 = 4, then 3 + 4 = 7."
+          },
+          {
+            "id": "q2",
+            "prompt": "What is printed?",
+            "snippet": "console.log([1, 2, 3].map((n) => n * 2));",
+            "options": [
+              { "id": "a", "text": "[2, 4, 6]" },
+              { "id": "b", "text": "[1, 2, 3]" },
+              { "id": "c", "text": "12" },
+              { "id": "d", "text": "[2, 3, 4]" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q3",
+            "prompt": "What is printed?",
+            "snippet": "console.log('5' + 3);",
+            "options": [
+              { "id": "a", "text": "8" },
+              { "id": "b", "text": "53" },
+              { "id": "c", "text": "NaN" },
+              { "id": "d", "text": "An error" }
+            ],
+            "correct": "b",
+            "explanation": "With a string involved, + joins text: '5' + 3 becomes '53'."
+          },
+          {
+            "id": "q4",
+            "prompt": "What is printed?",
+            "snippet": "let count = 0;\nfor (let i = 0; i < 10; i += 3) count++;\nconsole.log(count);",
+            "options": [
+              { "id": "a", "text": "3" },
+              { "id": "b", "text": "4" },
+              { "id": "c", "text": "10" },
+              { "id": "d", "text": "9" }
+            ],
+            "correct": "b",
+            "explanation": "i takes the values 0, 3, 6 and 9: four passes."
+          }
+        ]
+      }
+    },
+    {
+      "key": "cs-debug-grade-calculator",
+      "title": "Debug the score calculator",
+      "summary": "A classmate's code computes test averages wrongly. Find each bug.",
+      "discipline": "Computing",
+      "engine": "quiz",
+      "difficulty": "medium",
+      "targets": { "faculties": ["CIN"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 900 },
+      "content": {
+        "instructions": "Each snippet has one bug. Choose the fix.",
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "average([50, 70]) returns NaN. Why?",
+            "snippet": "function average(scores) {\n  let total = 0;\n  for (let i = 0; i <= scores.length; i++) total += scores[i];\n  return total / scores.length;\n}",
+            "options": [
+              { "id": "a", "text": "The loop should use i < scores.length" },
+              { "id": "b", "text": "total should start at 1" },
+              { "id": "c", "text": "It should divide by i" },
+              { "id": "d", "text": "let should be const" }
+            ],
+            "correct": "a",
+            "explanation": "With <= the loop reads scores[2], which is undefined, and adding undefined gives NaN."
+          },
+          {
+            "id": "q2",
+            "prompt": "Every student gets an A. Why?",
+            "snippet": "let grade = 'F';\nif (score = 70) grade = 'A';",
+            "options": [
+              { "id": "a", "text": "Use score === 70 (or score >= 70) instead of =" },
+              { "id": "b", "text": "grade must be a number" },
+              { "id": "c", "text": "if needs a semicolon" },
+              { "id": "d", "text": "'A' needs double quotes" }
+            ],
+            "correct": "a",
+            "explanation": "A single = assigns 70 to score; 70 is truthy, so the condition is always true."
+          },
+          {
+            "id": "q3",
+            "prompt": "The pass mark is 40 and above, but students with exactly 40 are listed as failed.",
+            "snippet": "const passed = scores.filter((s) => s > 40);",
+            "options": [
+              { "id": "a", "text": "Use s >= 40" },
+              { "id": "b", "text": "Use s < 40" },
+              { "id": "c", "text": "Use map instead of filter" },
+              { "id": "d", "text": "Sort the scores first" }
+            ],
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "key": "cs-design-hostel-booking",
+      "title": "Design a hostel booking app",
+      "summary": "Put the stages of building a booking system in a sensible order.",
+      "discipline": "Computing",
+      "engine": "ordering",
+      "difficulty": "medium",
+      "dueDays": 14,
+      "targets": { "faculties": ["CIN"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "Your team must build a simple hostel bed-booking app for students. Order the work from first to last.",
+        "items": [
+          { "id": "requirements", "text": "Gather requirements from students and hall officers" },
+          { "id": "use-cases", "text": "Identify the users and their use cases (apply, allocate, vacate)" },
+          { "id": "data-model", "text": "Design the data model (students, halls, rooms, beds)" },
+          { "id": "api", "text": "Design the API and the screens" },
+          { "id": "build", "text": "Implement the features" },
+          { "id": "test", "text": "Test it, including two students booking the same bed at once" },
+          { "id": "deploy", "text": "Deploy and monitor how it is used" }
+        ],
+        "explanation": "Understand the problem before designing; design before building; test before release — and keep watching after launch."
+      }
+    },
+    {
+      "key": "cs-security-scenario",
+      "title": "Security on the campus portal",
+      "summary": "Make safe decisions about phishing, passwords and user input.",
+      "discipline": "Computing",
+      "engine": "scenario",
+      "difficulty": "hard",
+      "targets": { "faculties": ["CIN"], "levels": [200, 300, 400] },
+      "rewards": { "xp": 70 },
+      "limits": { "maxAttempts": 2, "timeLimitSeconds": 900 },
+      "content": {
+        "intro": "You've joined the student team that maintains a (fictional) campus portal.",
+        "steps": [
+          {
+            "id": "s1",
+            "situation": "An email says: 'Your portal account will be deleted today. Log in here to keep it' with a strange link.",
+            "choices": [
+              { "id": "a", "text": "Don't click. Report it as phishing and warn students through official channels", "points": 10, "feedback": "Correct. Urgency plus an unknown link is a classic phishing sign." },
+              { "id": "b", "text": "Click to check if it's real", "points": 1, "feedback": "Opening phishing links can expose your credentials or device." },
+              { "id": "c", "text": "Forward it to every student group", "points": 0, "feedback": "You'd spread the attack further." }
+            ]
+          },
+          {
+            "id": "s2",
+            "situation": "How should the portal store student passwords?",
+            "choices": [
+              { "id": "a", "text": "As salted hashes with a slow algorithm such as bcrypt", "points": 10, "feedback": "Right. Even if the database leaks, the passwords aren't readable." },
+              { "id": "b", "text": "Encrypted with one key stored next to the database", "points": 4, "feedback": "Better than plain text, but whoever gets the key gets every password." },
+              { "id": "c", "text": "In plain text so support staff can read them", "points": 0, "feedback": "Never. Support should reset passwords, not read them." }
+            ]
+          },
+          {
+            "id": "s3",
+            "situation": "The search box puts whatever the user types straight into a database query string.",
+            "choices": [
+              { "id": "a", "text": "Use parameterised queries and validate the input", "points": 10, "feedback": "This prevents injection attacks." },
+              { "id": "b", "text": "Hide the search box", "points": 2, "feedback": "Attackers can still send requests directly." },
+              { "id": "c", "text": "It's fine — students won't try anything", "points": 0, "feedback": "Assume input can be hostile." }
+            ]
+          }
+        ],
+        "debrief": "Security habits: verify before you click, hash passwords, and never trust raw input."
+      }
+    },
+    {
+      "key": "eng-design-process",
+      "title": "The engineering design process",
+      "summary": "Order the stages engineers follow from problem to solution.",
+      "discipline": "Engineering",
+      "engine": "ordering",
+      "difficulty": "easy",
+      "targets": { "faculties": ["ENG"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "Put the stages of the design process in order.",
+        "items": [
+          { "id": "define", "text": "Define the problem and the constraints" },
+          { "id": "research", "text": "Research existing solutions and requirements" },
+          { "id": "concepts", "text": "Generate several concept designs" },
+          { "id": "select", "text": "Evaluate and select the best concept" },
+          { "id": "prototype", "text": "Build a prototype or model" },
+          { "id": "test", "text": "Test and evaluate the prototype" },
+          { "id": "refine", "text": "Refine the design and communicate the results" }
+        ],
+        "explanation": "In practice teams loop back (test → refine → test), but the stages run in this order."
+      }
+    },
+    {
+      "key": "eng-lagoon-footbridge",
+      "title": "Design challenge: a lagoon footbridge",
+      "summary": "Make the key decisions for a pedestrian bridge by the water.",
+      "discipline": "Engineering",
+      "engine": "scenario",
+      "difficulty": "medium",
+      "targets": { "faculties": ["ENG"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "intro": "Your design team must propose a short pedestrian footbridge over a channel near the (game) lagoon front. Students will cross it every day.",
+        "steps": [
+          {
+            "id": "s1",
+            "situation": "The bridge sits in humid, salty air beside the water. Which material approach do you choose?",
+            "choices": [
+              { "id": "a", "text": "Steel or reinforced concrete with proper corrosion protection and drainage", "points": 10, "feedback": "Good: corrosion is the main enemy near salt water, so protection and drainage matter." },
+              { "id": "b", "text": "Untreated mild steel because it's cheapest", "points": 2, "feedback": "It would corrode quickly and cost more in repairs." },
+              { "id": "c", "text": "Untreated timber", "points": 3, "feedback": "Untreated timber rots fast in wet conditions." }
+            ]
+          },
+          {
+            "id": "s2",
+            "situation": "How do you size the bridge for loads?",
+            "choices": [
+              { "id": "a", "text": "Design for crowds at peak times plus a safety factor, following the design code", "points": 10, "feedback": "Correct: crowds after an event are the critical case." },
+              { "id": "b", "text": "Design for one person at a time", "points": 0, "feedback": "Far too low: crowds will use it." },
+              { "id": "c", "text": "Double the load of a car and skip the code", "points": 4, "feedback": "Guessing isn't engineering; codes exist for good reasons." }
+            ]
+          },
+          {
+            "id": "s3",
+            "situation": "The budget is tight. What do you cut?",
+            "choices": [
+              { "id": "a", "text": "Simplify the shape and decoration while keeping the safety factors", "points": 10, "feedback": "Cost savings should never come from safety." },
+              { "id": "b", "text": "Reduce the safety factor", "points": 0, "feedback": "Never trade safety for cost." },
+              { "id": "c", "text": "Remove the handrails", "points": 0, "feedback": "Handrails prevent falls into the water." }
+            ]
+          },
+          {
+            "id": "s4",
+            "situation": "Before construction, who do you consult?",
+            "choices": [
+              { "id": "a", "text": "The users, the estate office and accessibility advisers", "points": 10, "feedback": "Including wheelchair users and the people who will maintain it gives a better design." },
+              { "id": "b", "text": "Nobody — engineers know best", "points": 1, "feedback": "Designs fail when they ignore their users." }
+            ]
+          }
+        ],
+        "debrief": "A good design balances safety, durability, cost and the people who will use it."
+      }
+    },
+    {
+      "key": "eng-tensile-test-practical",
+      "title": "Practical simulation: tensile test",
+      "summary": "Run a (simulated) lab tensile test on a steel specimen in the right order.",
+      "discipline": "Engineering",
+      "engine": "ordering",
+      "difficulty": "hard",
+      "targets": { "faculties": ["ENG"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "instructions": "Order the steps of the practical from first to last.",
+        "items": [
+          { "id": "ppe", "text": "Put on safety glasses and listen to the safety briefing" },
+          { "id": "measure", "text": "Measure the specimen's diameter and gauge length" },
+          { "id": "mount", "text": "Mount the specimen securely in the machine's grips" },
+          { "id": "zero", "text": "Zero the load and extension readings" },
+          { "id": "load", "text": "Apply the load at a steady rate" },
+          { "id": "record", "text": "Record load and extension until the specimen breaks" },
+          { "id": "compute", "text": "Calculate stress and strain and plot the curve" }
+        ],
+        "explanation": "Safety first; accurate measurements before loading; zero the instruments; then load, record and analyse."
+      }
+    },
+    {
+      "key": "eee-circuit-basics",
+      "title": "Circuit basics",
+      "summary": "Ohm's law, resistors and power.",
+      "discipline": "Engineering",
+      "engine": "quiz",
+      "difficulty": "medium",
+      "targets": { "departments": ["EEE"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "A 12 V supply is connected across a 4 Ω resistor. What current flows?",
+            "options": [
+              { "id": "a", "text": "3 A" },
+              { "id": "b", "text": "48 A" },
+              { "id": "c", "text": "0.33 A" },
+              { "id": "d", "text": "16 A" }
+            ],
+            "correct": "a",
+            "explanation": "I = V / R = 12 / 4 = 3 A."
+          },
+          {
+            "id": "q2",
+            "prompt": "What is the total resistance of 2 Ω and 3 Ω in series?",
+            "options": [
+              { "id": "a", "text": "5 Ω" },
+              { "id": "b", "text": "1.2 Ω" },
+              { "id": "c", "text": "6 Ω" },
+              { "id": "d", "text": "1 Ω" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q3",
+            "prompt": "What is the total resistance of two 10 Ω resistors in parallel?",
+            "options": [
+              { "id": "a", "text": "20 Ω" },
+              { "id": "b", "text": "5 Ω" },
+              { "id": "c", "text": "10 Ω" },
+              { "id": "d", "text": "100 Ω" }
+            ],
+            "correct": "b",
+            "explanation": "Two equal resistors in parallel give half of one: 10 / 2 = 5 Ω."
+          },
+          {
+            "id": "q4",
+            "prompt": "A 230 V appliance draws 2 A. What power does it use?",
+            "options": [
+              { "id": "a", "text": "115 W" },
+              { "id": "b", "text": "460 W" },
+              { "id": "c", "text": "232 W" },
+              { "id": "d", "text": "4.6 kW" }
+            ],
+            "correct": "b",
+            "explanation": "P = V × I = 230 × 2 = 460 W."
+          }
+        ]
+      }
+    },
+    {
+      "key": "cve-materials-quiz",
+      "title": "Construction materials",
+      "summary": "Concrete, steel and site tests.",
+      "discipline": "Engineering",
+      "engine": "quiz",
+      "difficulty": "medium",
+      "targets": { "departments": ["CVE"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "Plain concrete is strong in…",
+            "options": [
+              { "id": "a", "text": "Compression, but weak in tension" },
+              { "id": "b", "text": "Tension, but weak in compression" },
+              { "id": "c", "text": "Neither" },
+              { "id": "d", "text": "Both equally" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q2",
+            "prompt": "Why is steel reinforcement placed in concrete beams?",
+            "options": [
+              { "id": "a", "text": "To carry the tensile forces" },
+              { "id": "b", "text": "To make the concrete set faster" },
+              { "id": "c", "text": "For decoration" },
+              { "id": "d", "text": "To keep water out" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q3",
+            "prompt": "What does curing concrete mainly do?",
+            "options": [
+              { "id": "a", "text": "Keeps it moist so it gains strength properly" },
+              { "id": "b", "text": "Dries it as fast as possible" },
+              { "id": "c", "text": "Paints it" },
+              { "id": "d", "text": "Removes the cement" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q4",
+            "prompt": "On site, the slump test measures fresh concrete's…",
+            "options": [
+              { "id": "a", "text": "Workability (consistency)" },
+              { "id": "b", "text": "Final strength" },
+              { "id": "c", "text": "Colour" },
+              { "id": "d", "text": "Temperature" }
+            ],
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "key": "mee-energy-and-motion",
+      "title": "Energy and motion",
+      "summary": "Thermodynamics and machine basics.",
+      "discipline": "Engineering",
+      "engine": "quiz",
+      "difficulty": "medium",
+      "targets": { "departments": ["MEE"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "The first law of thermodynamics is a statement of…",
+            "options": [
+              { "id": "a", "text": "Conservation of energy" },
+              { "id": "b", "text": "Conservation of mass only" },
+              { "id": "c", "text": "Newton's third law" },
+              { "id": "d", "text": "Ohm's law" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q2",
+            "prompt": "Why can no heat engine be 100% efficient?",
+            "options": [
+              { "id": "a", "text": "The second law: some heat must be rejected to a colder reservoir" },
+              { "id": "b", "text": "Engines are always badly built" },
+              { "id": "c", "text": "The first law forbids it" },
+              { "id": "d", "text": "Fuel is too expensive" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q3",
+            "prompt": "A driver gear with 20 teeth turns a driven gear with 40 teeth. The driven gear turns…",
+            "options": [
+              { "id": "a", "text": "At half the speed" },
+              { "id": "b", "text": "At double the speed" },
+              { "id": "c", "text": "At the same speed" },
+              { "id": "d", "text": "Backwards at the same speed only" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q4",
+            "prompt": "What is the SI unit of power?",
+            "options": [
+              { "id": "a", "text": "Watt" },
+              { "id": "b", "text": "Joule" },
+              { "id": "c", "text": "Newton" },
+              { "id": "d", "text": "Pascal" }
+            ],
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "key": "law-case-analysis",
+      "title": "Case analysis: Adeyemi v. Lagoon Shuttles",
+      "summary": "Analyse a fictional negligence case using the IRAC method.",
+      "discipline": "Law",
+      "engine": "quiz",
+      "difficulty": "medium",
+      "targets": { "faculties": ["LAW"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 900 },
+      "notice": "A fictional case for practice. It is not legal advice and does not describe real people or companies.",
+      "content": {
+        "instructions": "Read the fictional facts, then answer.",
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "Facts (fictional): a shuttle driver for 'Lagoon Shuttles Ltd' drove while texting and hit Ms Adeyemi on a zebra crossing, breaking her arm. She sues in negligence. Which elements must she prove?",
+            "options": [
+              { "id": "a", "text": "Duty of care, breach of that duty, causation, and damage" },
+              { "id": "b", "text": "Only that she was hurt" },
+              { "id": "c", "text": "That the driver intended to hurt her" },
+              { "id": "d", "text": "That the company is large" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q2",
+            "prompt": "In the IRAC method, what does the 'R' stand for?",
+            "options": [
+              { "id": "a", "text": "Rule" },
+              { "id": "b", "text": "Remedy" },
+              { "id": "c", "text": "Respondent" },
+              { "id": "d", "text": "Review" }
+            ],
+            "correct": "a",
+            "explanation": "Issue, Rule, Application, Conclusion."
+          },
+          {
+            "id": "q3",
+            "prompt": "Texting while driving across a crossing is best analysed as evidence of…",
+            "options": [
+              { "id": "a", "text": "Breach of the duty of care" },
+              { "id": "b", "text": "Consent by the victim" },
+              { "id": "c", "text": "No duty existing" },
+              { "id": "d", "text": "A contract" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q4",
+            "prompt": "The part of a judgment that is binding on lower courts is the…",
+            "options": [
+              { "id": "a", "text": "Ratio decidendi" },
+              { "id": "b", "text": "Obiter dictum" },
+              { "id": "c", "text": "Headnote" },
+              { "id": "d", "text": "Dissent" }
+            ],
+            "correct": "a",
+            "explanation": "Obiter dicta are remarks 'by the way' and are persuasive only."
+          }
+        ]
+      }
+    },
+    {
+      "key": "law-moot-court",
+      "title": "Moot court: order of proceedings",
+      "summary": "Get through a moot court sitting without upsetting the bench.",
+      "discipline": "Law",
+      "engine": "ordering",
+      "difficulty": "easy",
+      "targets": { "faculties": ["LAW"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "Order a typical appeal-style moot from start to finish.",
+        "items": [
+          { "id": "appearances", "text": "Counsel for both sides announce their appearances" },
+          { "id": "appellant", "text": "Counsel for the appellant present their submissions and answer the bench's questions" },
+          { "id": "respondent", "text": "Counsel for the respondent present their submissions" },
+          { "id": "reply", "text": "The appellant gives a short reply (rebuttal)" },
+          { "id": "judgment", "text": "The bench deliberates and gives its decision and feedback" }
+        ],
+        "explanation": "The party appealing speaks first, the respondent answers, and the appellant may reply briefly before judgment."
+      }
+    },
+    {
+      "key": "law-structured-debate",
+      "title": "Structured debate: phones in lecture halls",
+      "summary": "Write an opening speech for or against the motion.",
+      "discipline": "Law",
+      "engine": "written",
+      "difficulty": "medium",
+      "targets": { "faculties": ["LAW"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "prompt": "Motion: 'This house would ban mobile phones in lecture halls.' Write an opening speech (40–200 words) for OR against the motion. State your position, give a reason with an example, answer one argument from the other side, and conclude.",
+        "minWords": 40,
+        "maxWords": 200,
+        "criteria": [
+          { "id": "position", "label": "States a clear position", "keywords": ["i support", "i oppose", "we support", "we oppose", "this house", "i propose", "i argue", "we argue", "i believe", "in favour", "against the motion"], "points": 2 },
+          { "id": "evidence", "label": "Gives a reason with an example or evidence", "keywords": ["for example", "for instance", "because", "evidence", "research", "study", "such as"], "points": 3 },
+          { "id": "rebuttal", "label": "Answers the other side", "keywords": ["however", "opponents", "the other side", "critics", "although", "on the other hand", "some may say", "some argue"], "points": 3 },
+          { "id": "conclusion", "label": "Concludes", "keywords": ["in conclusion", "therefore", "for these reasons", "thus", "i urge", "i beg to"], "points": 2 }
+        ],
+        "modelAnswer": "I oppose the motion. Phones are tools for learning: for example, students look up terms, record lectures with permission and read course material. However, opponents say phones distract. Distraction is a discipline problem, not a device problem, and lecturers can set rules. Therefore, I urge this house to reject a total ban."
+      }
+    },
+    {
+      "key": "med-physiology-basics",
+      "title": "Physiology basics",
+      "summary": "Quick questions on how the body works.",
+      "discipline": "Medicine",
+      "engine": "quiz",
+      "difficulty": "easy",
+      "targets": { "programmes": ["MBBS"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "notice": "Educational game content only — not medical advice. Always see a qualified health professional.",
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "A typical resting heart rate for a healthy adult is about…",
+            "options": [
+              { "id": "a", "text": "60–100 beats per minute" },
+              { "id": "b", "text": "10–20 beats per minute" },
+              { "id": "c", "text": "150–200 beats per minute" },
+              { "id": "d", "text": "300 beats per minute" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q2",
+            "prompt": "The main job of red blood cells is to…",
+            "options": [
+              { "id": "a", "text": "Carry oxygen, using haemoglobin" },
+              { "id": "b", "text": "Fight infection" },
+              { "id": "c", "text": "Clot the blood" },
+              { "id": "d", "text": "Produce hormones" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q3",
+            "prompt": "Which organ produces insulin?",
+            "options": [
+              { "id": "a", "text": "Pancreas" },
+              { "id": "b", "text": "Liver" },
+              { "id": "c", "text": "Kidney" },
+              { "id": "d", "text": "Lungs" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q4",
+            "prompt": "Which is the largest organ of the human body?",
+            "options": [
+              { "id": "a", "text": "Skin" },
+              { "id": "b", "text": "Heart" },
+              { "id": "c", "text": "Brain" },
+              { "id": "d", "text": "Stomach" }
+            ],
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "key": "med-clinical-case-fever",
+      "title": "Simulated clinical case: fever and headache",
+      "summary": "Work through a fictional patient case step by step.",
+      "discipline": "Medicine",
+      "engine": "scenario",
+      "difficulty": "medium",
+      "targets": { "programmes": ["MBBS"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "notice": "Simulated, simplified educational case for a game. It is not clinical guidance or medical advice.",
+      "content": {
+        "intro": "In the (game) campus clinic, a fictional 19-year-old student, 'Tunde', has had a fever and headache for two days. You are shadowing the doctor and are asked what to do next.",
+        "steps": [
+          {
+            "id": "s1",
+            "situation": "Where do you start?",
+            "choices": [
+              { "id": "a", "text": "Take a history and check the vital signs", "points": 10, "feedback": "Yes: history and vital signs come before treatment decisions." },
+              { "id": "b", "text": "Give antibiotics straight away", "points": 1, "feedback": "Treating before assessing risks the wrong treatment." },
+              { "id": "c", "text": "Send him back to the hostel to rest", "points": 0, "feedback": "Fever needs assessment, not dismissal." }
+            ]
+          },
+          {
+            "id": "s2",
+            "situation": "Malaria is common in the area. What should happen before giving antimalarials?",
+            "choices": [
+              { "id": "a", "text": "Confirm with a test (a rapid diagnostic test or blood film)", "points": 10, "feedback": "Right: 'test before you treat' avoids treating the wrong illness." },
+              { "id": "b", "text": "Treat every fever as malaria without testing", "points": 3, "feedback": "Other causes of fever (such as typhoid or viral infections) would be missed." },
+              { "id": "c", "text": "Nothing: fevers always go away", "points": 0, "feedback": "Some fevers are serious." }
+            ]
+          },
+          {
+            "id": "s3",
+            "situation": "Tunde becomes confused and very drowsy. What now?",
+            "choices": [
+              { "id": "a", "text": "Recognise a danger sign and escalate urgently to a senior doctor or hospital", "points": 10, "feedback": "Confusion with fever is a warning sign that needs urgent care." },
+              { "id": "b", "text": "Wait until tomorrow", "points": 0, "feedback": "Delays can be dangerous when danger signs appear." },
+              { "id": "c", "text": "Give him a soft drink", "points": 0, "feedback": "That doesn't address a possible emergency." }
+            ]
+          }
+        ],
+        "debrief": "Assess first, confirm the diagnosis with tests, and escalate danger signs. Real patient care belongs to qualified clinicians."
+      }
+    },
+    {
+      "key": "med-primary-survey",
+      "title": "Emergency primary survey (ABCDE)",
+      "summary": "Put the steps of the ABCDE assessment in order.",
+      "discipline": "Medicine",
+      "engine": "ordering",
+      "difficulty": "easy",
+      "targets": { "programmes": ["MBBS"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3 },
+      "notice": "Educational game content only — not a substitute for first-aid or clinical training.",
+      "content": {
+        "instructions": "Order the systematic emergency assessment.",
+        "items": [
+          { "id": "airway", "text": "Airway" },
+          { "id": "breathing", "text": "Breathing" },
+          { "id": "circulation", "text": "Circulation" },
+          { "id": "disability", "text": "Disability (consciousness / neurology)" },
+          { "id": "exposure", "text": "Exposure (examine the whole body, keep the patient warm)" }
+        ],
+        "explanation": "ABCDE treats the most immediately life-threatening problems first."
+      }
+    },
+    {
+      "key": "enl-nigerian-literature",
+      "title": "Nigerian literature",
+      "summary": "Writers and works every literature student should know.",
+      "discipline": "Arts",
+      "engine": "quiz",
+      "difficulty": "easy",
+      "targets": { "faculties": ["ART"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "Who wrote 'Things Fall Apart' (1958)?",
+            "options": [
+              { "id": "a", "text": "Chinua Achebe" },
+              { "id": "b", "text": "Wole Soyinka" },
+              { "id": "c", "text": "Buchi Emecheta" },
+              { "id": "d", "text": "Ben Okri" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q2",
+            "prompt": "Who was the first African to win the Nobel Prize in Literature (1986)?",
+            "options": [
+              { "id": "a", "text": "Wole Soyinka" },
+              { "id": "b", "text": "Chinua Achebe" },
+              { "id": "c", "text": "Ngũgĩ wa Thiong'o" },
+              { "id": "d", "text": "Chimamanda Ngozi Adichie" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q3",
+            "prompt": "'Purple Hibiscus' is a novel by…",
+            "options": [
+              { "id": "a", "text": "Chimamanda Ngozi Adichie" },
+              { "id": "b", "text": "Flora Nwapa" },
+              { "id": "c", "text": "Cyprian Ekwensi" },
+              { "id": "d", "text": "Helon Habila" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q4",
+            "prompt": "Who is the main character of 'Things Fall Apart'?",
+            "options": [
+              { "id": "a", "text": "Okonkwo" },
+              { "id": "b", "text": "Baroka" },
+              { "id": "c", "text": "Ugwu" },
+              { "id": "d", "text": "Kambili" }
+            ],
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "key": "enl-literary-devices",
+      "title": "Literary devices",
+      "summary": "Match each device to an example.",
+      "discipline": "Arts",
+      "engine": "matching",
+      "difficulty": "easy",
+      "targets": { "faculties": ["ART", "CMS"] },
+      "rewards": { "xp": 40 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "Match each literary device with its example.",
+        "leftLabel": "Device",
+        "rightLabel": "Example",
+        "pairs": [
+          { "id": "simile", "left": "Simile", "right": "The lagoon shone like a mirror." },
+          { "id": "metaphor", "left": "Metaphor", "right": "The library is a sea of knowledge." },
+          { "id": "personification", "left": "Personification", "right": "The wind whispered through the palm trees." },
+          { "id": "alliteration", "left": "Alliteration", "right": "Busy buses brought breathless students." },
+          { "id": "hyperbole", "left": "Hyperbole", "right": "I have read a million pages this week." }
+        ]
+      }
+    },
+    {
+      "key": "enl-creative-writing",
+      "title": "Creative writing: evening at the lagoon",
+      "summary": "Write a short descriptive piece about the Lagoon Front at sunset.",
+      "discipline": "Arts",
+      "engine": "written",
+      "difficulty": "medium",
+      "targets": { "faculties": ["ART"] },
+      "location": "lagoon-front",
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "prompt": "Describe an evening at the Lagoon Front in 50–250 words. Use the senses, include at least one comparison (a simile or metaphor), make the place vivid, and let the reader feel a mood.",
+        "minWords": 50,
+        "maxWords": 250,
+        "criteria": [
+          { "id": "senses", "label": "Uses the senses (sight, sound, smell, touch)", "keywords": ["smell", "heard", "hear", "sound", "breeze", "warm", "cool", "taste", "saw", "glow", "touch", "scent"], "points": 3 },
+          { "id": "comparison", "label": "Uses a simile or metaphor", "keywords": ["like a", "like the", "as if", "as though", "was a", "is a"], "points": 2 },
+          { "id": "setting", "label": "Makes the setting vivid", "keywords": ["lagoon", "water", "sky", "sunset", "waves", "shore", "bridge", "horizon"], "points": 2 },
+          { "id": "mood", "label": "Creates a mood or feeling", "keywords": ["calm", "peace", "joy", "lonely", "sad", "happy", "quiet", "felt", "hope", "tired", "free"], "points": 3 }
+        ]
+      }
+    },
+    {
+      "key": "arts-drama-performance",
+      "title": "Performance: opening night",
+      "summary": "Lead your cast through the night of a drama performance.",
+      "discipline": "Arts",
+      "engine": "scenario",
+      "difficulty": "medium",
+      "targets": { "faculties": ["ART"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "intro": "Your departmental drama group is performing a short play at the (game) auditorium tonight. You are the student director.",
+        "steps": [
+          {
+            "id": "s1",
+            "situation": "Two hours before the show, the lead actor has stage fright.",
+            "choices": [
+              { "id": "a", "text": "Run a short warm-up and breathing exercise with the cast, then a quick line run", "points": 10, "feedback": "Warm-ups and familiar routines calm nerves." },
+              { "id": "b", "text": "Shout at them to be strong", "points": 1, "feedback": "Pressure usually makes stage fright worse." },
+              { "id": "c", "text": "Cancel the show", "points": 0, "feedback": "Too early to give up." }
+            ]
+          },
+          {
+            "id": "s2",
+            "situation": "During the show, an actor forgets a line.",
+            "choices": [
+              { "id": "a", "text": "The other actors improvise in character to bring the scene back", "points": 10, "feedback": "Staying in character keeps the audience inside the story." },
+              { "id": "b", "text": "Stop the play and start the scene again", "points": 2, "feedback": "It breaks the illusion for the audience." }
+            ]
+          },
+          {
+            "id": "s3",
+            "situation": "After the show, how do you review it?",
+            "choices": [
+              { "id": "a", "text": "Hold a short feedback session: what worked, and what to improve next time", "points": 10, "feedback": "Reflection is how performers grow." },
+              { "id": "b", "text": "Blame the actor who forgot the line", "points": 0, "feedback": "Blame damages the team." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "mac-inverted-pyramid",
+      "title": "News writing: the inverted pyramid",
+      "summary": "Order the parts of a news story from most to least important.",
+      "discipline": "Mass Communication",
+      "engine": "ordering",
+      "difficulty": "easy",
+      "targets": { "faculties": ["CMS"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "A new campus shuttle route starts on Monday. Order the parts of your story.",
+        "items": [
+          { "id": "headline", "text": "Headline: 'New shuttle route links hostels to the Faculty of Engineering'" },
+          { "id": "lede", "text": "Lede: who, what, when and where in one sentence" },
+          { "id": "details", "text": "Key details: times, stops and fares" },
+          { "id": "quote", "text": "A quote from a student or transport officer" },
+          { "id": "background", "text": "Background: why the route was added" },
+          { "id": "extra", "text": "Least important extra information" }
+        ],
+        "explanation": "Editors cut stories from the bottom, so the most important facts go first."
+      }
+    },
+    {
+      "key": "mac-headline-and-lede",
+      "title": "Write a headline and lede",
+      "summary": "Turn campus facts into a sharp news opening.",
+      "discipline": "Mass Communication",
+      "engine": "written",
+      "difficulty": "medium",
+      "targets": { "faculties": ["CMS"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "prompt": "Facts (fictional): the Students' Union will hold a free health screening at the Sports Centre this Saturday from 9 a.m. to 2 p.m.; 500 students are expected. Write a headline and a one- or two-sentence lede (20–80 words) that answers who, what, when and where.",
+        "minWords": 20,
+        "maxWords": 80,
+        "criteria": [
+          { "id": "who", "label": "Says who", "keywords": ["students' union", "student union", "union", "students"], "points": 2 },
+          { "id": "what", "label": "Says what", "keywords": ["health screening", "screening", "free health", "check-up", "checkup"], "points": 2 },
+          { "id": "when", "label": "Says when", "keywords": ["saturday", "9 a", "9am", "9 am", "this weekend"], "points": 2 },
+          { "id": "where", "label": "Says where", "keywords": ["sports centre", "sports center", "sports complex"], "points": 2 }
+        ]
+      }
+    },
+    {
+      "key": "mac-media-ethics",
+      "title": "Media ethics in the newsroom",
+      "summary": "Make the right calls as editor of the (fictional) campus paper.",
+      "discipline": "Mass Communication",
+      "engine": "scenario",
+      "difficulty": "medium",
+      "targets": { "faculties": ["CMS"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "intro": "You edit the campus newspaper in the game.",
+        "steps": [
+          {
+            "id": "s1",
+            "situation": "A viral message claims exams have been cancelled. Thousands are sharing it.",
+            "choices": [
+              { "id": "a", "text": "Verify with the official source before publishing anything", "points": 10, "feedback": "Accuracy beats speed. Verify first." },
+              { "id": "b", "text": "Publish immediately — everyone is talking about it", "points": 0, "feedback": "Spreading false news damages trust." },
+              { "id": "c", "text": "Publish with 'unconfirmed' in small print", "points": 3, "feedback": "Readers will still believe and share it." }
+            ]
+          },
+          {
+            "id": "s2",
+            "situation": "A student was the victim of a theft and doesn't want to be named.",
+            "choices": [
+              { "id": "a", "text": "Report the story without naming them", "points": 10, "feedback": "Protecting people who could be harmed is basic ethics." },
+              { "id": "b", "text": "Name them; it's a better story", "points": 0, "feedback": "Respect for privacy matters more than clicks." }
+            ]
+          },
+          {
+            "id": "s3",
+            "situation": "You discover yesterday's story had a wrong date.",
+            "choices": [
+              { "id": "a", "text": "Publish a clear correction", "points": 10, "feedback": "Correcting mistakes openly builds credibility." },
+              { "id": "b", "text": "Quietly hope nobody noticed", "points": 1, "feedback": "Readers notice, and trust drops." }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "mgt-bukka-case-study",
+      "title": "Case study: the campus food stall",
+      "summary": "Make business decisions for a small (fictional) food stall near the hostels.",
+      "discipline": "Management & Economics",
+      "engine": "scenario",
+      "difficulty": "medium",
+      "targets": { "faculties": ["MGT"], "departments": ["ECO"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "intro": "'Mama T's Kitchen' (fictional) sells rice and stew near the hostels. You're helping the owner improve the business.",
+        "steps": [
+          {
+            "id": "s1",
+            "situation": "The cost of rice has gone up. What's the best first move?",
+            "choices": [
+              { "id": "a", "text": "Work out the new cost per plate, then adjust the price or portion and explain it to customers", "points": 10, "feedback": "Know your costs before you set prices." },
+              { "id": "b", "text": "Keep the price and absorb the loss indefinitely", "points": 2, "feedback": "Selling below cost can't last." },
+              { "id": "c", "text": "Double the price overnight", "points": 3, "feedback": "Customers may leave for competitors." }
+            ]
+          },
+          {
+            "id": "s2",
+            "situation": "The owner keeps no records and mixes personal money with sales money.",
+            "choices": [
+              { "id": "a", "text": "Start a simple daily record of sales and costs, and keep business cash separate", "points": 10, "feedback": "You can't manage what you don't measure." },
+              { "id": "b", "text": "Records are only for big companies", "points": 0, "feedback": "Even small businesses need to know if they make a profit." }
+            ]
+          },
+          {
+            "id": "s3",
+            "situation": "A new stall opens across the road with lower prices.",
+            "choices": [
+              { "id": "a", "text": "Compete on what customers value: speed, taste, cleanliness and a loyalty offer", "points": 10, "feedback": "Differentiation beats a price war you can't win." },
+              { "id": "b", "text": "Spread rumours about the competitor", "points": 0, "feedback": "Unethical, and it can backfire." },
+              { "id": "c", "text": "Cut prices below cost", "points": 2, "feedback": "A price war can sink both businesses." }
+            ]
+          }
+        ],
+        "debrief": "Know your costs, keep records, and compete on value."
+      }
+    },
+    {
+      "key": "mgt-pitch-presentation",
+      "title": "Presentation: build a pitch",
+      "summary": "Structure a five-minute business pitch.",
+      "discipline": "Management & Economics",
+      "engine": "ordering",
+      "difficulty": "easy",
+      "targets": { "faculties": ["MGT"], "departments": ["ECO"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "Your team is pitching a laundry pickup service for hostels at a student business competition. Order the slides.",
+        "items": [
+          { "id": "hook", "text": "A hook: a short story about wasted laundry days" },
+          { "id": "problem", "text": "The problem and who has it" },
+          { "id": "solution", "text": "Your solution" },
+          { "id": "market", "text": "Market size and customers" },
+          { "id": "model", "text": "How you make money (business model)" },
+          { "id": "team", "text": "Your team" },
+          { "id": "ask", "text": "The ask: what you want from the judges" }
+        ],
+        "explanation": "Grab attention, show the problem before the solution, prove it can make money, and end with a clear ask."
+      }
+    },
+    {
+      "key": "acc-double-entry",
+      "title": "Double-entry basics",
+      "summary": "Debits, credits and the accounting equation.",
+      "discipline": "Management & Economics",
+      "engine": "quiz",
+      "difficulty": "medium",
+      "targets": { "departments": ["ACC"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "Which is the accounting equation?",
+            "options": [
+              { "id": "a", "text": "Assets = Liabilities + Equity" },
+              { "id": "b", "text": "Assets = Revenue − Expenses" },
+              { "id": "c", "text": "Equity = Assets + Liabilities" },
+              { "id": "d", "text": "Profit = Assets − Equity" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q2",
+            "prompt": "A business buys inventory for cash. The entry is…",
+            "options": [
+              { "id": "a", "text": "Debit Inventory, Credit Cash" },
+              { "id": "b", "text": "Debit Cash, Credit Inventory" },
+              { "id": "c", "text": "Debit Revenue, Credit Cash" },
+              { "id": "d", "text": "No entry is needed" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q3",
+            "prompt": "Depreciation is…",
+            "options": [
+              { "id": "a", "text": "Spreading the cost of a long-term asset over its useful life" },
+              { "id": "b", "text": "Cash paid to the owner" },
+              { "id": "c", "text": "A type of revenue" },
+              { "id": "d", "text": "A loan" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q4",
+            "prompt": "In double-entry bookkeeping, total debits must…",
+            "options": [
+              { "id": "a", "text": "Equal total credits" },
+              { "id": "b", "text": "Be greater than credits" },
+              { "id": "c", "text": "Be zero" },
+              { "id": "d", "text": "Equal profit" }
+            ],
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "key": "bus-marketing-mix",
+      "title": "The marketing mix (4 Ps)",
+      "summary": "Match each P to what it covers.",
+      "discipline": "Management & Economics",
+      "engine": "matching",
+      "difficulty": "easy",
+      "targets": { "departments": ["BUS"] },
+      "rewards": { "xp": 40 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "Match each element of the marketing mix with its description.",
+        "leftLabel": "Element",
+        "rightLabel": "Covers",
+        "pairs": [
+          { "id": "product", "left": "Product", "right": "What you sell and its features" },
+          { "id": "price", "left": "Price", "right": "What customers pay, including discounts" },
+          { "id": "place", "left": "Place", "right": "Where and how customers can buy it" },
+          { "id": "promotion", "left": "Promotion", "right": "How you tell customers about it" }
+        ]
+      }
+    },
+    {
+      "key": "eco-demand-and-supply",
+      "title": "Demand and supply",
+      "summary": "Core ideas behind prices in any market — including the campus market.",
+      "discipline": "Management & Economics",
+      "engine": "quiz",
+      "difficulty": "medium",
+      "targets": { "departments": ["ECO"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "By the law of demand, when the price of a good rises (all else equal), the quantity demanded…",
+            "options": [
+              { "id": "a", "text": "Falls" },
+              { "id": "b", "text": "Rises" },
+              { "id": "c", "text": "Stays the same" },
+              { "id": "d", "text": "Becomes zero" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q2",
+            "prompt": "Floods damage tomato farms and the supply falls. What usually happens to the price?",
+            "options": [
+              { "id": "a", "text": "It rises" },
+              { "id": "b", "text": "It falls" },
+              { "id": "c", "text": "No change" },
+              { "id": "d", "text": "It becomes free" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q3",
+            "prompt": "Opportunity cost is…",
+            "options": [
+              { "id": "a", "text": "The value of the next best alternative you give up" },
+              { "id": "b", "text": "The money price of a good" },
+              { "id": "c", "text": "A tax" },
+              { "id": "d", "text": "Profit" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q4",
+            "prompt": "Inflation means…",
+            "options": [
+              { "id": "a", "text": "A general rise in prices over time" },
+              { "id": "b", "text": "A fall in the price of one good" },
+              { "id": "c", "text": "More jobs" },
+              { "id": "d", "text": "A rise in exports" }
+            ],
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "key": "eco-key-concepts",
+      "title": "Key economic concepts",
+      "summary": "Match the terms to their meanings.",
+      "discipline": "Management & Economics",
+      "engine": "matching",
+      "difficulty": "easy",
+      "targets": { "departments": ["ECO"] },
+      "rewards": { "xp": 40 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "Match each concept with its meaning.",
+        "leftLabel": "Concept",
+        "rightLabel": "Meaning",
+        "pairs": [
+          { "id": "scarcity", "left": "Scarcity", "right": "Wants are unlimited but resources are limited" },
+          { "id": "gdp", "left": "GDP", "right": "The total value of goods and services produced in a country in a period" },
+          { "id": "elasticity", "left": "Price elasticity", "right": "How strongly quantity demanded responds to a price change" },
+          { "id": "unemployment", "left": "Unemployment", "right": "People who want work and are looking, but have none" },
+          { "id": "budget-deficit", "left": "Budget deficit", "right": "When government spending is more than its revenue" }
+        ]
+      }
+    },
+    {
+      "key": "mth-puzzles",
+      "title": "Maths puzzles",
+      "summary": "Quick problems to warm up the brain.",
+      "discipline": "Mathematics",
+      "engine": "quiz",
+      "difficulty": "medium",
+      "targets": { "departments": ["MTH"] },
+      "rewards": { "xp": 50 },
+      "limits": { "maxAttempts": 3, "timeLimitSeconds": 600 },
+      "content": {
+        "questions": [
+          {
+            "id": "q1",
+            "prompt": "What is 1 + 2 + 3 + … + 100?",
+            "options": [
+              { "id": "a", "text": "5050" },
+              { "id": "b", "text": "5000" },
+              { "id": "c", "text": "10100" },
+              { "id": "d", "text": "4950" }
+            ],
+            "correct": "a",
+            "explanation": "n(n + 1) / 2 = 100 × 101 / 2 = 5050."
+          },
+          {
+            "id": "q2",
+            "prompt": "What is the next prime number after 23?",
+            "options": [
+              { "id": "a", "text": "29" },
+              { "id": "b", "text": "25" },
+              { "id": "c", "text": "27" },
+              { "id": "d", "text": "31" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q3",
+            "prompt": "You toss a fair coin twice. What is the probability of two heads?",
+            "options": [
+              { "id": "a", "text": "1/4" },
+              { "id": "b", "text": "1/2" },
+              { "id": "c", "text": "1/3" },
+              { "id": "d", "text": "3/4" }
+            ],
+            "correct": "a"
+          },
+          {
+            "id": "q4",
+            "prompt": "What is the derivative of x² with respect to x?",
+            "options": [
+              { "id": "a", "text": "2x" },
+              { "id": "b", "text": "x" },
+              { "id": "c", "text": "x³/3" },
+              { "id": "d", "text": "2" }
+            ],
+            "correct": "a"
+          }
+        ]
+      }
+    },
+    {
+      "key": "mth-root-two-proof",
+      "title": "Proof: √2 is irrational",
+      "summary": "Order the steps of a classic proof by contradiction.",
+      "discipline": "Mathematics",
+      "engine": "ordering",
+      "difficulty": "hard",
+      "targets": { "departments": ["MTH"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "Arrange the steps of the proof in a logical order.",
+        "items": [
+          { "id": "assume", "text": "Assume √2 = a/b, where a and b are whole numbers with no common factor" },
+          { "id": "square", "text": "Square both sides: 2b² = a²" },
+          { "id": "a-even", "text": "So a² is even, which means a is even: write a = 2k" },
+          { "id": "b-even", "text": "Substitute: 2b² = 4k², so b² = 2k², and b is even too" },
+          { "id": "contradiction", "text": "Then a and b share the factor 2, which contradicts the assumption" },
+          { "id": "conclude", "text": "Therefore √2 cannot be written as a fraction: it is irrational" }
+        ]
+      }
+    },
+    {
+      "key": "mth-notation",
+      "title": "Mathematical notation",
+      "summary": "Match the symbols to their meanings.",
+      "discipline": "Mathematics",
+      "engine": "matching",
+      "difficulty": "easy",
+      "targets": { "departments": ["MTH"] },
+      "rewards": { "xp": 40 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "instructions": "Match each symbol with its meaning.",
+        "leftLabel": "Symbol",
+        "rightLabel": "Meaning",
+        "pairs": [
+          { "id": "sum", "left": "∑", "right": "Sum of a sequence of terms" },
+          { "id": "integral", "left": "∫", "right": "Integral" },
+          { "id": "element", "left": "∈", "right": "Is an element of" },
+          { "id": "forall", "left": "∀", "right": "For all" },
+          { "id": "exists", "left": "∃", "right": "There exists" }
+        ]
+      }
+    },
+    {
+      "key": "isr-robot-path",
+      "title": "Robot path planning",
+      "summary": "Decide how a delivery robot should move around campus.",
+      "discipline": "Computing",
+      "engine": "scenario",
+      "difficulty": "medium",
+      "targets": { "departments": ["ISR"] },
+      "rewards": { "xp": 60 },
+      "limits": { "maxAttempts": 3 },
+      "content": {
+        "intro": "Your team is programming a small (fictional) delivery robot that carries books from the library to the hostels.",
+        "steps": [
+          {
+            "id": "s1",
+            "situation": "How should the robot find its route?",
+            "choices": [
+              { "id": "a", "text": "Use a map of walkable paths and a shortest-path algorithm such as A*", "points": 10, "feedback": "A map plus A* finds efficient routes around obstacles." },
+              { "id": "b", "text": "Drive in a straight line and hope", "points": 0, "feedback": "Buildings and lagoons get in the way." }
+            ]
+          },
+          {
+            "id": "s2",
+            "situation": "A student steps in front of the robot.",
+            "choices": [
+              { "id": "a", "text": "Detect obstacles with sensors, stop, then re-plan around them", "points": 10, "feedback": "Safety around people comes first." },
+              { "id": "b", "text": "Keep going — the route was planned already", "points": 0, "feedback": "Robots must react to a changing world." }
+            ]
+          },
+          {
+            "id": "s3",
+            "situation": "The battery is low halfway through a delivery.",
+            "choices": [
+              { "id": "a", "text": "Monitor the battery and return to charge before it's critical", "points": 10, "feedback": "Planning for energy keeps the robot reliable." },
+              { "id": "b", "text": "Ignore it until it stops", "points": 1, "feedback": "A dead robot blocks the path and the books." }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "missions": [
+    {
+      "key": "fresher-first-week",
+      "title": "Fresher's first week",
+      "summary": "Find your way to the places you'll use every day and start studying.",
+      "steps": [
+        { "key": "find-library", "label": "Find the University Library", "type": "discover-location", "ref": "university-library" },
+        { "key": "study-library", "label": "Study at the library", "type": "campus-activity", "ref": "university-library/study" },
+        { "key": "find-food", "label": "Find 2001 Cafeteria", "type": "discover-location", "ref": "2001-cafeteria" },
+        { "key": "research-skills", "label": "Pass 'Library research skills'", "type": "pass-activity", "ref": "library-research-skills" }
+      ],
+      "rewards": { "xp": 100 },
+      "requiredForPromotion": true
+    },
+    {
+      "key": "departmental-week",
+      "title": "Departmental week",
+      "summary": "Pass three activities from your studies at this level.",
+      "steps": [{ "key": "pass-three", "label": "Pass 3 activities at this level", "type": "pass-activities", "count": 3 }],
+      "rewards": { "xp": 120 },
+      "requiredForPromotion": true,
+      "perLevel": true
+    },
+    {
+      "key": "campus-explorer",
+      "title": "Campus explorer",
+      "summary": "Discover six places on campus.",
+      "steps": [{ "key": "discover-six", "label": "Discover 6 campus places", "type": "discover-locations", "count": 6 }],
+      "rewards": { "xp": 80 }
+    }
+  ],
+  "achievements": [
+    { "key": "first-pass", "title": "First pass", "description": "Pass your first activity.", "criteria": { "type": "activities-passed", "count": 1 } },
+    { "key": "steady-learner", "title": "Steady learner", "description": "Pass 5 activities.", "criteria": { "type": "activities-passed", "count": 5 } },
+    { "key": "scholar-in-the-making", "title": "Scholar in the making", "description": "Pass 15 activities.", "criteria": { "type": "activities-passed", "count": 15 } },
+    { "key": "flawless", "title": "Flawless", "description": "Score 100% on an activity.", "criteria": { "type": "perfect-scores", "count": 1 } },
+    { "key": "on-a-mission", "title": "On a mission", "description": "Complete your first mission.", "criteria": { "type": "missions-completed", "count": 1 } },
+    { "key": "xp-500", "title": "500 club", "description": "Earn 500 game XP.", "criteria": { "type": "total-xp", "count": 500 } },
+    { "key": "moving-up", "title": "Moving up", "description": "Complete a level.", "criteria": { "type": "levels-completed", "count": 1 } }
+  ]
+}

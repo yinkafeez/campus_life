@@ -1,0 +1,92 @@
+{
+  "formatVersion": 1,
+  "university": "unilag",
+  "notes": "Game content. Trivia uses widely known facts; events, prizes and schedules are fictional game design, not real UNILAG events.",
+  "content": {
+    "trivia": {
+      "rewards": { "solo": { "perPoints": 30 }, "duelWin": 30, "duelDraw": 10 },
+      "content": {
+        "questions": [
+          { "id": "unilag-founded", "category": "Campus", "prompt": "In what year was the University of Lagos founded?", "options": [{ "id": "a", "text": "1962" }, { "id": "b", "text": "1948" }, { "id": "c", "text": "1975" }, { "id": "d", "text": "1990" }], "correct": "a" },
+          { "id": "unilag-akoka", "category": "Campus", "prompt": "UNILAG's main campus is in which part of Lagos?", "options": [{ "id": "a", "text": "Akoka" }, { "id": "b", "text": "Ikeja" }, { "id": "c", "text": "Lekki" }, { "id": "d", "text": "Badagry" }], "correct": "a" },
+          { "id": "unilag-water", "category": "Campus", "prompt": "Which body of water borders UNILAG's main campus?", "options": [{ "id": "a", "text": "The Lagos Lagoon" }, { "id": "b", "text": "Lake Chad" }, { "id": "c", "text": "The River Benue" }, { "id": "d", "text": "Kainji Lake" }], "correct": "a" },
+          { "id": "ng-capital", "category": "Nigeria", "prompt": "What is the capital of Nigeria?", "options": [{ "id": "a", "text": "Abuja" }, { "id": "b", "text": "Lagos" }, { "id": "c", "text": "Kano" }, { "id": "d", "text": "Ibadan" }], "correct": "a" },
+          { "id": "ng-independence", "category": "Nigeria", "prompt": "On what date did Nigeria gain independence?", "options": [{ "id": "a", "text": "1 October 1960" }, { "id": "b", "text": "12 June 1993" }, { "id": "c", "text": "29 May 1999" }, { "id": "d", "text": "1 January 1914" }], "correct": "a" },
+          { "id": "ng-states", "category": "Nigeria", "prompt": "How many states does Nigeria have (plus the FCT)?", "options": [{ "id": "a", "text": "36" }, { "id": "b", "text": "30" }, { "id": "c", "text": "40" }, { "id": "d", "text": "21" }], "correct": "a" },
+          { "id": "ng-river", "category": "Nigeria", "prompt": "Which is the longest river flowing through Nigeria?", "options": [{ "id": "a", "text": "The Niger" }, { "id": "b", "text": "The Nile" }, { "id": "c", "text": "The Congo" }, { "id": "d", "text": "The Ogun" }], "correct": "a" },
+          { "id": "ng-naira", "category": "Nigeria", "prompt": "In which year did the naira replace the Nigerian pound?", "options": [{ "id": "a", "text": "1973" }, { "id": "b", "text": "1960" }, { "id": "c", "text": "1985" }, { "id": "d", "text": "1999" }], "correct": "a" },
+          { "id": "ng-olumo", "category": "Nigeria", "prompt": "Olumo Rock is in which city?", "options": [{ "id": "a", "text": "Abeokuta" }, { "id": "b", "text": "Enugu" }, { "id": "c", "text": "Jos" }, { "id": "d", "text": "Calabar" }], "correct": "a" },
+          { "id": "ng-yankari", "category": "Nigeria", "prompt": "Yankari Game Reserve is in which state?", "options": [{ "id": "a", "text": "Bauchi" }, { "id": "b", "text": "Rivers" }, { "id": "c", "text": "Oyo" }, { "id": "d", "text": "Edo" }], "correct": "a" },
+          { "id": "ng-populous", "category": "Nigeria", "prompt": "Which is the most populous country in Africa?", "options": [{ "id": "a", "text": "Nigeria" }, { "id": "b", "text": "Egypt" }, { "id": "c", "text": "Ethiopia" }, { "id": "d", "text": "South Africa" }], "correct": "a" },
+          { "id": "lit-achebe", "category": "Literature", "prompt": "Who wrote 'Things Fall Apart'?", "options": [{ "id": "a", "text": "Chinua Achebe" }, { "id": "b", "text": "Wole Soyinka" }, { "id": "c", "text": "Ben Okri" }], "correct": "a" },
+          { "id": "lit-soyinka", "category": "Literature", "prompt": "In what year did Wole Soyinka win the Nobel Prize in Literature?", "options": [{ "id": "a", "text": "1986" }, { "id": "b", "text": "1976" }, { "id": "c", "text": "1996" }], "correct": "a" },
+          { "id": "sport-eagles", "category": "Sports", "prompt": "What is the nickname of Nigeria's men's national football team?", "options": [{ "id": "a", "text": "Super Eagles" }, { "id": "b", "text": "Black Stars" }, { "id": "c", "text": "Indomitable Lions" }, { "id": "d", "text": "Pharaohs" }], "correct": "a" },
+          { "id": "sport-falcons", "category": "Sports", "prompt": "Nigeria's women's national football team is called the…", "options": [{ "id": "a", "text": "Super Falcons" }, { "id": "b", "text": "Super Eagles" }, { "id": "c", "text": "Golden Eaglets" }], "correct": "a" },
+          { "id": "sport-atlanta", "category": "Sports", "prompt": "Nigeria won Olympic men's football gold at which Games?", "options": [{ "id": "a", "text": "Atlanta 1996" }, { "id": "b", "text": "Sydney 2000" }, { "id": "c", "text": "Beijing 2008" }], "correct": "a" },
+          { "id": "sport-qatar", "category": "Sports", "prompt": "Who won the 2022 FIFA World Cup?", "options": [{ "id": "a", "text": "Argentina" }, { "id": "b", "text": "France" }, { "id": "c", "text": "Brazil" }, { "id": "d", "text": "Morocco" }], "correct": "a" },
+          { "id": "sport-basketball", "category": "Sports", "prompt": "How many players does each basketball team have on court?", "options": [{ "id": "a", "text": "5" }, { "id": "b", "text": "6" }, { "id": "c", "text": "11" }, { "id": "d", "text": "7" }], "correct": "a" },
+          { "id": "sport-clay", "category": "Sports", "prompt": "Which tennis Grand Slam is played on clay?", "options": [{ "id": "a", "text": "The French Open" }, { "id": "b", "text": "Wimbledon" }, { "id": "c", "text": "The US Open" }, { "id": "d", "text": "The Australian Open" }], "correct": "a" },
+          { "id": "sport-tt", "category": "Sports", "prompt": "A table tennis game is normally played to how many points?", "options": [{ "id": "a", "text": "11" }, { "id": "b", "text": "21" }, { "id": "c", "text": "15" }], "correct": "a" },
+          { "id": "games-knight", "category": "Games", "prompt": "Which chess piece moves in an 'L' shape?", "options": [{ "id": "a", "text": "Knight" }, { "id": "b", "text": "Bishop" }, { "id": "c", "text": "Rook" }, { "id": "d", "text": "Queen" }], "correct": "a" },
+          { "id": "games-ludo", "category": "Games", "prompt": "In standard Ludo, how many tokens does each player have?", "options": [{ "id": "a", "text": "4" }, { "id": "b", "text": "3" }, { "id": "c", "text": "6" }], "correct": "a" },
+          { "id": "sci-water", "category": "Science", "prompt": "What is the chemical formula for water?", "options": [{ "id": "a", "text": "H₂O" }, { "id": "b", "text": "CO₂" }, { "id": "c", "text": "O₂" }, { "id": "d", "text": "NaCl" }], "correct": "a" },
+          { "id": "sci-planets", "category": "Science", "prompt": "How many planets are in our solar system?", "options": [{ "id": "a", "text": "8" }, { "id": "b", "text": "9" }, { "id": "c", "text": "7" }], "correct": "a" },
+          { "id": "sci-jupiter", "category": "Science", "prompt": "Which is the largest planet in the solar system?", "options": [{ "id": "a", "text": "Jupiter" }, { "id": "b", "text": "Saturn" }, { "id": "c", "text": "Earth" }, { "id": "d", "text": "Mars" }], "correct": "a" },
+          { "id": "sci-kilimanjaro", "category": "Geography", "prompt": "What is the highest mountain in Africa?", "options": [{ "id": "a", "text": "Kilimanjaro" }, { "id": "b", "text": "Mount Kenya" }, { "id": "c", "text": "Chappal Waddi" }], "correct": "a" },
+          { "id": "sci-pi", "category": "Science", "prompt": "π (pi) is approximately…", "options": [{ "id": "a", "text": "3.14" }, { "id": "b", "text": "2.71" }, { "id": "c", "text": "1.62" }], "correct": "a" },
+          { "id": "culture-durbar", "category": "Culture", "prompt": "The Durbar festival, with its horse parades, is most associated with…", "options": [{ "id": "a", "text": "Northern Nigerian emirates such as Kano" }, { "id": "b", "text": "The Niger Delta" }, { "id": "c", "text": "Lagos Island beaches" }], "correct": "a" },
+          { "id": "culture-zuma", "category": "Nigeria", "prompt": "Zuma Rock stands near which city?", "options": [{ "id": "a", "text": "Abuja" }, { "id": "b", "text": "Port Harcourt" }, { "id": "c", "text": "Sokoto" }], "correct": "a" },
+          { "id": "culture-ankara", "category": "Culture", "prompt": "Brightly printed wax cotton fabric popular across West Africa is often called…", "options": [{ "id": "a", "text": "Ankara" }, { "id": "b", "text": "Denim" }, { "id": "c", "text": "Tweed" }], "correct": "a" }
+        ]
+      }
+    },
+    "penalties": {
+      "rewards": { "solo": { "perGoal": 4 }, "duelWin": 30, "duelDraw": 10 },
+      "content": {}
+    }
+  },
+  "schedules": [
+    {
+      "key": "friday-trivia-night",
+      "title": "Friday Trivia Night",
+      "description": "Weekly quiz night. Best score in the window wins — three tries each.",
+      "type": "trivia",
+      "location": "jf-ade-ajayi-auditorium",
+      "teams": "solo",
+      "maxAttempts": 3,
+      "recurrence": { "type": "weekly", "days": [5], "start": "18:00", "durationMinutes": 180 },
+      "rewards": [{ "rank": 1, "coins": 300 }, { "rank": 2, "coins": 150 }, { "rank": 3, "coins": 80 }]
+    },
+    {
+      "key": "sunday-penalty-cup",
+      "title": "Sunday Penalty Cup",
+      "description": "Team penalty competition — your group's three best shootouts count.",
+      "type": "penalties",
+      "location": "sofoluwe-park",
+      "teams": "groups",
+      "teamSize": 3,
+      "maxAttempts": 3,
+      "recurrence": { "type": "weekly", "days": [0], "start": "15:00", "durationMinutes": 240 },
+      "rewards": [{ "rank": 1, "coins": 120 }, { "rank": 2, "coins": 60 }]
+    },
+    {
+      "key": "daily-trivia-challenge",
+      "title": "Daily Trivia Challenge",
+      "description": "A new trivia leaderboard every day.",
+      "type": "trivia",
+      "location": "university-library",
+      "teams": "solo",
+      "maxAttempts": 2,
+      "recurrence": { "type": "weekly", "days": [0, 1, 2, 3, 4, 5, 6], "start": "00:00", "durationMinutes": 1440 },
+      "rewards": [{ "rank": 1, "coins": 60 }, { "rank": 2, "coins": 30 }, { "rank": 3, "coins": 15 }]
+    }
+  ],
+  "achievements": [
+    { "key": "first-game", "title": "Game on", "description": "Play your first game.", "criteria": { "type": "games-played", "count": 1 } },
+    { "key": "regular", "title": "Regular", "description": "Play 20 games.", "criteria": { "type": "games-played", "count": 20 } },
+    { "key": "first-duel-win", "title": "Winner", "description": "Win a duel.", "criteria": { "type": "duel-wins", "count": 1 } },
+    { "key": "duel-champion", "title": "Duel champion", "description": "Win 10 duels.", "criteria": { "type": "duel-wins", "count": 10 } },
+    { "key": "flawless-game", "title": "Flawless", "description": "A perfect game: every trivia answer right, or five goals from five.", "criteria": { "type": "perfect-games", "count": 1 } },
+    { "key": "podium", "title": "On the podium", "description": "Finish in the top 3 of a campus competition.", "criteria": { "type": "competition-podiums", "count": 1 } }
+  ]
+}

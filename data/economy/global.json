@@ -1,0 +1,339 @@
+{
+  "formatVersion": 1,
+  "notes": "Campus Coins are a fictional game currency. They cannot be bought with real money or cashed out, and nothing in the game is a wager. Prices are game balance, not real campus prices.",
+  "currency": { "name": "Campus Coins", "symbol": "CC" },
+  "rules": {
+    "welcomeGrant": 500,
+    "weeklyAllowance": 200,
+    "energy": { "max": 100, "regenPerHour": 6 },
+    "hostelWeeklyFee": 120,
+    "dailyGamePrizeCap": 150,
+    "jobMinutesToComplete": 30
+  },
+  "items": [
+    { "key": "pure-water", "name": "Sachet water", "kind": "food", "price": 5, "effects": { "energy": 3 }, "transferable": true, "maxPerPurchase": 20, "description": "Cold 'pure water'. Cheap and keeps you going." },
+    { "key": "puff-puff", "name": "Puff-puff (5 pieces)", "kind": "food", "price": 15, "effects": { "energy": 10 }, "transferable": true, "description": "Sweet, soft and gone too fast." },
+    { "key": "meat-pie", "name": "Meat pie", "kind": "food", "price": 40, "effects": { "energy": 20 }, "transferable": true, "description": "A filling snack between lectures." },
+    { "key": "suya-wrap", "name": "Suya wrap", "kind": "food", "price": 80, "effects": { "energy": 25 }, "transferable": true, "description": "Spicy grilled beef with onions." },
+    { "key": "jollof-pack", "name": "Jollof rice and chicken", "kind": "food", "price": 120, "effects": { "energy": 40 }, "transferable": true, "description": "A full plate. Best value per bite." },
+    { "key": "notebook", "name": "Notebook", "kind": "stationery", "price": 30, "transferable": true, "description": "For lecture notes (and doodles)." },
+    { "key": "scientific-calculator", "name": "Scientific calculator", "kind": "stationery", "price": 250, "maxPerPurchase": 1, "description": "Every engineering and science fresher needs one." },
+    { "key": "textbook-pack", "name": "Textbook pack", "kind": "stationery", "price": 300, "maxPerPurchase": 1, "description": "Core texts. Lets you tutor other students." },
+    { "key": "power-bank", "name": "Power bank", "kind": "accessories", "price": 350, "maxPerPurchase": 1, "description": "Keeps your phone alive for maps and delivery runs." },
+    { "key": "cooler-box", "name": "Cooler box", "kind": "tools", "price": 400, "maxPerPurchase": 1, "description": "Keeps snacks fresh. Needed to sell food." },
+    { "key": "snack-stock", "name": "Snack stock (one batch)", "kind": "stock", "price": 60, "maxPerPurchase": 10, "description": "Ingredients for one round of food sales." },
+    { "key": "clipper-kit", "name": "Clipper kit", "kind": "tools", "price": 900, "maxPerPurchase": 1, "description": "Clippers, guards and a cape. Start a barbing business." },
+    { "key": "camera", "name": "Camera", "kind": "tools", "price": 1800, "maxPerPurchase": 1, "description": "For event and portrait photography gigs." },
+    { "key": "laptop", "name": "Laptop", "kind": "tools", "price": 2500, "maxPerPurchase": 1, "description": "Design software included. Opens graphic design work." },
+    { "key": "slides", "name": "Slides", "kind": "clothing", "price": 250, "wardrobe": true, "maxPerPurchase": 1, "description": "Hostel-to-cafeteria comfort." },
+    { "key": "wristwatch", "name": "Wristwatch", "kind": "accessories", "price": 900, "wardrobe": true, "maxPerPurchase": 1, "description": "Never late for a lecture again (in theory)." },
+    { "key": "iro-and-buba", "name": "Iro and buba", "kind": "clothing", "price": 1200, "wardrobe": true, "maxPerPurchase": 1, "description": "Classic Yoruba wrapper and blouse for special days." },
+    { "key": "agbada", "name": "Agbada", "kind": "clothing", "price": 1500, "wardrobe": true, "maxPerPurchase": 1, "description": "Flowing robe for matriculation and big occasions." }
+  ],
+  "hustles": [
+    {
+      "key": "campus-errands",
+      "name": "Campus errands",
+      "category": "Services",
+      "description": "Run small errands for busy students. No equipment needed: a good first hustle.",
+      "energyCost": 15,
+      "cooldownMinutes": 10,
+      "maxJobsPerDay": 6,
+      "basePay": 40,
+      "passPercent": 60,
+      "jobs": [
+        {
+          "key": "photocopy-run",
+          "client": "Chidi (fictional), 200L",
+          "brief": "Chidi needs lecture notes photocopied and delivered before his class. Plan it right.",
+          "task": {
+            "engine": "ordering",
+            "content": {
+              "instructions": "Order the errand from first to last.",
+              "items": [
+                { "id": "confirm", "text": "Confirm the pages, number of copies and deadline with Chidi" },
+                { "id": "collect", "text": "Collect the notes and the money for copies" },
+                { "id": "copy", "text": "Make the copies at the business centre and keep the receipt" },
+                { "id": "deliver", "text": "Deliver the copies and the original before his class" },
+                { "id": "change", "text": "Hand over the change and the receipt" }
+              ]
+            }
+          }
+        },
+        {
+          "key": "queue-sitter",
+          "client": "Ada (fictional), 300L",
+          "brief": "Ada asks you to keep her place in a long queue at the bursary while she is in a test.",
+          "task": {
+            "engine": "scenario",
+            "content": {
+              "intro": "You're holding a place in a long queue for a classmate.",
+              "steps": [
+                {
+                  "id": "s1",
+                  "situation": "Someone offers you money to swap your place with theirs.",
+                  "choices": [
+                    { "id": "a", "text": "Politely refuse — you're holding it for Ada", "points": 10, "feedback": "Trustworthy. That's why people hire you again." },
+                    { "id": "b", "text": "Accept and tell Ada the queue moved", "points": 0, "feedback": "Dishonest, and you'd lose the client." }
+                  ]
+                },
+                {
+                  "id": "s2",
+                  "situation": "The queue closes early for lunch.",
+                  "choices": [
+                    { "id": "a", "text": "Message Ada straight away and ask what she'd like you to do", "points": 10, "feedback": "Clear communication keeps clients happy." },
+                    { "id": "b", "text": "Just leave", "points": 2, "feedback": "Ada will come back to no place and no news." }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "delivery",
+      "name": "Campus delivery",
+      "category": "Services",
+      "description": "Pick up a package at one campus place and deliver it to another — walk it in the 3D world.",
+      "requires": ["power-bank"],
+      "energyCost": 20,
+      "cooldownMinutes": 15,
+      "maxJobsPerDay": 5,
+      "basePay": 70,
+      "passPercent": 100,
+      "jobs": [
+        { "key": "package-run", "client": "Campus customers (fictional)", "brief": "A package is waiting. Pick it up, then deliver it.", "task": { "type": "route" } }
+      ]
+    },
+    {
+      "key": "tutoring",
+      "name": "Peer tutoring",
+      "category": "Education",
+      "description": "Help other students with first-year maths and English.",
+      "requires": ["textbook-pack"],
+      "energyCost": 20,
+      "cooldownMinutes": 20,
+      "maxJobsPerDay": 4,
+      "basePay": 90,
+      "passPercent": 60,
+      "jobs": [
+        {
+          "key": "maths-help",
+          "client": "Bisi (fictional), 100L",
+          "brief": "Bisi is stuck on basic algebra and percentages. Check you can explain them.",
+          "task": {
+            "engine": "quiz",
+            "content": {
+              "questions": [
+                { "id": "q1", "prompt": "Solve 3x + 5 = 20.", "options": [{ "id": "a", "text": "x = 5" }, { "id": "b", "text": "x = 15" }, { "id": "c", "text": "x = 25/3" }], "correct": "a", "explanation": "3x = 15, so x = 5." },
+                { "id": "q2", "prompt": "What is 15% of 200?", "options": [{ "id": "a", "text": "30" }, { "id": "b", "text": "15" }, { "id": "c", "text": "20" }], "correct": "a" },
+                { "id": "q3", "prompt": "Simplify 2(x + 3) − x.", "options": [{ "id": "a", "text": "x + 6" }, { "id": "b", "text": "x + 3" }, { "id": "c", "text": "3x + 6" }], "correct": "a" }
+              ]
+            }
+          }
+        },
+        {
+          "key": "english-help",
+          "client": "Musa (fictional), 100L",
+          "brief": "Musa wants help with grammar for his first essay.",
+          "task": {
+            "engine": "quiz",
+            "content": {
+              "questions": [
+                { "id": "q1", "prompt": "Choose the correct sentence.", "options": [{ "id": "a", "text": "Each of the students has a textbook." }, { "id": "b", "text": "Each of the students have a textbook." }], "correct": "a", "explanation": "'Each' is singular." },
+                { "id": "q2", "prompt": "Which word is an adverb? 'She spoke quietly in the library.'", "options": [{ "id": "a", "text": "quietly" }, { "id": "b", "text": "spoke" }, { "id": "c", "text": "library" }], "correct": "a" },
+                { "id": "q3", "prompt": "Choose the correct form: 'Their / There / They're going to the lecture.'", "options": [{ "id": "a", "text": "They're" }, { "id": "b", "text": "Their" }, { "id": "c", "text": "There" }], "correct": "a" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "food-sales",
+      "name": "Snack sales",
+      "category": "Food",
+      "description": "Sell snacks near the hostels. Each round uses one batch of snack stock — buy it first.",
+      "requires": ["cooler-box"],
+      "consumes": [{ "itemKey": "snack-stock", "quantity": 1 }],
+      "energyCost": 25,
+      "cooldownMinutes": 30,
+      "maxJobsPerDay": 3,
+      "basePay": 140,
+      "passPercent": 50,
+      "jobs": [
+        {
+          "key": "evening-sales",
+          "client": "Hostel customers (fictional)",
+          "brief": "Evening rush near the halls. Make good selling decisions.",
+          "task": {
+            "engine": "scenario",
+            "content": {
+              "intro": "You've set up your cooler box near the hostels at 7 p.m.",
+              "steps": [
+                {
+                  "id": "s1",
+                  "situation": "Where do you stand?",
+                  "choices": [
+                    { "id": "a", "text": "Near the hall entrance where students walk back from lectures", "points": 10, "feedback": "Foot traffic is everything in food sales." },
+                    { "id": "b", "text": "Behind the building where it's quiet", "points": 2, "feedback": "Quiet means no customers." }
+                  ]
+                },
+                {
+                  "id": "s2",
+                  "situation": "A customer has only a big note and you have no change.",
+                  "choices": [
+                    { "id": "a", "text": "Offer a bank transfer option, or ask a nearby seller to break the note", "points": 10, "feedback": "Solving payment problems saves the sale." },
+                    { "id": "b", "text": "Send them away", "points": 3, "feedback": "A lost sale — keep some change next time." }
+                  ]
+                },
+                {
+                  "id": "s3",
+                  "situation": "At 9 p.m. you have a few snacks left.",
+                  "choices": [
+                    { "id": "a", "text": "Offer a small end-of-day discount", "points": 10, "feedback": "Selling out beats wasting stock." },
+                    { "id": "b", "text": "Throw them away", "points": 0, "feedback": "That's money in the bin." },
+                    { "id": "c", "text": "Keep them for tomorrow without a cooler", "points": 3, "feedback": "Food safety first — they may spoil." }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "graphic-design",
+      "name": "Graphic design",
+      "category": "Creative",
+      "description": "Design flyers and logos for campus groups and events.",
+      "requires": ["laptop"],
+      "energyCost": 20,
+      "cooldownMinutes": 30,
+      "maxJobsPerDay": 4,
+      "basePay": 200,
+      "passPercent": 60,
+      "jobs": [
+        {
+          "key": "event-flyer",
+          "client": "Drama society (fictional)",
+          "brief": "The drama society needs a flyer for their show. Get the design basics right.",
+          "task": {
+            "engine": "quiz",
+            "content": {
+              "questions": [
+                { "id": "q1", "prompt": "The flyer text must be easy to read from far away. What helps most?", "options": [{ "id": "a", "text": "Strong contrast between text and background" }, { "id": "b", "text": "Many different fonts" }, { "id": "c", "text": "Light grey text on white" }], "correct": "a" },
+                { "id": "q2", "prompt": "Which file format keeps a logo sharp at any size?", "options": [{ "id": "a", "text": "SVG (vector)" }, { "id": "b", "text": "A small JPEG" }, { "id": "c", "text": "A screenshot" }], "correct": "a" },
+                { "id": "q3", "prompt": "What should be the most prominent thing on the flyer?", "options": [{ "id": "a", "text": "The show's name, date and venue" }, { "id": "b", "text": "The designer's name" }, { "id": "c", "text": "Decorative patterns" }], "correct": "a" }
+              ]
+            }
+          }
+        },
+        {
+          "key": "brand-pairs",
+          "client": "A new campus start-up (fictional)",
+          "brief": "Explain design principles to your client by matching them to examples.",
+          "task": {
+            "engine": "matching",
+            "content": {
+              "instructions": "Match each principle with an example.",
+              "leftLabel": "Principle",
+              "rightLabel": "Example",
+              "pairs": [
+                { "id": "hierarchy", "left": "Hierarchy", "right": "The headline is bigger than the details" },
+                { "id": "alignment", "left": "Alignment", "right": "Text blocks line up on the same edge" },
+                { "id": "whitespace", "left": "White space", "right": "Empty margins that let the design breathe" },
+                { "id": "consistency", "left": "Consistency", "right": "The same colours and fonts on every page" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "photography",
+      "name": "Photography",
+      "category": "Creative",
+      "description": "Shoot portraits, events and matriculation photos.",
+      "requires": ["camera"],
+      "energyCost": 25,
+      "cooldownMinutes": 30,
+      "maxJobsPerDay": 3,
+      "basePay": 170,
+      "passPercent": 60,
+      "jobs": [
+        {
+          "key": "matric-portraits",
+          "client": "Freshers' families (fictional)",
+          "brief": "It's matriculation day. Take portraits families will love.",
+          "task": {
+            "engine": "scenario",
+            "content": {
+              "intro": "Matriculation day: proud families everywhere and a strong afternoon sun.",
+              "steps": [
+                {
+                  "id": "s1",
+                  "situation": "Harsh midday sun is making faces squint and cast dark shadows.",
+                  "choices": [
+                    { "id": "a", "text": "Move subjects into open shade and shoot there", "points": 10, "feedback": "Soft, even light flatters faces." },
+                    { "id": "b", "text": "Face them straight into the sun", "points": 2, "feedback": "Squinting eyes ruin portraits." }
+                  ]
+                },
+                {
+                  "id": "s2",
+                  "situation": "How do you frame the student in their gown with the faculty building behind?",
+                  "choices": [
+                    { "id": "a", "text": "Use the rule of thirds and keep the building visible but not dominant", "points": 10, "feedback": "Balanced composition tells the story." },
+                    { "id": "b", "text": "Cut off their head to fit the whole building", "points": 0, "feedback": "The person is the subject." }
+                  ]
+                },
+                {
+                  "id": "s3",
+                  "situation": "A family asks when they'll get their photos.",
+                  "choices": [
+                    { "id": "a", "text": "Agree a clear delivery date and how they'll receive the photos", "points": 10, "feedback": "Clear promises bring repeat clients." },
+                    { "id": "b", "text": "Say 'soon'", "points": 3, "feedback": "Vague promises lead to unhappy clients." }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "barbering",
+      "name": "Barbing and grooming",
+      "category": "Services",
+      "description": "Run a hostel barbing service: neat cuts, clean tools, happy clients.",
+      "requires": ["clipper-kit"],
+      "energyCost": 20,
+      "cooldownMinutes": 20,
+      "maxJobsPerDay": 5,
+      "basePay": 120,
+      "passPercent": 60,
+      "jobs": [
+        {
+          "key": "low-cut",
+          "client": "Tunde (fictional), 200L",
+          "brief": "Tunde wants a clean low cut before his presentation.",
+          "task": {
+            "engine": "ordering",
+            "content": {
+              "instructions": "Order the haircut service from start to finish.",
+              "items": [
+                { "id": "sanitise", "text": "Clean and disinfect the clippers and comb" },
+                { "id": "consult", "text": "Ask how short he wants it and check the scalp" },
+                { "id": "cape", "text": "Put on a clean cape and neck strip" },
+                { "id": "cut", "text": "Cut with the right guard, working evenly" },
+                { "id": "lineup", "text": "Line up the edges" },
+                { "id": "finish", "text": "Brush off, show him the mirror and clean up" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

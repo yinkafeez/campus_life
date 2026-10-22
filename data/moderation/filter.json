@@ -1,0 +1,24 @@
+{
+  "notes": "Words masked in chat and messages (matched as whole words, case-insensitive). Keep this list short and reviewed; moderation reports are the main defence. Extend per community feedback.",
+  "blockedWords": [
+    "fuck",
+    "fucking",
+    "shit",
+    "bitch",
+    "bastard",
+    "asshole",
+    "dick",
+    "pussy",
+    "cunt",
+    "whore",
+    "slut",
+    "nigger",
+    "faggot",
+    "retard",
+    "ashawo",
+    "mumu",
+    "ode",
+    "werey",
+    "olodo"
+  ]
+}

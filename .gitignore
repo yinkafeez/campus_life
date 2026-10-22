@@ -1,0 +1,27 @@
+# dependencies
+node_modules
+
+# secrets — only .env.example is shared
+.env
+.env.*
+!.env.example
+
+# logs
+logs
+*.log
+npm-debug.log*
+
+# test / tooling output
+coverage
+.vitest
+
+# local database files (if you run mongod with a dbpath inside the project)
+data/db
+*.mongodb
+
+# editors / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+backups/

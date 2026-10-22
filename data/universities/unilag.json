@@ -1,0 +1,2733 @@
+{
+  "formatVersion": 1,
+  "university": {
+    "slug": "unilag",
+    "name": "University of Lagos",
+    "shortName": "UNILAG",
+    "status": "active",
+    "location": {
+      "city": "Akoka, Yaba",
+      "state": "Lagos",
+      "country": "NG"
+    },
+    "timezone": "Africa/Lagos",
+    "currency": "NGN",
+    "dataNotes": "Researched 2026-10-19. Faculties (19, effective 1 Aug 2025), semesters, the 100L-500L levels, hostel balloting rules and faculty/department election eligibility come from official unilag.edu.ng notices. UNVERIFIED / GAME DECISIONS: the matric number template — the proposed YYFFDDSSS shape (entry year, faculty, department, serial) is unconfirmed; game numbers carry a CL- prefix and fictional faculty/department matric codes so they can never be mistaken for official UNILAG matric numbers, the 600L level (inferred for 6-year MBBS/BDS), the 5-point CGPA scale, the continuous-assessment/exam weights, campaign and voting durations, and all department/programme lists beyond Computing and Informatics. Session dates are game dates. No real people are stored. Hall count differs by source (10/12/13/15); see each hostel's notes. WORLD: the Senate & Lagoon Front zone is a STYLISED, compressed game layout (not to scale; no verified site plan was used). Sofoluwe Park beside Senate House and Lagoon Front on the lagoon are sourced; other relative positions, and placing the 2001 Cafeteria (really in the New Hall Complex) in this zone, are game decisions. NPCs are fictional. Hostel room plans are game values.",
+    "config": {
+      "matricNumber": {
+        "template": "CL-{yy}{facultyCode:2}{departmentCode:2}{seq:3}",
+        "sequenceScope": "department",
+        "formatVersion": 1,
+        "startAt": 1,
+        "onExhausted": "reject"
+      },
+      "academicCalendar": {
+        "semesterNames": [
+          "First Semester",
+          "Second Semester"
+        ]
+      },
+      "levels": {
+        "values": [
+          100,
+          200,
+          300,
+          400,
+          500,
+          600
+        ],
+        "labelFormat": "{level}L"
+      },
+      "grading": {
+        "cgpaScale": 5
+      },
+      "accommodation": {
+        "allocationStrategy": "lottery",
+        "priorityGroups": [],
+        "applicationRequired": true,
+        "genderSeparated": true
+      },
+      "academicActivities": {
+        "types": [
+          {
+            "key": "lecture",
+            "name": "Lecture",
+            "kind": "lecture"
+          },
+          {
+            "key": "tutorial",
+            "name": "Tutorial",
+            "kind": "tutorial"
+          },
+          {
+            "key": "practical",
+            "name": "Practical / Lab",
+            "kind": "practical",
+            "graded": true
+          },
+          {
+            "key": "ca-test",
+            "name": "Continuous Assessment Test",
+            "kind": "test",
+            "graded": true,
+            "weightPercent": 30
+          },
+          {
+            "key": "exam",
+            "name": "Semester Examination",
+            "kind": "exam",
+            "graded": true,
+            "weightPercent": 70
+          },
+          {
+            "key": "assignment",
+            "name": "Assignment",
+            "kind": "assignment",
+            "graded": true
+          },
+          {
+            "key": "final-year-project",
+            "name": "Final Year Project",
+            "kind": "project",
+            "graded": true
+          },
+          {
+            "key": "seminar",
+            "name": "Seminar",
+            "kind": "seminar",
+            "graded": true
+          },
+          {
+            "key": "field-trip",
+            "name": "Field Trip",
+            "kind": "field-trip"
+          }
+        ]
+      },
+      "elections": {
+        "votingMethod": "first-past-the-post",
+        "campaignDays": 14,
+        "votingHours": 24,
+        "voterEligibility": {},
+        "defaultCandidateEligibility": {
+          "minCgpa": 3,
+          "excludeFreshers": true,
+          "excludeFinalYear": true,
+          "requireGoodStanding": true
+        }
+      },
+      "admission": {
+        "entryLevels": [
+          100,
+          200
+        ],
+        "reviewSeconds": 8,
+        "offerPolicy": "auto-offer",
+        "disclaimer": "Simulated game admission only. This is not an offer of admission to the University of Lagos, and Campus Life does not create, verify or replace official UNILAG student records."
+      },
+      "onboarding": {
+        "steps": [
+          {
+            "key": "collect-id-card",
+            "title": "Collect your game student ID card",
+            "description": "Your in-game ID shows your fictional Campus Life matric number.",
+            "location": "senate-house"
+          },
+          {
+            "key": "fresher-orientation",
+            "title": "Attend fresher orientation",
+            "description": "Find your seat at the J.F. Ade Ajayi Auditorium.",
+            "location": "jf-ade-ajayi-auditorium"
+          },
+          {
+            "key": "visit-library",
+            "title": "Visit the University Library",
+            "description": "Get your bearings in the main library.",
+            "location": "university-library"
+          },
+          {
+            "key": "first-meal",
+            "title": "Grab your first meal on campus",
+            "description": "Try the 2001 Cafeteria in the New Hall Complex.",
+            "location": "2001-cafeteria"
+          },
+          {
+            "key": "lagoon-front",
+            "title": "Catch the breeze at Lagoon Front",
+            "description": "Every fresher ends up here eventually.",
+            "location": "lagoon-front"
+          }
+        ]
+      },
+      "world": {
+        "startZone": "unilag-senate-lagoon",
+        "zones": [
+          "unilag-senate-lagoon",
+          "arrival-plaza"
+        ]
+      },
+      "progression": {
+        "promotion": {
+          "minXp": 200,
+          "minPassedActivities": 3,
+          "requireMissions": true,
+          "requireOnboarding": true
+        },
+        "difficultyMultipliers": {
+          "easy": 1,
+          "medium": 1.5,
+          "hard": 2
+        },
+        "latePenaltyPercent": 50,
+        "disclaimer": "Game activities are fictional practice made for Campus Life. Game XP and passes are not UNILAG grades, credits, examinations or academic records."
+      }
+    }
+  },
+  "faculties": [
+    {
+      "code": "ARC",
+      "name": "Faculty of Architecture",
+      "verification": {
+        "status": "verified",
+        "notes": "New faculty from 1 Aug 2025.",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "UNILAG — new faculties announcement",
+            "url": "https://unilag.edu.ng/?p=59443",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "01"
+    },
+    {
+      "code": "ART",
+      "name": "Faculty of Arts",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "departments": [
+        {
+          "code": "ENL",
+          "name": "Department of English",
+          "verification": {
+            "status": "unverified",
+            "notes": "Department list not re-checked after the 2025 restructuring."
+          },
+          "programmes": [
+            {
+              "code": "ENL",
+              "name": "English",
+              "award": "B.A.",
+              "durationYears": 4,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "01"
+        }
+      ],
+      "matricCode": "02"
+    },
+    {
+      "code": "BCS",
+      "name": "Faculty of Basic Clinical Sciences",
+      "verification": {
+        "status": "verified",
+        "notes": "New faculty from 1 Aug 2025 (College of Medicine, Idi-Araba — inferred).",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "03"
+    },
+    {
+      "code": "BMS",
+      "name": "Faculty of Basic Medical Sciences",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "04"
+    },
+    {
+      "code": "CLS",
+      "name": "Faculty of Clinical Sciences",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "05",
+      "departments": [
+        {
+          "code": "MED",
+          "name": "Department of Medicine",
+          "matricCode": "01",
+          "verification": {
+            "status": "unverified",
+            "notes": "Added for game play so medical students have a home department. UNILAG trains doctors through its College of Medicine (Idi-Araba); the exact department that awards the MBBS is not confirmed."
+          },
+          "programmes": [
+            {
+              "code": "MBBS",
+              "name": "Medicine and Surgery",
+              "award": "MBBS",
+              "durationYears": 6,
+              "verification": {
+                "status": "unverified",
+                "notes": "MBBS (six years) is the usual Nigerian medical degree; programme details for UNILAG are not confirmed here."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "CMS",
+      "name": "Faculty of Communication and Media Studies",
+      "verification": {
+        "status": "verified",
+        "notes": "New faculty from 1 Aug 2025.",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "departments": [
+        {
+          "code": "MAC",
+          "name": "Department of Mass Communication",
+          "verification": {
+            "status": "unverified",
+            "notes": "Placement under this new faculty is assumed, not sourced."
+          },
+          "programmes": [
+            {
+              "code": "MAC",
+              "name": "Mass Communication",
+              "award": "B.Sc.",
+              "durationYears": 4,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "01"
+        }
+      ],
+      "matricCode": "06"
+    },
+    {
+      "code": "CIN",
+      "name": "Faculty of Computing and Informatics",
+      "verification": {
+        "status": "verified",
+        "notes": "New faculty from 1 Aug 2025, created from the former Faculty of Science.",
+        "sources": [
+          {
+            "title": "UNILAG — new faculties announcement",
+            "url": "https://unilag.edu.ng/?p=59443",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "departments": [
+        {
+          "code": "CSC",
+          "name": "Department of Computer Science",
+          "verification": {
+            "status": "verified",
+            "sources": [
+              {
+                "title": "UNILAG — new faculties announcement",
+                "url": "https://unilag.edu.ng/?p=59443",
+                "accessedOn": "2026-10-19"
+              }
+            ]
+          },
+          "programmes": [
+            {
+              "code": "CSC",
+              "name": "Computer Science",
+              "award": "B.Sc.",
+              "durationYears": 4,
+              "verification": {
+                "status": "unverified",
+                "notes": "Programme name and award assumed from the department."
+              }
+            }
+          ],
+          "matricCode": "01"
+        },
+        {
+          "code": "ISR",
+          "name": "Department of Intelligent Systems and Robotics",
+          "verification": {
+            "status": "verified",
+            "sources": [
+              {
+                "title": "UNILAG — new faculties announcement",
+                "url": "https://unilag.edu.ng/?p=59443",
+                "accessedOn": "2026-10-19"
+              }
+            ]
+          },
+          "programmes": [
+            {
+              "code": "ISR",
+              "name": "Intelligent Systems and Robotics",
+              "award": "B.Sc.",
+              "durationYears": 4,
+              "verification": {
+                "status": "unverified",
+                "notes": "Programme name and award assumed from the department."
+              }
+            }
+          ],
+          "matricCode": "02"
+        },
+        {
+          "code": "CSE",
+          "name": "Department of Cybersecurity and Software Engineering",
+          "verification": {
+            "status": "verified",
+            "sources": [
+              {
+                "title": "UNILAG — new faculties announcement",
+                "url": "https://unilag.edu.ng/?p=59443",
+                "accessedOn": "2026-10-19"
+              }
+            ]
+          },
+          "programmes": [
+            {
+              "code": "CSE",
+              "name": "Cybersecurity and Software Engineering",
+              "award": "B.Sc.",
+              "durationYears": 4,
+              "verification": {
+                "status": "unverified",
+                "notes": "Programme name and award assumed from the department."
+              }
+            }
+          ],
+          "matricCode": "03"
+        }
+      ],
+      "matricCode": "07"
+    },
+    {
+      "code": "CRA",
+      "name": "Faculty of Creative Arts",
+      "verification": {
+        "status": "verified",
+        "notes": "New faculty from 1 Aug 2025.",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "08"
+    },
+    {
+      "code": "DEN",
+      "name": "Faculty of Dental Sciences",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "09"
+    },
+    {
+      "code": "EDU",
+      "name": "Faculty of Education",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "10"
+    },
+    {
+      "code": "ENG",
+      "name": "Faculty of Engineering",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "departments": [
+        {
+          "code": "CVE",
+          "name": "Department of Civil and Environmental Engineering",
+          "verification": {
+            "status": "unverified"
+          },
+          "programmes": [
+            {
+              "code": "CVE",
+              "name": "Civil Engineering",
+              "award": "B.Sc.",
+              "durationYears": 5,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "01"
+        },
+        {
+          "code": "EEE",
+          "name": "Department of Electrical and Electronics Engineering",
+          "verification": {
+            "status": "unverified"
+          },
+          "programmes": [
+            {
+              "code": "EEE",
+              "name": "Electrical and Electronics Engineering",
+              "award": "B.Sc.",
+              "durationYears": 5,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "02"
+        },
+        {
+          "code": "MEE",
+          "name": "Department of Mechanical Engineering",
+          "verification": {
+            "status": "unverified"
+          },
+          "programmes": [
+            {
+              "code": "MEE",
+              "name": "Mechanical Engineering",
+              "award": "B.Sc.",
+              "durationYears": 5,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "03"
+        }
+      ],
+      "matricCode": "11"
+    },
+    {
+      "code": "ENV",
+      "name": "Faculty of Environmental Sciences",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "12"
+    },
+    {
+      "code": "HPR",
+      "name": "Faculty of Health Professions",
+      "verification": {
+        "status": "verified",
+        "notes": "New faculty from 1 Aug 2025.",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "13"
+    },
+    {
+      "code": "LAW",
+      "name": "Faculty of Law",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "departments": [
+        {
+          "code": "PUL",
+          "name": "Department of Public Law",
+          "verification": {
+            "status": "unverified"
+          },
+          "programmes": [
+            {
+              "code": "LLB",
+              "name": "Law",
+              "award": "LL.B.",
+              "durationYears": 5,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "01"
+        }
+      ],
+      "matricCode": "14"
+    },
+    {
+      "code": "LSC",
+      "name": "Faculty of Life Sciences",
+      "verification": {
+        "status": "verified",
+        "notes": "New faculty from 1 Aug 2025 (from the former Faculty of Science).",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "15"
+    },
+    {
+      "code": "MGT",
+      "name": "Faculty of Management Sciences",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "departments": [
+        {
+          "code": "ACC",
+          "name": "Department of Accounting",
+          "verification": {
+            "status": "unverified"
+          },
+          "programmes": [
+            {
+              "code": "ACC",
+              "name": "Accounting",
+              "award": "B.Sc.",
+              "durationYears": 4,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "01"
+        },
+        {
+          "code": "BUS",
+          "name": "Department of Business Administration",
+          "verification": {
+            "status": "unverified"
+          },
+          "programmes": [
+            {
+              "code": "BUS",
+              "name": "Business Administration",
+              "award": "B.Sc.",
+              "durationYears": 4,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "02"
+        }
+      ],
+      "matricCode": "16"
+    },
+    {
+      "code": "PHA",
+      "name": "Faculty of Pharmacy",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "matricCode": "17"
+    },
+    {
+      "code": "PES",
+      "name": "Faculty of Physical and Earth Sciences",
+      "verification": {
+        "status": "verified",
+        "notes": "New faculty from 1 Aug 2025 (from the former Faculty of Science).",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "departments": [
+        {
+          "code": "MTH",
+          "name": "Department of Mathematics",
+          "verification": {
+            "status": "unverified",
+            "notes": "Placement under this new faculty is assumed, not sourced."
+          },
+          "programmes": [
+            {
+              "code": "MTH",
+              "name": "Mathematics",
+              "award": "B.Sc.",
+              "durationYears": 4,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "01"
+        }
+      ],
+      "matricCode": "18"
+    },
+    {
+      "code": "SSC",
+      "name": "Faculty of Social Sciences",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Faculties",
+            "url": "https://unilag.edu.ng/faculties/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "departments": [
+        {
+          "code": "ECO",
+          "name": "Department of Economics",
+          "verification": {
+            "status": "unverified"
+          },
+          "programmes": [
+            {
+              "code": "ECO",
+              "name": "Economics",
+              "award": "B.Sc.",
+              "durationYears": 4,
+              "verification": {
+                "status": "unverified"
+              }
+            }
+          ],
+          "matricCode": "01"
+        }
+      ],
+      "matricCode": "19"
+    }
+  ],
+  "sessions": [
+    {
+      "name": "2026/2027",
+      "startsOn": "2026-10-05",
+      "endsOn": "2027-08-27",
+      "isCurrent": true
+    }
+  ],
+  "locations": [
+    {
+      "slug": "senate-house",
+      "name": "Senate House",
+      "category": "administrative",
+      "description": "Eleven-storey administrative building and campus landmark.",
+      "zone": "senate",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "ACCB 2026 — venue information",
+            "url": "https://conbio.org/mini-sites/accb-2026/visitor-info/venue/",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "UNILAG — Sofoluwe Park recommissioned",
+            "url": "https://unilag.edu.ng/?p=14156",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "world": {
+        "zone": "unilag-senate-lagoon",
+        "x": 0,
+        "z": -6,
+        "radius": 9
+      },
+      "activities": [
+        {
+          "key": "admire-tower",
+          "label": "Look up at the tower",
+          "kind": "explore",
+          "message": "Eleven floors of admin. Most offices for your paperwork are in here."
+        }
+      ]
+    },
+    {
+      "slug": "sofoluwe-park",
+      "name": "Prof. Adetokunbo Sofoluwe Park",
+      "aliases": [
+        "Sofoluwe Park"
+      ],
+      "category": "park",
+      "description": "Memorial park beside Senate House with a statue and memorial wall; recommissioned in 2022.",
+      "zone": "senate",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Sofoluwe Park recommissioned",
+            "url": "https://unilag.edu.ng/?p=14156",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "world": {
+        "zone": "unilag-senate-lagoon",
+        "x": 16,
+        "z": -6,
+        "radius": 6
+      },
+      "activities": [
+        {
+          "key": "sit-in-park",
+          "label": "Sit for a while",
+          "kind": "rest",
+          "message": "You find shade by the memorial wall. Small breeze, small peace."
+        },
+        {
+          "key": "read-plaque",
+          "label": "Read the memorial plaque",
+          "kind": "explore",
+          "message": "The park honours Prof. Adetokunbo Sofoluwe, the 10th Vice-Chancellor."
+        }
+      ]
+    },
+    {
+      "slug": "lagoon-front",
+      "name": "Lagoon Front",
+      "category": "recreation",
+      "description": "Waterfront on the Lagos Lagoon facing the Third Mainland Bridge; remodelled in 2021.",
+      "zone": "lagoon-front",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Campus",
+            "url": "https://unilag.edu.ng/campus/",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "ThisDay — UNILAG waterfront",
+            "url": "https://thisdaylive.com/index.php/2018/10/13/unilag-waterfront-an-untapped-tourist-destination",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "world": {
+        "zone": "unilag-senate-lagoon",
+        "x": -4,
+        "z": -38,
+        "radius": 10
+      },
+      "activities": [
+        {
+          "key": "catch-breeze",
+          "label": "Catch the lagoon breeze",
+          "kind": "hangout",
+          "message": "Third Mainland Bridge traffic crawls in the distance. Everybody comes here to gist and cool off."
+        },
+        {
+          "key": "take-photo",
+          "label": "Take a picture",
+          "kind": "rest",
+          "message": "Golden-hour lagoon picture: certified profile-photo material."
+        }
+      ]
+    },
+    {
+      "slug": "mad-house",
+      "name": "MAD House",
+      "aliases": [
+        "Madhouse"
+      ],
+      "category": "other",
+      "description": "Creative incubation space, completed in 2023.",
+      "zone": "lagoon-front",
+      "verification": {
+        "status": "verified",
+        "notes": "Existence verified. That it sits by the Lagoon Front is implied by the Oct 2023 visit, not stated — the zone is an assumption.",
+        "sources": [
+          {
+            "title": "UNILAG — German Chancellor arrives via Lagoon Front, visits MAD House",
+            "url": "https://unilag.edu.ng/german-chancellor-arrives-unilag-via-lagoon-front-visits-mad-house/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "world": {
+        "zone": "unilag-senate-lagoon",
+        "x": 24,
+        "z": -30,
+        "radius": 6
+      },
+      "activities": [
+        {
+          "key": "peek-studio",
+          "label": "Peek into the studio",
+          "kind": "explore",
+          "message": "Creatives working on designs and shoots. It's a creative incubation space."
+        }
+      ]
+    },
+    {
+      "slug": "jf-ade-ajayi-auditorium",
+      "name": "J.F. Ade Ajayi Auditorium",
+      "aliases": [
+        "Main Auditorium"
+      ],
+      "category": "auditorium",
+      "description": "Main auditorium; renovated in 2025 and reopened with over 2,000 new seats.",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — auditorium reopening",
+            "url": "https://unilag.edu.ng/?p=63142",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "UNILAG — auditorium closed for renovation",
+            "url": "https://unilag.edu.ng/?p=55092",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "world": {
+        "zone": "unilag-senate-lagoon",
+        "x": -24,
+        "z": -6,
+        "radius": 9
+      },
+      "activities": [
+        {
+          "key": "check-events",
+          "label": "Check the events board",
+          "kind": "explore",
+          "message": "Convocations, orientations and big lectures happen here. Over 2,000 seats since the 2025 renovation."
+        }
+      ]
+    },
+    {
+      "slug": "university-library",
+      "name": "University of Lagos Library",
+      "aliases": [
+        "Main Library",
+        "UNILAG Library"
+      ],
+      "category": "library",
+      "verification": {
+        "status": "verified",
+        "notes": "\"Nimbe Adedipe Library\" is FUNAAB's library, not UNILAG's.",
+        "sources": [
+          {
+            "title": "UNILAG Library",
+            "url": "https://library.unilag.edu.ng",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "Wikipedia — University of Lagos Library",
+            "url": "https://en.wikipedia.org/wiki/University_of_Lagos_Library",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "world": {
+        "zone": "unilag-senate-lagoon",
+        "x": -22,
+        "z": 18,
+        "radius": 8
+      },
+      "activities": [
+        {
+          "key": "study",
+          "label": "Find a reading spot",
+          "kind": "study",
+          "message": "Quiet floors, cold AC, and seniors already deep in past questions. You read for a solid hour."
+        }
+      ]
+    },
+    {
+      "slug": "sports-centre",
+      "name": "Sports Centre",
+      "category": "sports",
+      "description": "Football pitch, basketball court, swimming pool and athletics complex.",
+      "zone": "sports",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Campus",
+            "url": "https://unilag.edu.ng/campus/",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "UNILAG — sports facilities",
+            "url": "https://unilag.edu.ng/?p=56787",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "new-hall-complex",
+      "name": "New Hall Complex",
+      "category": "hostel",
+      "description": "Hostel area that houses the 2001 Cafeteria.",
+      "zone": "new-hall",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2001 Cafeteria refurbished",
+            "url": "https://unilag.edu.ng/?p=48306",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "2001-cafeteria",
+      "name": "2001 Cafeteria",
+      "aliases": [
+        "2k1"
+      ],
+      "category": "food",
+      "parent": "new-hall-complex",
+      "description": "Main university cafeteria; refurbished in 2024.",
+      "zone": "new-hall",
+      "verification": {
+        "status": "verified",
+        "notes": "The nickname \"2k1\" was not found in any source (community name, unverified).",
+        "sources": [
+          {
+            "title": "UNILAG — 2001 Cafeteria refurbished",
+            "url": "https://unilag.edu.ng/?p=48306",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "world": {
+        "zone": "unilag-senate-lagoon",
+        "x": 22,
+        "z": 18,
+        "radius": 7
+      },
+      "activities": [
+        {
+          "key": "buy-jollof",
+          "label": "Buy jollof rice & plantain",
+          "kind": "eat",
+          "message": "Smoky jollof, dodo on the side, plus one cold drink. Your stomach says thank you."
+        },
+        {
+          "key": "buy-swallow",
+          "label": "Buy amala & ewedu",
+          "kind": "eat",
+          "message": "Hot amala with ewedu and gbegiri. Proper."
+        },
+        {
+          "key": "sit-and-gist",
+          "label": "Sit and gist",
+          "kind": "hangout",
+          "message": "You share a table with other freshers comparing timetables."
+        }
+      ]
+    },
+    {
+      "slug": "tayo-aderinokun-hall",
+      "name": "Tayo Aderinokun Hall",
+      "category": "auditorium",
+      "description": "Hall used for swearing-in ceremonies.",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Students' Union restored",
+            "url": "https://unilag.edu.ng/?p=71378",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "afe-babalola-auditorium",
+      "name": "Afe Babalola Auditorium",
+      "category": "auditorium",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Campus",
+            "url": "https://unilag.edu.ng/campus/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "amphitheatre",
+      "name": "Amphi Theatre",
+      "category": "recreation",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Campus",
+            "url": "https://unilag.edu.ng/campus/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "university-bookshop",
+      "name": "University Bookshop",
+      "aliases": [
+        "Bookshop"
+      ],
+      "category": "bookshop",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Campus",
+            "url": "https://unilag.edu.ng/campus/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "unilag-museum",
+      "name": "UNILAG Museum",
+      "category": "landmark",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Campus",
+            "url": "https://unilag.edu.ng/campus/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "unilag-chapel",
+      "name": "UNILAG Chapel",
+      "category": "religious",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Campus",
+            "url": "https://unilag.edu.ng/campus/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "unilag-mosque",
+      "name": "UNILAG Mosque",
+      "category": "religious",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Campus",
+            "url": "https://unilag.edu.ng/campus/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "medical-centre",
+      "name": "UNILAG Medical Centre",
+      "aliases": [
+        "Medical Centre"
+      ],
+      "category": "health",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — Medical Centre laboratory",
+            "url": "https://unilag.edu.ng/?p=23945",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "UNILAG — telemedicine booths",
+            "url": "https://unilag.edu.ng/?p=18064",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "campus-bus-service",
+      "name": "Campus Bus Service",
+      "category": "transport",
+      "description": "Lagos State / LAMATA buses on Yaba–UNILAG and Bariga–UNILAG routes, 6am–10pm, paid with Cowry cards. Internal stop locations not found.",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — campus bus services commence",
+            "url": "https://unilag.edu.ng/unilag-in-collaboration-with-lasg-commences-campus-bus-services/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "world": {
+        "zone": "unilag-senate-lagoon",
+        "x": 0,
+        "z": 38,
+        "radius": 5
+      },
+      "activities": [
+        {
+          "key": "check-routes",
+          "label": "Check bus routes",
+          "kind": "explore",
+          "message": "Yaba–UNILAG and Bariga–UNILAG buses run 6am–10pm. Tap your Cowry card and you're in."
+        }
+      ]
+    },
+    {
+      "slug": "moremi-cab-shuttle-park",
+      "name": "Moremi Cab Shuttle Park",
+      "category": "transport",
+      "verification": {
+        "status": "unverified",
+        "notes": "Single news source (2017 rebuild plan); current state unknown.",
+        "sources": [
+          {
+            "title": "ThisDay — alumni to rebuild cab shuttle park",
+            "url": "https://thisdaylive.com/index.php/2017/11/22/unilag-alumni-to-rebuild-cab-shuttle-park-shops",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "main-gate",
+      "name": "Main Gate",
+      "category": "gate",
+      "zone": "main-gate",
+      "verification": {
+        "status": "unverified",
+        "notes": "Existence is common knowledge; location details only from community guides."
+      }
+    },
+    {
+      "slug": "back-gate",
+      "name": "Back Gate",
+      "category": "gate",
+      "verification": {
+        "status": "unverified",
+        "notes": "Community guides only."
+      }
+    },
+    {
+      "slug": "uba-park",
+      "name": "UBA Park",
+      "category": "transport",
+      "description": "Reported park near the main gate and taxi park.",
+      "zone": "main-gate",
+      "verification": {
+        "status": "unverified",
+        "notes": "Not found in any source during 2026-10-19 research — kept as a candidate from the research brief."
+      }
+    },
+    {
+      "slug": "student-union-building",
+      "name": "Student Union Building",
+      "aliases": [
+        "SUB"
+      ],
+      "category": "administrative",
+      "verification": {
+        "status": "unverified",
+        "notes": "No source confirms a dedicated SUB building; the restored union got temporary office space in March 2026."
+      }
+    },
+    {
+      "slug": "salado",
+      "name": "Salado",
+      "category": "food",
+      "description": "Eatery known for salads; one review places it near the multipurpose hall.",
+      "verification": {
+        "status": "unverified",
+        "notes": "Brief said \"Salado Cafeteria, SUB\" — no source links it to a SUB. Based on a 2018 article; may have moved or closed.",
+        "sources": [
+          {
+            "title": "Zikoko — top places to eat in UNILAG",
+            "url": "https://www.zikoko.com/general/these-are-the-top-7-places-to-eat-in-unilag/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "red-bricks",
+      "name": "Red Bricks",
+      "category": "food",
+      "description": "Cluster of eateries.",
+      "verification": {
+        "status": "unverified",
+        "notes": "2018 article only. Nothing links Red Bricks to Moremi.",
+        "sources": [
+          {
+            "title": "Zikoko — top places to eat in UNILAG",
+            "url": "https://www.zikoko.com/general/these-are-the-top-7-places-to-eat-in-unilag/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "shop-10",
+      "name": "Shop 10",
+      "category": "food",
+      "description": "Eatery reported behind Jaja hostel (formerly Shop 2 in Red Bricks).",
+      "verification": {
+        "status": "unverified",
+        "notes": "2018 article only.",
+        "sources": [
+          {
+            "title": "Zikoko — top places to eat in UNILAG",
+            "url": "https://www.zikoko.com/general/these-are-the-top-7-places-to-eat-in-unilag/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "iya-moria",
+      "name": "Iya Moria",
+      "category": "food",
+      "description": "Food vendor reported to have started at Ozolua and expanded to DLI.",
+      "verification": {
+        "status": "unverified",
+        "notes": "2018 article only.",
+        "sources": [
+          {
+            "title": "Zikoko — top places to eat in UNILAG",
+            "url": "https://www.zikoko.com/general/these-are-the-top-7-places-to-eat-in-unilag/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "mavise",
+      "name": "Mavise",
+      "category": "food",
+      "verification": {
+        "status": "unverified",
+        "notes": "2018 article only; location not given.",
+        "sources": [
+          {
+            "title": "Zikoko — top places to eat in UNILAG",
+            "url": "https://www.zikoko.com/general/these-are-the-top-7-places-to-eat-in-unilag/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "cafe-one",
+      "name": "Cafe One",
+      "category": "food",
+      "description": "Café and co-working hub with Wi-Fi and meeting rooms.",
+      "verification": {
+        "status": "unverified",
+        "notes": "Directory listing only; exact campus location not found.",
+        "sources": [
+          {
+            "title": "ConnectCiti — Cafe One UNILAG",
+            "url": "https://connectciti.com/listing/cafe-one-unilag",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "indomie-bridge",
+      "name": "Indomie Bridge",
+      "category": "landmark",
+      "verification": {
+        "status": "unverified",
+        "notes": "Not found in any source during 2026-10-19 research — kept as a candidate from the research brief."
+      }
+    },
+    {
+      "slug": "love-garden",
+      "name": "Love Garden",
+      "category": "park",
+      "description": "Shaded garden with concrete benches, described as the university's \"living room\".",
+      "verification": {
+        "status": "unverified",
+        "notes": "Single source; location not given.",
+        "sources": [
+          {
+            "title": "ACCB 2026 — venue information",
+            "url": "https://conbio.org/mini-sites/accb-2026/visitor-info/venue/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "moremi-hall-garden",
+      "name": "Moremi Hall Garden",
+      "category": "park",
+      "verification": {
+        "status": "unverified",
+        "notes": "Not found in any source during 2026-10-19 research — kept as a candidate from the research brief."
+      }
+    },
+    {
+      "slug": "moremi-alumni-shopping-complex",
+      "name": "Moremi Alumni Shopping Complex",
+      "category": "market",
+      "description": "18-shop complex at the Moremi market.",
+      "verification": {
+        "status": "unverified",
+        "notes": "Single news source.",
+        "sources": [
+          {
+            "title": "Guardian — UNILAG alumni unveil shopping complex",
+            "url": "https://m.guardian.ng/news/unilag-alumni-unveil-shopping-complex-to-build-500-bed-hostels/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    }
+  ],
+  "hostels": [
+    {
+      "slug": "king-jaja-hall",
+      "name": "King Jaja Hall",
+      "aliases": [
+        "Jaja"
+      ],
+      "residentGender": "male",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "notes": "Gender from community guides, consistent with the 5 male / 7 female university halls reported by BusinessDay (2026).",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (Jun 2025)",
+            "url": "https://unilag.edu.ng/?p=56246",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "BusinessDay — inside the N1.6bn UNILAG hostel",
+            "url": "https://businessday.ng/investigation/article/inside-the-n1-6bn-unilag-hostel-that-became-part-of-crisis-it-was-built-to-solve/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "mariere-hall",
+      "name": "Mariere Hall",
+      "residentGender": "male",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "notes": "Gender from community guides, consistent with BusinessDay's 5 male halls.",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (May 2025)",
+            "url": "https://unilag.edu.ng/?p=54908",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "BusinessDay — inside the N1.6bn UNILAG hostel",
+            "url": "https://businessday.ng/investigation/article/inside-the-n1-6bn-unilag-hostel-that-became-part-of-crisis-it-was-built-to-solve/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "eni-njoku-hall",
+      "name": "Eni-Njoku Hall",
+      "aliases": [
+        "Eni Njoku"
+      ],
+      "residentGender": "male",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "notes": "Official spelling is hyphenated. Gender from a community guide plus the 5-male count.",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (May 2025)",
+            "url": "https://unilag.edu.ng/?p=54908",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "Nairametrics — hall chairpersons sworn in (Mar 2026)",
+            "url": "https://nairametrics.com/?p=534997",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "saburi-biobaku-hall",
+      "name": "Professor Saburi Biobaku Hall",
+      "aliases": [
+        "Biobaku",
+        "Saburi Biobaku Hall"
+      ],
+      "residentGender": "male",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "notes": "Gender from community guides plus the 5-male count.",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (May 2025)",
+            "url": "https://unilag.edu.ng/?p=54908",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "Nairametrics — hall chairpersons sworn in (Mar 2026)",
+            "url": "https://nairametrics.com/?p=534997",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "sodeinde-hall",
+      "name": "Sodeinde Hall",
+      "aliases": [
+        "Shodeinde"
+      ],
+      "residentGender": "male",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "notes": "Spelled \"Shodeinde\" in an official notice. A blog calls it private and the most expensive; BusinessDay lists it as university-managed (N80,000).",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (May 2025)",
+            "url": "https://unilag.edu.ng/?p=54908",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "BusinessDay — inside the N1.6bn UNILAG hostel",
+            "url": "https://businessday.ng/investigation/article/inside-the-n1-6bn-unilag-hostel-that-became-part-of-crisis-it-was-built-to-solve/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "el-kanemi-hall",
+      "name": "El-Kanemi Hall",
+      "aliases": [
+        "El-Kannemi Hall 2"
+      ],
+      "residentGender": "male",
+      "accessRules": "Reported as privately run and excluded from the 2025/26 balloting exercise.",
+      "verification": {
+        "status": "unverified",
+        "notes": "Exists (hall chair sworn in, Mar 2026). Gender from a community guide only; management status unclear.",
+        "sources": [
+          {
+            "title": "Nairametrics — hall chairpersons sworn in (Mar 2026)",
+            "url": "https://nairametrics.com/?p=534997",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 80,
+        "bedsPerRoom": 4
+      },
+      "allocation": {
+        "mode": "direct"
+      }
+    },
+    {
+      "slug": "queen-moremi-hall",
+      "name": "Queen Moremi Hall",
+      "aliases": [
+        "Moremi"
+      ],
+      "residentGender": "female",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (Jun 2025)",
+            "url": "https://unilag.edu.ng/?p=56246",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "UNILAG — interim union election",
+            "url": "https://unilag.edu.ng/?p=70864",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "fagunwa-hall",
+      "name": "Fagunwa Hall",
+      "residentGender": "female",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (Jun 2025)",
+            "url": "https://unilag.edu.ng/?p=56246",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "UNILAG — new hall student leaders 2023/2024",
+            "url": "https://unilag.edu.ng/unilag-vc-inaugurates-new-hall-of-residence-students-leaders-for-2023-2024-academic-session",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "kofo-ademola-hall",
+      "name": "Madam Kofo Ademola Hall",
+      "aliases": [
+        "Kofo Ademola",
+        "Kofo"
+      ],
+      "residentGender": "female",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (Jun 2025)",
+            "url": "https://unilag.edu.ng/?p=56246",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "Nairametrics — hall chairpersons sworn in (Mar 2026)",
+            "url": "https://nairametrics.com/?p=534997",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "madam-tinubu-hall",
+      "name": "Madam Tinubu Hall",
+      "aliases": [
+        "Tinubu"
+      ],
+      "residentGender": "female",
+      "location": "new-hall-complex",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "notes": "Placement in the New Hall area is from a community guide (unverified).",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (Jun 2025)",
+            "url": "https://unilag.edu.ng/?p=56246",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "Nairametrics — hall chairpersons sworn in (Mar 2026)",
+            "url": "https://nairametrics.com/?p=534997",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "honours-hall",
+      "name": "Honours Hall",
+      "residentGender": "female",
+      "capacity": 511,
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "accessRules": "Under renovation (reported January 2026).",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (May 2025)",
+            "url": "https://unilag.edu.ng/?p=54908",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "AllAfrica — UNILAG accommodation (Jan 2026)",
+            "url": "https://allafrica.com/stories/202601070462.html",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 128,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "queen-amina-hall",
+      "name": "Queen Amina Hall",
+      "aliases": [
+        "Amina"
+      ],
+      "residentGender": "female",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (May 2025)",
+            "url": "https://unilag.edu.ng/?p=54908",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "Nairametrics — hall chairpersons sworn in (Mar 2026)",
+            "url": "https://nairametrics.com/?p=534997",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "makama-bida-hall",
+      "name": "Makama Bida Hall",
+      "aliases": [
+        "Makama-Bida"
+      ],
+      "residentGender": "female",
+      "allocation": {
+        "eligibleLevels": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "mode": "ballot"
+      },
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — hall renovation notice (May 2025)",
+            "url": "https://unilag.edu.ng/?p=54908",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "Nairametrics — hall chairpersons sworn in (Mar 2026)",
+            "url": "https://nairametrics.com/?p=534997",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 120,
+        "bedsPerRoom": 4
+      }
+    },
+    {
+      "slug": "femi-gbajabiamila-hall",
+      "name": "Femi Gbajabiamila Hall",
+      "aliases": [
+        "Gbaja Hall"
+      ],
+      "residentGender": "mixed",
+      "capacity": 484,
+      "accessRules": "Commercially run; excluded from balloting.",
+      "verification": {
+        "status": "unverified",
+        "notes": "Existence and capacity verified (BusinessDay 2026, hall chair sworn in Mar 2026). Resident gender NOT stated in any source — \"mixed\" is a placeholder.",
+        "sources": [
+          {
+            "title": "BusinessDay — inside the N1.6bn UNILAG hostel",
+            "url": "https://businessday.ng/investigation/article/inside-the-n1-6bn-unilag-hostel-that-became-part-of-crisis-it-was-built-to-solve/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 121,
+        "bedsPerRoom": 4
+      },
+      "allocation": {
+        "mode": "direct"
+      }
+    },
+    {
+      "slug": "ulws-hostel",
+      "name": "UNILAG Women Society Hostel",
+      "aliases": [
+        "ULWS Hostel"
+      ],
+      "residentGender": "female",
+      "accessRules": "Privately run; excluded from balloting.",
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2025/2026 hostel balloting notice",
+            "url": "https://unilag.edu.ng/notice-to-200-500-level-students-on2025-2026-hostel-accommodation-balloting-exercise/",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "BusinessDay — inside the N1.6bn UNILAG hostel",
+            "url": "https://businessday.ng/investigation/article/inside-the-n1-6bn-unilag-hostel-that-became-part-of-crisis-it-was-built-to-solve/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      },
+      "roomPlan": {
+        "rooms": 60,
+        "bedsPerRoom": 2
+      },
+      "allocation": {
+        "mode": "direct"
+      }
+    },
+    {
+      "slug": "henry-carr-hall",
+      "name": "Henry Carr Hall",
+      "residentGender": "mixed",
+      "verification": {
+        "status": "unverified",
+        "notes": "Only one student blog lists it (as mixed). Absent from official 2025 notices and the 2026 hall-chair list — likely wrong.",
+        "sources": [
+          {
+            "title": "studentship.com.ng (2024)",
+            "url": "https://studentship.com.ng",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "erastus-akingbola-hall",
+      "name": "Erastus Akingbola Hall",
+      "residentGender": "mixed",
+      "verification": {
+        "status": "unverified",
+        "notes": "Only one student blog lists it (as mixed). Absent from official 2025 notices and the 2026 hall-chair list — likely wrong.",
+        "sources": [
+          {
+            "title": "studentship.com.ng (2024)",
+            "url": "https://studentship.com.ng",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    }
+  ],
+  "leadershipPositions": [
+    {
+      "code": "PRES",
+      "title": "President",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 1,
+      "verification": {
+        "status": "verified",
+        "notes": "Union restored in March 2026 after a 2016 suspension. Central-post eligibility rules were not published; the university default (faculty/department rules) applies.",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "Blueprint — UNILAG restores students' union",
+            "url": "https://blueprint.ng/unilag-restores-students-union-10-years-after-suspension/",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "VP1",
+      "title": "Vice-President I",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 2,
+      "isElected": false,
+      "verification": {
+        "status": "verified",
+        "notes": "Ex officio: the ULSU Constitution (Art. 5 s.18(2)) makes the COMPSSA President Vice-President I.",
+        "sources": [
+          {
+            "title": "UNILAG — ULSU constitution briefing",
+            "url": "https://unilag.edu.ng/?p=74910",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "GENSEC",
+      "title": "General Secretary",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 3,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "AGENSEC",
+      "title": "Assistant General Secretary",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 4,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "TREAS",
+      "title": "Treasurer",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 5,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "AUDITOR",
+      "title": "Internal Auditor",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 6,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "PRO",
+      "title": "Public Relations Officer",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 7,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "WELSEC1",
+      "title": "Welfare Secretary I",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 8,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "SOCSEC",
+      "title": "Social Secretary",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 9,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "SPORTSEC",
+      "title": "Sports Secretary",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 10,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "HESSEC",
+      "title": "Health and Environmental Safety Secretary",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 11,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "GISEC",
+      "title": "Gender and Inclusion Secretary",
+      "body": "University of Lagos Students' Union (ULSU)",
+      "scope": "university",
+      "rank": 12,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "SPEAKER",
+      "title": "Speaker",
+      "body": "Students' Union Parliament",
+      "scope": "university",
+      "rank": 20,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "DSPEAKER",
+      "title": "Deputy Speaker",
+      "body": "Students' Union Parliament",
+      "scope": "university",
+      "rank": 21,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "CLERK",
+      "title": "Clerk of Parliament",
+      "body": "Students' Union Parliament",
+      "scope": "university",
+      "rank": 22,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "DCLERK",
+      "title": "Deputy Clerk of Parliament",
+      "body": "Students' Union Parliament",
+      "scope": "university",
+      "rank": 23,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "CHIEFWHIP",
+      "title": "Chief Whip",
+      "body": "Students' Union Parliament",
+      "scope": "university",
+      "rank": 24,
+      "verification": {
+        "status": "verified",
+        "sources": [
+          {
+            "title": "UNILAG — 2026/27 ULSU executive inaugurated",
+            "url": "https://unilag.edu.ng/?p=77630",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "FACPRES",
+      "title": "Faculty President",
+      "body": "Faculty Students' Association",
+      "scope": "faculty",
+      "rank": 1,
+      "candidateEligibility": {
+        "minCgpa": 3,
+        "excludeFreshers": true,
+        "excludeFinalYear": true,
+        "requireGoodStanding": true,
+        "requireScopeMembership": true
+      },
+      "verification": {
+        "status": "verified",
+        "notes": "2025/26 guidelines: one full session completed, CGPA ≥ 3.0, no outstanding carry-overs, freshers and finalists may vote but not contest, one elective post per year.",
+        "sources": [
+          {
+            "title": "UNILAG — 2025/2026 faculty and departmental election guidelines",
+            "url": "https://unilag.edu.ng/?p=58666",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "DEPTPRES",
+      "title": "Departmental President",
+      "body": "Departmental Students' Association",
+      "scope": "department",
+      "rank": 1,
+      "candidateEligibility": {
+        "minCgpa": 3,
+        "excludeFreshers": true,
+        "excludeFinalYear": true,
+        "requireGoodStanding": true,
+        "requireScopeMembership": true
+      },
+      "verification": {
+        "status": "unverified",
+        "notes": "Departmental executives and their election rules are verified; the exact title \"Departmental President\" is assumed.",
+        "sources": [
+          {
+            "title": "UNILAG — 2025/2026 faculty and departmental election guidelines",
+            "url": "https://unilag.edu.ng/?p=58666",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    },
+    {
+      "code": "HALLCHAIR",
+      "title": "Hall Chairperson",
+      "body": "Hall Executive Council",
+      "scope": "hall",
+      "rank": 1,
+      "candidateEligibility": {
+        "excludeFreshers": true,
+        "requireGoodStanding": true,
+        "requireScopeMembership": true
+      },
+      "verification": {
+        "status": "verified",
+        "notes": "Title verified. The candidate rules (residents only, no freshers) are a game design choice.",
+        "sources": [
+          {
+            "title": "UNILAG — new hall student leaders 2023/2024",
+            "url": "https://unilag.edu.ng/unilag-vc-inaugurates-new-hall-of-residence-students-leaders-for-2023-2024-academic-session",
+            "accessedOn": "2026-10-19"
+          },
+          {
+            "title": "Nairametrics — hall chairpersons sworn in (Mar 2026)",
+            "url": "https://nairametrics.com/?p=534997",
+            "accessedOn": "2026-10-19"
+          }
+        ]
+      }
+    }
+  ],
+  "npcs": [
+    {
+      "key": "tobi-campus-guide",
+      "name": "Tobi",
+      "role": "300L student guide",
+      "zone": "unilag-senate-lagoon",
+      "x": 3,
+      "z": 33,
+      "rotY": 3.14,
+      "verification": {
+        "status": "proposed",
+        "notes": "Fictional game character."
+      },
+      "look": {
+        "appearance": {
+          "bodyType": "average",
+          "height": 1,
+          "skinTone": "tone-3",
+          "hairColor": "black",
+          "hairStyle": "hair-low-cut"
+        },
+        "equipped": {
+          "top": {
+            "item": "polo-shirt",
+            "color": "#16a34a"
+          },
+          "bottom": {
+            "item": "chinos",
+            "color": "#c2b280"
+          },
+          "shoes": {
+            "item": "sneakers",
+            "color": "#f4f1ea"
+          },
+          "accessory": {
+            "item": "backpack",
+            "color": "#1c1c1f"
+          }
+        }
+      },
+      "dialogue": {
+        "start": {
+          "text": "Fresher! Welcome to Akoka. How far? You look like person wey dey find somewhere.",
+          "options": [
+            {
+              "label": "Where can I go around here?",
+              "next": "places"
+            },
+            {
+              "label": "Show me the way somewhere",
+              "action": "directions"
+            },
+            {
+              "label": "Any tips for a fresher?",
+              "next": "tips"
+            },
+            {
+              "label": "I'm fine, thanks",
+              "action": "end"
+            }
+          ]
+        },
+        "places": {
+          "text": "Senate House is the tall one straight ahead. Library on your left, 2001 Cafeteria on your right for food, and Lagoon Front at the back. Everybody ends up there.",
+          "options": [
+            {
+              "label": "Take me to one of them",
+              "action": "directions"
+            },
+            {
+              "label": "Thanks!",
+              "action": "end"
+            }
+          ]
+        },
+        "tips": {
+          "text": "Carry your ID card everywhere, don't miss the first week of lectures, and when you're lost, ask. Nobody will laugh. Well, maybe small.",
+          "options": [
+            {
+              "label": "Haha, noted",
+              "action": "end"
+            },
+            {
+              "label": "Where should I go first?",
+              "next": "places"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "mr-okafor-security",
+      "name": "Mr. Okafor",
+      "role": "Campus security officer",
+      "zone": "unilag-senate-lagoon",
+      "x": -6,
+      "z": 4,
+      "rotY": 0.3,
+      "verification": {
+        "status": "proposed",
+        "notes": "Fictional game character."
+      },
+      "look": {
+        "appearance": {
+          "bodyType": "average",
+          "height": 1,
+          "skinTone": "tone-2",
+          "hairColor": "black",
+          "hairStyle": "hair-low-cut"
+        },
+        "equipped": {
+          "top": {
+            "item": "button-shirt",
+            "color": "#1e3a5f"
+          },
+          "bottom": {
+            "item": "chinos",
+            "color": "#1c1c1f"
+          },
+          "shoes": {
+            "item": "loafers",
+            "color": "#1c1c1f"
+          },
+          "headwear": {
+            "item": "cap",
+            "color": "#1e3a5f"
+          }
+        }
+      },
+      "dialogue": {
+        "start": {
+          "text": "Good afternoon. Make sure you have your ID with you. Are you looking for somewhere?",
+          "options": [
+            {
+              "label": "Yes, can you direct me?",
+              "action": "directions"
+            },
+            {
+              "label": "What is this building?",
+              "next": "senate"
+            },
+            {
+              "label": "No, just looking around",
+              "action": "end"
+            }
+          ]
+        },
+        "senate": {
+          "text": "This is Senate House, eleven floors. Most administrative offices are inside. The park beside it is Sofoluwe Park.",
+          "options": [
+            {
+              "label": "Direct me somewhere",
+              "action": "directions"
+            },
+            {
+              "label": "Thank you, sir",
+              "action": "end"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "aunty-kemi-cafeteria",
+      "name": "Aunty Kemi",
+      "role": "Cafeteria attendant",
+      "zone": "unilag-senate-lagoon",
+      "x": 17,
+      "z": 23,
+      "rotY": -0.6,
+      "verification": {
+        "status": "proposed",
+        "notes": "Fictional game character."
+      },
+      "look": {
+        "appearance": {
+          "bodyType": "average",
+          "height": 1,
+          "skinTone": "tone-4",
+          "hairColor": "black",
+          "hairStyle": "hair-bun"
+        },
+        "equipped": {
+          "top": {
+            "item": "blouse",
+            "color": "#ea580c"
+          },
+          "bottom": {
+            "item": "skirt",
+            "color": "#1c1c1f"
+          },
+          "shoes": {
+            "item": "sandals",
+            "color": "#8b5e34"
+          },
+          "headwear": {
+            "item": "gele",
+            "color": "#f5b70a"
+          }
+        }
+      },
+      "dialogue": {
+        "start": {
+          "text": "My dear, you don chop? Jollof dey, amala dey, plantain still hot. Come inside!",
+          "options": [
+            {
+              "label": "What's good today?",
+              "next": "menu"
+            },
+            {
+              "label": "Where else can I go?",
+              "action": "directions"
+            },
+            {
+              "label": "Later, Aunty",
+              "action": "end"
+            }
+          ]
+        },
+        "menu": {
+          "text": "Jollof and dodo is the favourite. If you want swallow, take amala and ewedu. Students love it after lectures.",
+          "options": [
+            {
+              "label": "Sounds good!",
+              "action": "end"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "zainab-lagoon",
+      "name": "Zainab",
+      "role": "200L student",
+      "zone": "unilag-senate-lagoon",
+      "x": -11,
+      "z": -32,
+      "rotY": 2.4,
+      "verification": {
+        "status": "proposed",
+        "notes": "Fictional game character."
+      },
+      "look": {
+        "appearance": {
+          "bodyType": "average",
+          "height": 1,
+          "skinTone": "tone-5",
+          "hairColor": "dark-brown",
+          "hairStyle": "hair-braids"
+        },
+        "equipped": {
+          "top": {
+            "item": "tshirt",
+            "color": "#7c3aed"
+          },
+          "bottom": {
+            "item": "jeans",
+            "color": "#1e3a5f"
+          },
+          "shoes": {
+            "item": "sneakers",
+            "color": "#f4f1ea"
+          },
+          "eyewear": {
+            "item": "sunglasses",
+            "color": "#1c1c1f"
+          }
+        }
+      },
+      "dialogue": {
+        "start": {
+          "text": "Ehen, another fresher! This Lagoon Front is where we come to cool off after lectures.",
+          "options": [
+            {
+              "label": "Just exploring",
+              "next": "explore"
+            },
+            {
+              "label": "Where else should I see?",
+              "action": "directions"
+            },
+            {
+              "label": "See you around",
+              "action": "end"
+            }
+          ]
+        },
+        "explore": {
+          "text": "Check MAD House over there, creative people do shoots and designs. And find your hostel early, abeg.",
+          "options": [
+            {
+              "label": "Show me the way",
+              "action": "directions"
+            },
+            {
+              "label": "Thanks, Zainab",
+              "action": "end"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

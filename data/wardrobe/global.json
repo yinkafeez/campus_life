@@ -1,0 +1,426 @@
+{
+  "formatVersion": 1,
+  "settings": {
+    "key": "global",
+    "palettes": {
+      "skinTones": [
+        { "key": "tone-1", "name": "Deep", "hex": "#3b2219" },
+        { "key": "tone-2", "name": "Rich", "hex": "#4f2d1f" },
+        { "key": "tone-3", "name": "Cocoa", "hex": "#6b3f2a" },
+        { "key": "tone-4", "name": "Chestnut", "hex": "#865234" },
+        { "key": "tone-5", "name": "Caramel", "hex": "#a4683f" },
+        { "key": "tone-6", "name": "Honey", "hex": "#c18452" },
+        { "key": "tone-7", "name": "Sand", "hex": "#d7a77a" },
+        { "key": "tone-8", "name": "Light", "hex": "#ecc9a5" }
+      ],
+      "hairColors": [
+        { "key": "black", "name": "Black", "hex": "#151110" },
+        { "key": "dark-brown", "name": "Dark brown", "hex": "#2e1d14" },
+        { "key": "auburn", "name": "Auburn", "hex": "#6b2e1c" },
+        { "key": "burgundy", "name": "Burgundy", "hex": "#5a1428" },
+        { "key": "honey-blonde", "name": "Honey blonde", "hex": "#b57f3c" },
+        { "key": "silver", "name": "Silver", "hex": "#9a9aa2" }
+      ],
+      "fabricColors": [
+        "#f4f1ea",
+        "#1c1c1f",
+        "#3b4f44",
+        "#1e3a5f",
+        "#2563eb",
+        "#16a34a",
+        "#0e9356",
+        "#f5b70a",
+        "#ea580c",
+        "#dc2626",
+        "#9f1239",
+        "#7c3aed",
+        "#db2777",
+        "#8b5e34",
+        "#c2b280",
+        "#64748b"
+      ]
+    },
+    "starterLook": {
+      "top": { "item": "tshirt", "color": "#0e9356" },
+      "bottom": { "item": "jeans", "color": "#1e3a5f" },
+      "shoes": { "item": "sneakers", "color": "#f4f1ea" }
+    },
+    "defaultOutfits": {
+      "lecture": {
+        "top": { "item": "polo-shirt", "color": "#1e3a5f" },
+        "bottom": { "item": "chinos", "color": "#c2b280" },
+        "shoes": { "item": "sneakers", "color": "#f4f1ea" },
+        "accessory": { "item": "backpack", "color": "#1c1c1f" }
+      },
+      "matriculation": {
+        "top": { "item": "button-shirt", "color": "#f4f1ea" },
+        "bottom": { "item": "chinos", "color": "#1c1c1f" },
+        "shoes": { "item": "loafers", "color": "#1c1c1f" },
+        "overlay": { "item": "matric-gown", "color": "#1c1c1f" }
+      },
+      "party": {
+        "top": { "item": "ankara-shirt", "color": "#ea580c" },
+        "bottom": { "item": "jeans", "color": "#1c1c1f" },
+        "shoes": { "item": "sneakers", "color": "#f4f1ea" },
+        "eyewear": { "item": "sunglasses", "color": "#1c1c1f" }
+      },
+      "formal": {
+        "fullbody": { "item": "senator-suit", "color": "#1e3a5f" },
+        "shoes": { "item": "loafers", "color": "#8b5e34" },
+        "headwear": { "item": "fila", "color": "#1e3a5f" }
+      },
+      "sports": {
+        "top": { "item": "sports-jersey", "color": "#16a34a" },
+        "bottom": { "item": "shorts", "color": "#f4f1ea" },
+        "shoes": { "item": "sneakers", "color": "#f4f1ea" },
+        "headwear": { "item": "headband", "color": "#f4f1ea" }
+      }
+    }
+  },
+  "items": [
+    {
+      "key": "hair-low-cut",
+      "name": "Low cut",
+      "slot": "hair",
+      "meshKey": "hair-low-cut",
+      "colorable": false,
+      "isStarter": true
+    },
+    {
+      "key": "hair-afro",
+      "name": "Afro",
+      "slot": "hair",
+      "meshKey": "hair-afro",
+      "colorable": false,
+      "isStarter": true
+    },
+    {
+      "key": "hair-braids",
+      "name": "Box braids",
+      "slot": "hair",
+      "meshKey": "hair-braids",
+      "colorable": false,
+      "isStarter": true
+    },
+    {
+      "key": "hair-cornrows",
+      "name": "Cornrows",
+      "slot": "hair",
+      "meshKey": "hair-cornrows",
+      "colorable": false,
+      "isStarter": true
+    },
+    {
+      "key": "hair-bun",
+      "name": "High bun",
+      "slot": "hair",
+      "meshKey": "hair-bun",
+      "colorable": false,
+      "isStarter": true
+    },
+    {
+      "key": "hair-locs",
+      "name": "Locs",
+      "slot": "hair",
+      "meshKey": "hair-locs",
+      "colorable": false,
+      "isStarter": true
+    },
+    {
+      "key": "hair-twists",
+      "name": "Twists",
+      "slot": "hair",
+      "meshKey": "hair-twists",
+      "colorable": false,
+      "isStarter": true
+    },
+    {
+      "key": "hair-bald",
+      "name": "Clean shave",
+      "slot": "hair",
+      "meshKey": "hair-bald",
+      "colorable": false,
+      "isStarter": true
+    },
+
+    {
+      "key": "tshirt",
+      "name": "T-shirt",
+      "slot": "top",
+      "meshKey": "top-tshirt",
+      "occasions": ["lecture", "sports"],
+      "defaultColor": "#0e9356",
+      "isStarter": true
+    },
+    {
+      "key": "polo-shirt",
+      "name": "Polo shirt",
+      "slot": "top",
+      "meshKey": "top-polo",
+      "occasions": ["lecture"],
+      "defaultColor": "#1e3a5f",
+      "isStarter": true
+    },
+    {
+      "key": "button-shirt",
+      "name": "Button-up shirt",
+      "slot": "top",
+      "meshKey": "top-shirt",
+      "occasions": ["lecture", "formal", "matriculation"],
+      "defaultColor": "#f4f1ea",
+      "isStarter": true
+    },
+    {
+      "key": "hoodie",
+      "name": "Hoodie",
+      "slot": "top",
+      "meshKey": "top-hoodie",
+      "occasions": ["lecture"],
+      "defaultColor": "#64748b",
+      "isStarter": true
+    },
+    {
+      "key": "blouse",
+      "name": "Blouse",
+      "slot": "top",
+      "meshKey": "top-blouse",
+      "occasions": ["lecture", "formal"],
+      "defaultColor": "#db2777",
+      "isStarter": true
+    },
+    {
+      "key": "ankara-shirt",
+      "name": "Ankara shirt",
+      "slot": "top",
+      "meshKey": "top-ankara",
+      "occasions": ["party", "formal"],
+      "defaultColor": "#ea580c",
+      "isStarter": true,
+      "description": "Wax-print pattern shirt."
+    },
+    {
+      "key": "sports-jersey",
+      "name": "Sports jersey",
+      "slot": "top",
+      "meshKey": "top-jersey",
+      "occasions": ["sports"],
+      "defaultColor": "#16a34a",
+      "isStarter": true
+    },
+
+    {
+      "key": "jeans",
+      "name": "Jeans",
+      "slot": "bottom",
+      "meshKey": "bottom-trousers",
+      "occasions": ["lecture", "party"],
+      "defaultColor": "#1e3a5f",
+      "isStarter": true
+    },
+    {
+      "key": "chinos",
+      "name": "Chinos",
+      "slot": "bottom",
+      "meshKey": "bottom-trousers",
+      "occasions": ["lecture", "formal", "matriculation"],
+      "defaultColor": "#c2b280",
+      "isStarter": true
+    },
+    {
+      "key": "joggers",
+      "name": "Joggers",
+      "slot": "bottom",
+      "meshKey": "bottom-joggers",
+      "occasions": ["sports"],
+      "defaultColor": "#1c1c1f",
+      "isStarter": true
+    },
+    {
+      "key": "shorts",
+      "name": "Shorts",
+      "slot": "bottom",
+      "meshKey": "bottom-shorts",
+      "occasions": ["sports"],
+      "defaultColor": "#f4f1ea",
+      "isStarter": true
+    },
+    {
+      "key": "skirt",
+      "name": "A-line skirt",
+      "slot": "bottom",
+      "meshKey": "bottom-skirt",
+      "occasions": ["lecture", "formal", "party"],
+      "defaultColor": "#1c1c1f",
+      "isStarter": true
+    },
+
+    {
+      "key": "senator-suit",
+      "name": "Senator suit",
+      "slot": "fullbody",
+      "meshKey": "fullbody-senator",
+      "occasions": ["formal", "party"],
+      "defaultColor": "#1e3a5f",
+      "isStarter": true,
+      "description": "Matching long top and trousers."
+    },
+    {
+      "key": "ankara-gown",
+      "name": "Ankara gown",
+      "slot": "fullbody",
+      "meshKey": "fullbody-gown",
+      "occasions": ["party", "formal"],
+      "defaultColor": "#7c3aed",
+      "isStarter": true
+    },
+    {
+      "key": "agbada",
+      "name": "Agbada",
+      "slot": "fullbody",
+      "meshKey": "fullbody-agbada",
+      "occasions": ["formal"],
+      "defaultColor": "#f4f1ea",
+      "isStarter": false,
+      "price": 2500000,
+      "description": "Flowing wide-sleeved robe for big occasions."
+    },
+    {
+      "key": "iro-and-buba",
+      "name": "Iro and buba",
+      "slot": "fullbody",
+      "meshKey": "fullbody-wrapper",
+      "occasions": ["formal", "party"],
+      "defaultColor": "#f5b70a",
+      "isStarter": false,
+      "price": 2000000,
+      "description": "Wrapper skirt with a loose blouse."
+    },
+
+    {
+      "key": "sneakers",
+      "name": "Sneakers",
+      "slot": "shoes",
+      "meshKey": "shoes-sneakers",
+      "occasions": ["lecture", "sports", "party"],
+      "defaultColor": "#f4f1ea",
+      "isStarter": true
+    },
+    {
+      "key": "loafers",
+      "name": "Loafers",
+      "slot": "shoes",
+      "meshKey": "shoes-formal",
+      "occasions": ["formal", "matriculation"],
+      "defaultColor": "#1c1c1f",
+      "isStarter": true
+    },
+    {
+      "key": "sandals",
+      "name": "Sandals",
+      "slot": "shoes",
+      "meshKey": "shoes-sandals",
+      "occasions": ["party"],
+      "defaultColor": "#8b5e34",
+      "isStarter": true
+    },
+    {
+      "key": "slides",
+      "name": "Slides",
+      "slot": "shoes",
+      "meshKey": "shoes-sandals",
+      "occasions": [],
+      "defaultColor": "#1c1c1f",
+      "isStarter": false,
+      "price": 300000
+    },
+
+    {
+      "key": "cap",
+      "name": "Cap",
+      "slot": "headwear",
+      "meshKey": "headwear-cap",
+      "occasions": ["sports", "lecture"],
+      "defaultColor": "#1c1c1f",
+      "isStarter": true
+    },
+    {
+      "key": "headband",
+      "name": "Headband",
+      "slot": "headwear",
+      "meshKey": "headwear-headband",
+      "occasions": ["sports"],
+      "defaultColor": "#f4f1ea",
+      "isStarter": true
+    },
+    {
+      "key": "gele",
+      "name": "Gele",
+      "slot": "headwear",
+      "meshKey": "headwear-gele",
+      "occasions": ["party", "formal"],
+      "defaultColor": "#f5b70a",
+      "isStarter": true,
+      "description": "Tied head wrap."
+    },
+    {
+      "key": "fila",
+      "name": "Fila",
+      "slot": "headwear",
+      "meshKey": "headwear-fila",
+      "occasions": ["formal"],
+      "defaultColor": "#1e3a5f",
+      "isStarter": true,
+      "description": "Traditional cap."
+    },
+
+    {
+      "key": "glasses",
+      "name": "Glasses",
+      "slot": "eyewear",
+      "meshKey": "eyewear-glasses",
+      "occasions": ["lecture"],
+      "defaultColor": "#1c1c1f",
+      "isStarter": true
+    },
+    {
+      "key": "sunglasses",
+      "name": "Sunglasses",
+      "slot": "eyewear",
+      "meshKey": "eyewear-sunglasses",
+      "occasions": ["party"],
+      "defaultColor": "#1c1c1f",
+      "isStarter": true
+    },
+
+    {
+      "key": "backpack",
+      "name": "Backpack",
+      "slot": "accessory",
+      "meshKey": "accessory-backpack",
+      "occasions": ["lecture"],
+      "defaultColor": "#1c1c1f",
+      "isStarter": true
+    },
+    {
+      "key": "wristwatch",
+      "name": "Wristwatch",
+      "slot": "accessory",
+      "meshKey": "accessory-watch",
+      "occasions": ["formal"],
+      "defaultColor": "#c2b280",
+      "isStarter": false,
+      "price": 1500000
+    },
+
+    {
+      "key": "matric-gown",
+      "name": "Matriculation gown",
+      "slot": "overlay",
+      "meshKey": "overlay-gown",
+      "occasions": ["matriculation"],
+      "defaultColor": "#1c1c1f",
+      "isStarter": true,
+      "description": "Generic academic gown (no university insignia)."
+    }
+  ]
+}
