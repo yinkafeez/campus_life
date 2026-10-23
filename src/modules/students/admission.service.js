@@ -1,13 +1,19 @@
 import mongoose from '../../core/db/mongoose.js';
 import AppError from '../../core/errors/AppError.js';
 import University from '../universities/university.model.js';
-import { entryLevelsOf, levelLabel } from '../universities/university.config.js';
+import {
+  entryLevelsOf,
+  levelLabel,
+  onboardingStepsFor,
+  studentTypeOf,
+} from '../universities/university.config.js';
 import Faculty from '../academics/faculty.model.js';
 import Department from '../academics/department.model.js';
 import Programme from '../academics/programme.model.js';
 import AcademicSession from '../academics/academicSession.model.js';
 import StudentRecord from './studentRecord.model.js';
 import Discovery from '../campus/discovery.model.js';
+import AccommodationAssignment from '../accommodation/assignment.model.js';
 import { allocateMatricNumber } from './matric.service.js';
 
 /*
@@ -184,12 +190,40 @@ export async function matriculate(record) {
         { returnDocument: 'after', runValidators: true },
       );
       // someone else matriculated this record first: keep theirs (our serial becomes a gap)
-      return updated ?? StudentRecord.findById(record._id);
+      if (!updated) return StudentRecord.findById(record._id);
+      // no onboarding configured for this kind of student: they're straight in
+      return onboardingStepsFor(
+        university.config,
+        studentTypeOf(university.config, record.entryLevel),
+      ).length
+        ? updated
+        : StudentRecord.findOneAndUpdate(
+            { _id: record._id, status: 'matriculated' },
+            { $set: { status: 'active', 'onboarding.completedAt': new Date() } },
+            { returnDocument: 'after' },
+          );
     } catch (err) {
       if (err?.code !== 11000 || attempt === 3) throw err;
     }
   }
   throw new AppError('Could not allocate a matric number. Please try again.', 503, 'MATRIC_BUSY');
+}
+
+/** Complete every pending hostel-kind onboarding step (called once a bed space is assigned). */
+export async function completeHostelSteps(playerId) {
+  const record = await StudentRecord.findOne({ player: playerId });
+  if (!record || !['matriculated', 'active'].includes(record.status)) return record;
+  const university = await University.findById(record.university);
+  const pending = onboardingStepsFor(
+    university.config,
+    studentTypeOf(university.config, record.entryLevel),
+  )
+    .filter((step) => step.kind === 'hostel')
+    .filter((step) => !record.onboarding.completedSteps.some((el) => el.key === step.key));
+  let latest = record;
+  // eslint-disable-next-line no-await-in-loop -- usually exactly one step
+  for (const step of pending) latest = await completeOnboardingStep(latest, step.key);
+  return latest;
 }
 
 /**
@@ -202,9 +236,23 @@ export async function completeOnboardingStep(record, stepKey) {
     throw invalidState('Onboarding starts after matriculation.');
   }
   const university = await University.findById(record.university);
-  const steps = university.config.onboarding.steps;
+  // freshers and stalites have their own steps (plus the ones for everyone)
+  const steps = onboardingStepsFor(
+    university.config,
+    studentTypeOf(university.config, record.entryLevel),
+  );
   const step = steps.find((el) => el.key === stepKey);
   if (!step) throw AppError.notFound('That onboarding step does not exist.');
+  if (
+    step.kind === 'hostel' &&
+    !(await AccommodationAssignment.exists({ player: record.player, status: 'active' }))
+  ) {
+    throw new AppError(
+      'Choose your hall first — this step completes when you have a bed space.',
+      409,
+      'HOSTEL_REQUIRED',
+    );
+  }
   if (
     step.location &&
     !(await Discovery.exists({ player: record.player, locationSlug: step.location }))

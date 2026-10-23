@@ -219,6 +219,51 @@ describe('admission rules', () => {
   });
 });
 
+describe('freshers and stalites', () => {
+  async function matriculated(entryLevel) {
+    const agent = await signedInPlayer();
+    await agent.patch('/api/v1/players/me').send({ gender: 'male' });
+    await agent.post('/api/v1/students/me/application').send({ ...UNILAG_CSC, entryLevel });
+    await finishReview();
+    await agent.get('/api/v1/students/me');
+    await agent.post('/api/v1/students/me/offer-response').send({ accept: true });
+    const res = await agent.post('/api/v1/students/me/matriculation');
+    expect(res.status).toBe(200);
+    return { agent, student: res.body.data.student };
+  }
+
+  it('a 100L fresher starts orientation at the Main Gate', async () => {
+    const { student } = await matriculated(100);
+    expect(student.studentType).toBe('fresher');
+    expect(student.onboarding.steps[0]).toMatchObject({
+      key: 'arrive-main-gate',
+      location: 'main-gate',
+    });
+    expect(student.onboarding.steps.some((s) => s.key === 'choose-hostel')).toBe(false);
+  });
+
+  it('a stalite chooses a hall directly (no ballot) and is then fully enrolled', async () => {
+    const { agent, student } = await matriculated(200);
+    expect(student.studentType).toBe('stalite');
+    expect(student.onboarding.steps.map((s) => s.key)).toEqual(['choose-hostel']);
+    // the step can't be ticked without a bed
+    const early = await agent.post('/api/v1/students/me/onboarding/choose-hostel');
+    expect(early.body.error.code).toBe('HOSTEL_REQUIRED');
+
+    const halls = await agent.get('/api/v1/accommodation/hostels');
+    expect(halls.body.data.studentType).toBe('stalite');
+    const hall = halls.body.data.hostels.find((h) => h.eligible);
+    expect(hall.mode).toBe('direct');
+
+    const bed = await agent.post('/api/v1/accommodation/me').send({ hostelSlug: hall.slug });
+    expect(bed.status).toBeLessThan(300);
+    expect(bed.body.data.assignment ?? bed.body.data).toBeTruthy();
+    const me = await agent.get('/api/v1/students/me');
+    expect(me.body.data.student.status).toBe('active');
+    expect(me.body.data.student.onboarding.completed).toBe(1);
+  });
+});
+
 describe('matric allocation', () => {
   it('never issues the same number under concurrent matriculation', async () => {
     const agents = await Promise.all(Array.from({ length: 12 }, () => signedInPlayer()));

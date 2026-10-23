@@ -10,6 +10,8 @@ import Player from '../players/player.model.js';
 import { playerCard } from '../social/social.service.js';
 import Hostel from './hostel.model.js';
 import AccommodationAssignment from './assignment.model.js';
+import { studentTypeOf } from '../universities/university.config.js';
+import { completeHostelSteps } from '../students/admission.service.js';
 
 /*
  * HOSTELS (simulated) — eligibility, bed spaces, ballots and roommates.
@@ -80,15 +82,19 @@ export async function listHostelsFor(player) {
     { $group: { _id: '$hostel', n: { $sum: 1 } } },
   ]);
   const takenBy = new Map(taken.map((el) => [String(el._id), el.n]));
+  const studentType = studentTypeOf(university.config, record.entryLevel);
+  const chooses =
+    studentType === 'stalite' && university.config.accommodation.returningStudentsChoose !== false;
 
   return {
     rules: university.config.accommodation,
+    studentType,
     hostels: hostels.map((hostel) => {
       const capacity = capacityOf(hostel);
       const problems = eligibilityProblems(hostel, { player, record });
       return {
         ...hostel,
-        mode: hostel.allocation?.mode ?? 'ballot',
+        mode: chooses ? 'direct' : (hostel.allocation?.mode ?? 'ballot'),
         capacity,
         bedsLeft: Math.max(0, capacity - (takenBy.get(String(hostel._id)) ?? 0)),
         eligible: problems.length === 0,
@@ -141,7 +147,11 @@ export async function requestBed(player, hostelSlug) {
   const problems = eligibilityProblems(hostel, { player, record: context.record });
   if (problems.length) throw new AppError(problems[0], 403, 'NOT_ELIGIBLE', problems);
 
-  const mode = hostel.allocation?.mode ?? 'ballot';
+  // returning students (stalites) pick their hall directly when the university allows it
+  const stalite =
+    studentTypeOf(context.university.config, context.record.entryLevel) === 'stalite' &&
+    context.university.config.accommodation.returningStudentsChoose !== false;
+  const mode = stalite ? 'direct' : (hostel.allocation?.mode ?? 'ballot');
   const current = await AccommodationAssignment.findOne({ player: player._id, holding: true });
   if (current)
     throw new AppError('You already have a bed space or an application.', 409, 'ALREADY_HOUSED');
@@ -176,6 +186,8 @@ export async function requestBed(player, hostelSlug) {
     await AccommodationAssignment.deleteOne({ _id: assignment._id });
     throw new AppError('This hall is full.', 409, 'HOSTEL_FULL');
   }
+  // e.g. a stalite's "choose your hall" onboarding step
+  await completeHostelSteps(player._id);
   return claimed;
 }
 

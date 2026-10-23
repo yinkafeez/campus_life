@@ -29,7 +29,7 @@ describe('University model', () => {
     expect(uni.currency).toBe('NGN');
     expect(uni.location.country).toBe('NG');
     expect(uni.config.matricNumber.sequenceScope).toBe('department');
-    expect(uni.configSchemaVersion).toBe(6);
+    expect(uni.configSchemaVersion).toBe(7);
     expect(uni.createdAt).toBeInstanceOf(Date);
     expect(uni.toJSON().__v).toBeUndefined();
   });

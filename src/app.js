@@ -1,4 +1,5 @@
 import express from 'express';
+import perf from 'node-perf-monitor';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import { pinoHttp } from 'pino-http';
@@ -52,6 +53,8 @@ import {
  */
 export function createApp({ env, logger }) {
   const app = express();
+  // Log request duration for all routes; requests over 300ms will be marked as "slow"
+  app.use(perf(300));
 
   // 1) GLOBAL MIDDLEWARES
   // behind Render / Nginx: trust that many proxies so req.ip and req.secure are correct

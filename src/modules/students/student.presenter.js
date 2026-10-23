@@ -1,5 +1,9 @@
 import University from '../universities/university.model.js';
-import { levelLabel } from '../universities/university.config.js';
+import {
+  levelLabel,
+  onboardingStepsFor,
+  studentTypeOf,
+} from '../universities/university.config.js';
 import Faculty from '../academics/faculty.model.js';
 import Department from '../academics/department.model.js';
 import Programme from '../academics/programme.model.js';
@@ -35,7 +39,9 @@ export async function presentStudent(record) {
   const completedKeys = new Map(
     record.onboarding.completedSteps.map((el) => [el.key, el.completedAt]),
   );
-  const steps = config.onboarding.steps.map((step) => ({
+  // freshers and stalites have different first days
+  const studentType = studentTypeOf(config, record.entryLevel);
+  const steps = onboardingStepsFor(config, studentType).map((step) => ({
     ...step,
     completed: completedKeys.has(step.key),
     completedAt: completedKeys.get(step.key) ?? null,
@@ -53,6 +59,7 @@ export async function presentStudent(record) {
     department,
     programme,
     entryLevel: label(record.entryLevel),
+    studentType,
     currentLevel: label(record.currentLevel),
     session: session
       ? { name: session.name, startsOn: session.startsOn, endsOn: session.endsOn }

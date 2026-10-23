@@ -115,7 +115,8 @@ describe('ballot halls', () => {
   it('apply (202) → the admin draw allocates up to capacity → the rest are unsuccessful', async () => {
     await setRoomPlan('king-jaja-hall', { rooms: 1, bedsPerRoom: 2 });
     const applicants = await Promise.all(
-      Array.from({ length: 3 }, () => student({ gender: 'male', level: 200 })),
+      // freshers now in 200L: the ballot applies (stalites would choose directly)
+      Array.from({ length: 3 }, () => student({ gender: 'male', level: 200, entryLevel: 100 })),
     );
     for (const p of applicants) {
       // eslint-disable-next-line no-await-in-loop -- apply in order

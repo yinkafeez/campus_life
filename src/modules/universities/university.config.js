@@ -10,9 +10,10 @@ import { eligibilityRuleProblems, eligibilityRulesSchema } from '../../shared/el
  * academicActivities and elections; v3 added matric formatVersion/startAt/onExhausted,
  * code-token widths, admission and onboarding; v4 added world zones; v5 added game
  * progression rules; v6 added election timeline/tie-break/campaign rules and leadership
- * privileges).
+ * privileges; v7 added onboarding steps per student type (freshers / stalites) and the
+ * stalite hall choice).
  */
-export const CONFIG_SCHEMA_VERSION = 6;
+export const CONFIG_SCHEMA_VERSION = 7;
 
 export const KEY_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
@@ -149,6 +150,9 @@ const accommodationSchema = z
     applicationRequired: z.boolean().default(true),
     genderSeparated: z.boolean().default(true),
     maxSessionsPerStudent: z.number().int().positive().max(10).optional(),
+    // returning students ("stalites", who enter above the lowest entry level) pick their
+    // hall directly instead of applying to the ballot
+    returningStudentsChoose: z.boolean().default(true),
   })
   .strict();
 
@@ -272,15 +276,23 @@ const admissionSchema = z
   .strict();
 
 // ─── Fresher onboarding ───────────────────────────────────────────────────
+const STUDENT_TYPES_FOR = ['everyone', 'freshers', 'stalites'];
 const onboardingStepSchema = z
   .object({
     key: z.string().trim().max(40).regex(KEY_PATTERN, 'key must be kebab-case'),
     title: z.string().trim().min(2).max(80),
     description: z.string().trim().max(300).optional(),
-    // campus location slug the step happens at (the 3D world will use it)
+    // campus location slug the step happens at (completed by arriving there in the 3D world)
     location: z.string().trim().max(80).regex(KEY_PATTERN).optional(),
+    // who does this step: freshers (entering at the lowest level), stalites (returning
+    // students entering above it), or everyone
+    for: z.enum(STUDENT_TYPES_FOR).default('everyone'),
+    // "hostel": completed by getting a bed space (e.g. a stalite choosing their hall)
+    kind: z.enum(['visit', 'hostel', 'task']).optional(),
   })
   .strict();
+
+export const STUDENT_TYPES = ['fresher', 'stalite'];
 
 const DEFAULT_ONBOARDING_STEPS = [
   {
@@ -409,6 +421,17 @@ export const entryLevelsOf = (config) =>
 /** Display label for a level, e.g. levelLabel(config, 200) → "200L". */
 export const levelLabel = (config, level) =>
   config.levels.labelFormat.replaceAll('{level}', String(level));
+
+/**
+ * "fresher" — entered at the university's lowest entry level (100L);
+ * "stalite" — a returning student entering above it (e.g. 200L direct entry).
+ */
+export const studentTypeOf = (config, entryLevel) =>
+  entryLevel > Math.min(...entryLevelsOf(config)) ? 'stalite' : 'fresher';
+
+/** The onboarding steps a student of this type does (everyone's + their type's). */
+export const onboardingStepsFor = (config, type) =>
+  config.onboarding.steps.filter((step) => step.for === 'everyone' || step.for === `${type}s`);
 
 /** Validate + normalise a config object. Returns zod's safeParse result. */
 export const parseUniversityConfig = (config) => universityConfigSchema.safeParse(config);

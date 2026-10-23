@@ -35,7 +35,7 @@ const clone = (val) => JSON.parse(JSON.stringify(val));
 describe('UNILAG world data', () => {
   it('imports NPCs and world placements from the bundle', async () => {
     const uni = await University.findOne({ slug: 'unilag' });
-    expect(uni.config.world.startZone).toBe('unilag-senate-lagoon');
+    expect(uni.config.world.startZone).toBe('unilag-main-gate'); // new players start at the Main Gate;
     const npcs = await Npc.find({ university: uni._id });
     expect(npcs.length).toBe(UNILAG.npcs.length);
     npcs.forEach((npc) => {

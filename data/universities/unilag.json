@@ -45,7 +45,8 @@
         "allocationStrategy": "lottery",
         "priorityGroups": [],
         "applicationRequired": true,
-        "genderSeparated": true
+        "genderSeparated": true,
+        "returningStudentsChoose": true
       },
       "academicActivities": {
         "types": [
@@ -128,40 +129,60 @@
       "onboarding": {
         "steps": [
           {
+            "key": "arrive-main-gate",
+            "title": "Arrive at the Main Gate",
+            "description": "Your UNILAG story starts at the Akoka entrance. Look up: that is the famous gate.",
+            "location": "main-gate",
+            "for": "freshers"
+          },
+          {
             "key": "collect-id-card",
             "title": "Collect your game student ID card",
             "description": "Your in-game ID shows your fictional Campus Life matric number.",
-            "location": "senate-house"
+            "location": "senate-house",
+            "for": "freshers"
           },
           {
             "key": "fresher-orientation",
             "title": "Attend fresher orientation",
             "description": "Find your seat at the J.F. Ade Ajayi Auditorium.",
-            "location": "jf-ade-ajayi-auditorium"
+            "location": "jf-ade-ajayi-auditorium",
+            "for": "freshers"
           },
           {
             "key": "visit-library",
             "title": "Visit the University Library",
             "description": "Get your bearings in the main library.",
-            "location": "university-library"
+            "location": "university-library",
+            "for": "freshers"
           },
           {
             "key": "first-meal",
             "title": "Grab your first meal on campus",
             "description": "Try the 2001 Cafeteria in the New Hall Complex.",
-            "location": "2001-cafeteria"
+            "location": "2001-cafeteria",
+            "for": "freshers"
           },
           {
             "key": "lagoon-front",
             "title": "Catch the breeze at Lagoon Front",
             "description": "Every fresher ends up here eventually.",
-            "location": "lagoon-front"
+            "location": "lagoon-front",
+            "for": "freshers"
+          },
+          {
+            "key": "choose-hostel",
+            "title": "Choose your hall of residence",
+            "description": "Returning students pick their own hall. Your room is assigned straight away.",
+            "kind": "hostel",
+            "for": "stalites"
           }
         ]
       },
       "world": {
-        "startZone": "unilag-senate-lagoon",
+        "startZone": "unilag-main-gate",
         "zones": [
+          "unilag-main-gate",
           "unilag-senate-lagoon",
           "arrival-plaza"
         ]
@@ -1308,6 +1329,13 @@
       "verification": {
         "status": "unverified",
         "notes": "Existence is common knowledge; location details only from community guides."
+      },
+      "description": "The Akoka entrance on University Road, with its tall twin-wing monument and footbridge. Every fresher starts here.",
+      "world": {
+        "zone": "unilag-main-gate",
+        "x": 0,
+        "z": 30,
+        "radius": 14
       }
     },
     {
