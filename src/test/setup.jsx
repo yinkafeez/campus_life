@@ -13,6 +13,14 @@ vi.mock("../game/GameWorld", () => ({
 vi.mock("../game/CharacterPreview", () => ({
   default: () => <div data-testid="character-preview" />,
 }));
+vi.mock("../game/overview/CampusOverview", () => ({
+  default: ({ mode }) => <div data-testid={`campus-overview-${mode}`} />,
+}));
+vi.mock("../game/overview/ZonePreview", () => ({
+  default: ({ zone }) => (
+    <div data-testid="zone-preview" data-zone={zone.key} />
+  ),
+}));
 
 // no real Socket.IO server in tests: a fake socket that records what the app emits
 vi.mock(
@@ -22,4 +30,6 @@ vi.mock(
 
 afterEach(() => {
   cleanup();
+  // each test starts as a first-time visitor on a fresh device
+  window.localStorage.clear();
 });

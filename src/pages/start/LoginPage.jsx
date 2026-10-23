@@ -11,7 +11,8 @@ import Panel from "../../components/ui/Panel";
 import styles from "./StartForm.module.css";
 
 // Sign in → back into the game where the player left off.
-export default function LoginPage() {
+// As a page (/login) or inside the start screen's pop-up (onSuccess / onSwitch / bare).
+export default function LoginPage({ onSuccess, onSwitch, bare = false, note }) {
   const login = useLogin();
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,14 +24,20 @@ export default function LoginPage() {
 
   function onSubmit(values) {
     login.mutate(values, {
-      onSuccess: () => navigate(location.state?.from ?? "/", { replace: true }),
+      onSuccess: () =>
+        onSuccess
+          ? onSuccess()
+          : navigate(location.state?.from ?? "/resume", { replace: true }),
     });
   }
 
+  const Wrapper = bare ? "div" : Panel;
   return (
-    <Panel>
+    <Wrapper>
       <h2 className={styles.heading}>Welcome back</h2>
-      <p className={styles.sub}>Sign in to continue your campus life.</p>
+      <p className={styles.sub}>
+        {note ?? "Sign in to continue your campus life."}
+      </p>
 
       <form
         className={styles.form}
@@ -79,8 +86,19 @@ export default function LoginPage() {
       </form>
 
       <p className={styles.switch}>
-        New here? <Link to="/register">Create a player</Link>
+        New here?{" "}
+        {onSwitch ? (
+          <button
+            type="button"
+            className={styles.linkButton}
+            onClick={onSwitch}
+          >
+            Create a player
+          </button>
+        ) : (
+          <Link to="/register">Create a player</Link>
+        )}
       </p>
-    </Panel>
+    </Wrapper>
   );
 }

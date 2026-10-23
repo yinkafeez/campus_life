@@ -3,10 +3,10 @@ import { JOURNEY_STAGES } from "../../lib/journey";
 import styles from "./JourneyTracker.module.css";
 
 // Progress through the whole fresher journey (admission → look → matric → orientation → mission).
-export default function JourneyTracker({ index = 0 }) {
+export default function JourneyTracker({ index = 0, stages = JOURNEY_STAGES }) {
   return (
     <ol className={styles.track} aria-label="Your fresher journey">
-      {JOURNEY_STAGES.map((stage, i) => {
+      {stages.map((stage, i) => {
         const state = i < index ? "done" : i === index ? "current" : "todo";
         return (
           <li

@@ -11,6 +11,7 @@ import {
 } from "../../api/accountApi";
 import { getErrorMessage } from "../../lib/errorMessages";
 import { closeSocket } from "../../lib/socket";
+import { forgetVisit } from "../../lib/lastVisit";
 import { queryKeys } from "../../hooks/queryKeys";
 import { toast } from "../../stores/useToastStore";
 import styles from "./SettingsPage.module.css";
@@ -57,6 +58,7 @@ export default function AccountPanel() {
     mutationFn: () => deleteMyAccount(deletePassword, confirm),
     onSuccess: () => {
       closeSocket();
+      forgetVisit();
       queryClient.clear();
       queryClient.setQueryData(queryKeys.currentUser, null);
       navigate("/register", { replace: true });

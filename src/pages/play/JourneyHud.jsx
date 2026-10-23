@@ -76,7 +76,12 @@ export default function JourneyHud({
                   <LuNavigation aria-hidden="true" /> Guide me
                 </button>
               )}
-              {!where && (
+              {!where && step.kind === "hostel" && (
+                <Link to="/admission" className={styles.link}>
+                  Choose your hall
+                </Link>
+              )}
+              {!where && step.kind !== "hostel" && (
                 <Link to="/studies?tab=missions" className={styles.link}>
                   Do it in Studies
                 </Link>

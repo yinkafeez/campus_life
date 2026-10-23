@@ -264,3 +264,17 @@
     bottom: calc(var(--safe-bottom) + 11rem);
   }
 }
+
+/* walking on to the next zone */
+.exit {
+  composes: talk;
+  border-color: var(--brand-400);
+  background: rgb(6 48 30 / 0.9);
+  color: var(--brand-300);
+}
+
+@media (pointer: coarse) {
+  .exit {
+    bottom: calc(var(--safe-bottom) + 13.5rem);
+  }
+}

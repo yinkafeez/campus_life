@@ -3,6 +3,7 @@
 // university uses (and where players start) comes from its world config (/campus/world).
 export const ZONES = {
   "arrival-plaza": () => import("./arrivalPlaza"),
+  "unilag-main-gate": () => import("./unilagMainGate"),
   "unilag-senate-lagoon": () => import("./unilagSenateLagoon"),
 };
 

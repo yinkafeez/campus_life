@@ -1,5 +1,6 @@
 import { Instance, Instances } from "@react-three/drei";
 import Sign from "./Sign";
+import { PROPS } from "../props";
 
 // Draws any zone from its data. Repeated things (trees, lamps, benches, windows) are instanced,
 // so the whole zone costs a handful of draw calls regardless of how many props it has.
@@ -15,6 +16,48 @@ export default function ZoneScene({ zone, layout }) {
         <planeGeometry args={[width, depth]} />
         <meshStandardMaterial color={zone.ground} roughness={1} />
       </mesh>
+
+      {/* roads: asphalt, kerbs and dashed centre lines */}
+      {(zone.roads ?? []).map((r, i) => (
+        <group key={`road-${i}`} position={[r.x, 0, r.z]}>
+          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.015, 0]}>
+            <planeGeometry args={[r.width, r.depth]} />
+            <meshStandardMaterial color="#3b3f45" roughness={0.95} />
+          </mesh>
+          {Array.from(
+            { length: Math.floor(Math.max(r.width, r.depth) / 6) },
+            (_, k) => {
+              const along = -Math.max(r.width, r.depth) / 2 + 3 + k * 6;
+              const vertical = r.depth >= r.width;
+              return (
+                <mesh
+                  key={k}
+                  rotation={[-Math.PI / 2, 0, vertical ? 0 : Math.PI / 2]}
+                  position={vertical ? [0, 0.02, along] : [along, 0.02, 0]}
+                >
+                  <planeGeometry args={[0.18, 2.6]} />
+                  <meshBasicMaterial color="#f5f5f4" />
+                </mesh>
+              );
+            },
+          )}
+        </group>
+      ))}
+
+      {/* set-piece props (the university gate, a cab rank…) */}
+      {(zone.props ?? []).map((p, i) => {
+        const def = PROPS[p.type];
+        if (!def) return null;
+        return (
+          <group
+            key={`prop-${i}`}
+            position={[p.x, 0, p.z]}
+            rotation={[0, p.rotY ?? 0, 0]}
+          >
+            <def.Component {...(p.options ?? {})} />
+          </group>
+        );
+      })}
 
       {/* walkways */}
       {zone.paths.map((p, i) => (

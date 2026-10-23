@@ -53,3 +53,12 @@
   color: var(--brand-300);
   font-weight: 600;
 }
+
+.linkButton {
+  border: 0;
+  background: none;
+  color: var(--brand-300);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}

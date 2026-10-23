@@ -16,6 +16,7 @@ import { queryKeys } from "../../hooks/queryKeys";
 import { currentObjective } from "../../lib/journey";
 import { useSettingsStore } from "../../stores/useSettingsStore";
 import { notify } from "../../stores/useNotificationStore";
+import { rememberVisit } from "../../lib/lastVisit";
 import NotificationBell from "../../components/nav/NotificationBell";
 import Button from "../../components/ui/Button";
 import Sheet from "../../components/ui/Sheet";
@@ -177,17 +178,28 @@ export default function PlayPage() {
 
   // STARTING POINT per zone: my saved spot in this zone, else its spawn
   const [ready, setReady] = useState(false);
+  const pendingGuide = useRef(null);
+  const [exitHere, setExitHere] = useState(null);
   const lastPosition = character.data?.lastPosition;
   useEffect(() => {
     if (!zone || !character.data || placedZone.current === zone.key) return;
+    const from = placedZone.current; // the zone we walked in from (null on first load)
     stateRef.current =
-      lastPosition?.zone === zone.key && placedZone.current === null
+      lastPosition?.zone === zone.key && from === null
         ? { x: lastPosition.x, z: lastPosition.z, rotY: lastPosition.rotY }
-        : { ...zone.spawn };
+        : from && zone.entries?.[from]
+          ? { ...zone.entries[from] }
+          : { ...zone.spawn };
     placedZone.current = zone.key;
     lastSaved.current = { ...stateRef.current };
     store().stopGuide();
     setReady(true);
+    // carry a guide across zones: keep heading to the place we were going to
+    if (pendingGuide.current) {
+      const slug = pendingGuide.current;
+      pendingGuide.current = null;
+      setTimeout(() => store().guideTo(slug), 0);
+    }
   }, [zone, character.data, lastPosition, store]);
 
   // SAVE the position every few seconds (only if the player moved) and when leaving
@@ -210,13 +222,22 @@ export default function PlayPage() {
         z: round(s.z),
         rotY: round(s.rotY),
       });
+      // this device remembers the spot for the start screen ("You were at …")
+      const here = locationAt(zoneLocations, s);
+      rememberVisit({
+        zone: zone.key,
+        x: round(s.x),
+        z: round(s.z),
+        rotY: round(s.rotY),
+        place: here?.name ?? zone.name.replace(/^.*·\s*/, ""),
+      });
     };
     const timer = setInterval(save, SAVE_EVERY_MS);
     return () => {
       clearInterval(timer);
       save();
     };
-  }, [zone, persist]);
+  }, [zone, persist, zoneLocations]);
 
   // ARRIVING somewhere can tick off an orientation step (the server checks the visit)
   // and moves mission steps along
@@ -260,6 +281,10 @@ export default function PlayPage() {
       const place = locationAt(zoneLocations, s);
       const npc = npcNear(zoneNpcs, s);
       store().setNearby(place?.slug ?? null, npc?.key ?? null);
+      const exit = (zone?.exits ?? []).find(
+        (e) => Math.hypot(e.x - s.x, e.z - s.z) <= e.radius,
+      );
+      setExitHere((prev) => (prev?.to === exit?.to ? prev : (exit ?? null)));
       // record every arrival at a place (first time = discovery; later = a visit,
       // which is how deliveries know you walked there)
       const arrived = place && asked.current.last !== place.slug;
@@ -285,14 +310,40 @@ export default function PlayPage() {
       }
     }, NEARBY_EVERY_MS);
     return () => clearInterval(timer);
-  }, [ready, zoneLocations, zoneNpcs, discoverPlace, store, onArrive]);
+  }, [ready, zone, zoneLocations, zoneNpcs, discoverPlace, store, onArrive]);
+
+  // zone exits as guide targets ("exit:<zone>")
+  const exitTargets = useMemo(
+    () =>
+      (zone?.exits ?? []).map((e) => ({
+        slug: `exit:${e.to}`,
+        name: e.label,
+        world: {
+          zone: zone.key,
+          x: e.x,
+          z: e.z,
+          radius: Math.min(e.radius, 4),
+        },
+      })),
+    [zone],
+  );
+  /** Guide to a place: in this zone directly, else to the exit towards its zone (then onward). */
+  function guide(slug) {
+    if (zoneLocations.some((el) => el.slug === slug))
+      return store().guideTo(slug);
+    const place = locations.find((el) => el.slug === slug);
+    const exit =
+      place && (zone?.exits ?? []).find((e) => e.to === place.world?.zone);
+    if (!exit) return undefined;
+    pendingGuide.current = slug;
+    return store().guideTo(`exit:${exit.to}`);
+  }
 
   // ?guide=<place> (from the journey screens) → start guiding once the world is ready
   const guideParam = params.get("guide");
   useEffect(() => {
     if (!ready || !guideParam) return;
-    if (zoneLocations.some((el) => el.slug === guideParam))
-      store().guideTo(guideParam);
+    guide(guideParam);
     setParams(
       (p) => {
         p.delete("guide");
@@ -300,10 +351,13 @@ export default function PlayPage() {
       },
       { replace: true },
     );
-  }, [ready, guideParam, zoneLocations, store, setParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once per ?guide= value
+  }, [ready, guideParam, setParams]);
 
   // GUIDING: recompute the route as I walk; stop when I arrive
-  const target = zoneLocations.find((el) => el.slug === destination);
+  const target = [...zoneLocations, ...exitTargets].find(
+    (el) => el.slug === destination,
+  );
   useEffect(() => {
     if (!target || !navGrid) return undefined;
     const tick = () => {
@@ -395,7 +449,9 @@ export default function PlayPage() {
 
   function travel(key) {
     if (!hasZone(key)) return;
+    const keep = pendingGuide.current;
     store().reset();
+    pendingGuide.current = keep;
     setReady(false);
     setTravelTo(key);
   }
@@ -469,7 +525,7 @@ export default function PlayPage() {
           objective={objective}
           placeNames={placeNames}
           guiding={Boolean(destination)}
-          onGuide={(slug) => store().guideTo(slug)}
+          onGuide={guide}
         />
       )}
       {ready && !briefingSeen && (
@@ -575,6 +631,19 @@ export default function PlayPage() {
       )}
 
       {/* talk prompt */}
+      {exitHere && !npc && (
+        <button
+          type="button"
+          className={styles.exit}
+          onClick={() => {
+            if (destination === `exit:${exitHere.to}`) store().stopGuide();
+            travel(exitHere.to);
+          }}
+        >
+          {exitHere.label} →
+        </button>
+      )}
+
       {npcHere && !npc && (
         <button
           type="button"
@@ -589,7 +658,7 @@ export default function PlayPage() {
         <NpcDialogue
           npc={npc}
           places={guidePlaces}
-          onGuide={(slug) => store().guideTo(slug)}
+          onGuide={guide}
           onClose={() => store().endTalk()}
         />
       )}
@@ -614,7 +683,7 @@ export default function PlayPage() {
           stateRef={stateRef}
           destination={destination}
           travelZones={travelZones}
-          onGuide={(slug) => store().guideTo(slug)}
+          onGuide={guide}
           onTravel={(key) => travel(key)}
           onClose={() => store().closePanel()}
         />

@@ -163,6 +163,10 @@ export default function ApplyStep({ declined = false }) {
         {programme && (
           <fieldset className={styles.levels}>
             <legend className={styles.legend}>Entry level</legend>
+            <p className={styles.levelHint}>
+              Freshers start with orientation week at the Main Gate. Stalites
+              (returning students) choose their hall and move straight in.
+            </p>
             {programme.entryLevels.map((el) => (
               <label
                 key={el.level}
@@ -181,6 +185,13 @@ export default function ApplyStep({ declined = false }) {
                   className="sr-only"
                 />
                 {el.label}
+                {/* the lowest entry level is a fresher; above it a returning student */}
+                <span className={styles.levelType}>
+                  {el.level ===
+                  Math.min(...programme.entryLevels.map((l) => l.level))
+                    ? "Fresher"
+                    : "Stalite"}
+                </span>
               </label>
             ))}
             {serverErrors.entryLevel && (

@@ -60,3 +60,18 @@
   color: var(--danger);
   font-size: 0.8125rem;
 }
+
+.levelType {
+  display: block;
+  color: var(--ink-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.levelHint {
+  width: 100%;
+  color: var(--ink-muted);
+  font-size: 0.8125rem;
+}

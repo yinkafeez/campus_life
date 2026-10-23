@@ -36,7 +36,7 @@ const FIELDS = [
 ];
 
 // Create a player account → straight into simulated admission.
-export default function RegisterPage() {
+export default function RegisterPage({ onSuccess, onSwitch, bare = false }) {
   const signUp = useRegister();
   const navigate = useNavigate();
   const {
@@ -62,12 +62,15 @@ export default function RegisterPage() {
 
   function onSubmit(values) {
     signUp.mutate(values, {
-      onSuccess: () => navigate("/admission", { replace: true }),
+      // first time here: see the whole campus before applying
+      onSuccess: () =>
+        onSuccess ? onSuccess() : navigate("/welcome", { replace: true }),
     });
   }
 
+  const Wrapper = bare ? "div" : Panel;
   return (
-    <Panel>
+    <Wrapper>
       <h2 className={styles.heading}>Create your player</h2>
       <p className={styles.sub}>
         Then apply to your (simulated) dream university.
@@ -123,8 +126,19 @@ export default function RegisterPage() {
       </form>
 
       <p className={styles.switch}>
-        Already playing? <Link to="/login">Sign in</Link>
+        Already playing?{" "}
+        {onSwitch ? (
+          <button
+            type="button"
+            className={styles.linkButton}
+            onClick={onSwitch}
+          >
+            Sign in
+          </button>
+        ) : (
+          <Link to="/login">Sign in</Link>
+        )}
       </p>
-    </Panel>
+    </Wrapper>
   );
 }

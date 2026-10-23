@@ -1,4 +1,5 @@
 import { boxFrom } from "../physics/collide";
+import { propColliders } from "../props";
 
 // deterministic randomness: a zone's trees are the same on every visit and every device
 export function seeded(seed) {
@@ -20,7 +21,10 @@ const insideBox = (x, z, b) =>
  * tree positions + every collider (buildings, benches, lamps, trees, fountain).
  */
 export function buildZoneLayout(zone) {
-  const buildingBoxes = zone.buildings.map((b) => boxFrom(b));
+  // buildings and solid props (the gate monument, parked cabs…) both block movement
+  const buildingBoxes = [...zone.buildings, ...propColliders(zone.props)].map(
+    (b) => boxFrom(b),
+  );
   const keepClear = zone.trees.keepClear;
   const blocked = [
     ...buildingBoxes.map((b) => ({
@@ -30,6 +34,7 @@ export function buildZoneLayout(zone) {
       maxZ: b.maxZ + keepClear,
     })),
     ...zone.paths.map((p) => boxFrom(p, 1.5)),
+    ...(zone.roads ?? []).map((r) => boxFrom(r, 1.5)),
   ];
 
   const rand = seeded(zone.trees.seed);

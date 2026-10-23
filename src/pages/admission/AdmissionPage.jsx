@@ -1,7 +1,7 @@
 import { useMyStudent } from "../../hooks/useStudentQueries";
 import { useMyCharacter } from "../../hooks/useCharacterQueries";
 import { useMissions } from "../../hooks/useLearningQueries";
-import { journeyIndex } from "../../lib/journey";
+import { journeyIndex, journeyStagesFor } from "../../lib/journey";
 import PageLoader from "../../components/ui/PageLoader";
 import ErrorState from "../../components/ui/ErrorState";
 import SimulatedBanner from "../../components/SimulatedBanner";
@@ -48,6 +48,7 @@ export default function AdmissionPage() {
   return (
     <div className={styles.page}>
       <JourneyTracker
+        stages={journeyStagesFor(student.data)}
         index={journeyIndex({
           student: student.data,
           hasCharacter: Boolean(character.data),

@@ -21,17 +21,38 @@ const signedIn = (student) => ({
 });
 
 describe("start screen", () => {
-  it("opens the game on the sign-in screen when signed out (no landing page)", async () => {
+  it("a first-time visitor sees the campus and two buttons — no landing page", async () => {
     mockApi(signedOut);
     renderWithProviders(<App />);
 
     expect(
-      await screen.findByRole("heading", { name: "Welcome back" }),
+      await screen.findByRole("heading", { level: 1, name: /campus\s*life/i }),
     ).toBeVisible();
     expect(
-      screen.getByRole("heading", { level: 1, name: /campus\s*life/i }),
+      await screen.findByTestId("campus-overview-hero"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Create account" }),
     ).toBeVisible();
-    expect(screen.getByRole("button", { name: "Play" })).toBeVisible();
+    expect(screen.getByRole("button", { name: "Log in" })).toBeVisible();
+    // the forms only appear when asked for
+    expect(screen.queryByLabelText("Email or username")).toBeNull();
+  });
+
+  it("each button opens its form in a pop-up, and they switch between each other", async () => {
+    mockApi(signedOut);
+    renderWithProviders(<App />);
+    await userEvent.click(
+      await screen.findByRole("button", { name: "Log in" }),
+    );
+    const login = await screen.findByRole("dialog", { name: "Log in" });
+    expect(within(login).getByLabelText("Email or username")).toBeVisible();
+    await userEvent.click(
+      within(login).getByRole("button", { name: "Create a player" }),
+    );
+    expect(
+      await screen.findByRole("dialog", { name: "Create account" }),
+    ).toBeVisible();
   });
 
   it("validates the sign-in form before calling the API", async () => {
@@ -65,9 +86,9 @@ describe("start screen", () => {
     await userEvent.type(screen.getByLabelText("Password"), "wrong-password-1");
     await userEvent.click(screen.getByRole("button", { name: "Play" }));
 
-    expect(await screen.findByRole("alert")).toHaveTextContent(
-      /incorrect email\/username or password/i,
-    );
+    expect(
+      await screen.findByText(/incorrect email\/username or password/i),
+    ).toBeVisible();
   });
 
   it("signs in and resumes at admission when the player has not applied yet", async () => {
@@ -107,7 +128,77 @@ describe("start screen", () => {
         name: "University of Lagos (UNILAG)",
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/game simulation\./i)).toBeVisible();
+  });
+
+  it("a returning player sees where they left off and continues without signing in", async () => {
+    window.localStorage.setItem(
+      "campus-life:last-visit",
+      JSON.stringify({
+        path: "/notifications",
+        zone: "unilag-main-gate",
+        x: 1,
+        z: 2,
+        place: "Main Gate",
+        name: "Ada",
+      }),
+    );
+    mockApi({
+      ...signedIn(makeStudent()),
+      "GET /learning/standing": fail(500, "X"),
+    });
+    renderWithProviders(<App />);
+    expect(await screen.findByTestId("zone-preview")).toHaveAttribute(
+      "data-zone",
+      "unilag-main-gate",
+    );
+    expect(screen.getByText(/You were at/)).toHaveTextContent("Main Gate");
+    expect(screen.queryByRole("button", { name: "Log in" })).toBeNull();
+    await userEvent.click(
+      await screen.findByRole("button", { name: "Continue" }),
+    );
+    expect(
+      await screen.findByRole("heading", { name: "Notifications" }),
+    ).toBeVisible();
+  });
+
+  it("when the session has ended, Continue asks to sign in, then goes back to the same place", async () => {
+    window.localStorage.setItem(
+      "campus-life:last-visit",
+      JSON.stringify({
+        path: "/settings",
+        zone: "unilag-main-gate",
+        place: "Main Gate",
+      }),
+    );
+    let signedInNow = false;
+    mockApi({
+      "GET /auth/me": () =>
+        signedInNow ? ok(SESSION) : fail(401, "UNAUTHENTICATED"),
+      "POST /auth/refresh": fail(401, "INVALID_REFRESH"),
+      "POST /auth/login": () => {
+        signedInNow = true;
+        return ok(SESSION);
+      },
+      "GET /students/me": ok({ student: makeStudent() }),
+    });
+    renderWithProviders(<App />);
+    await userEvent.click(
+      await screen.findByRole("button", { name: "Continue" }),
+    );
+    const dialog = await screen.findByRole("dialog", { name: "Log in" });
+    expect(within(dialog).getByText(/session ended/)).toBeVisible();
+    await userEvent.type(
+      within(dialog).getByLabelText("Email or username"),
+      "ada_test",
+    );
+    await userEvent.type(
+      within(dialog).getByLabelText("Password"),
+      "Lagoon-breeze-2026",
+    );
+    await userEvent.click(within(dialog).getByRole("button", { name: "Play" }));
+    expect(
+      await screen.findByRole("heading", { name: "Settings" }),
+    ).toBeVisible();
   });
 });
 
@@ -179,9 +270,12 @@ describe("journey screens", () => {
 });
 
 describe("dashboard", () => {
-  it("resumes an enrolled player at the dashboard from /", async () => {
+  it("resumes an enrolled player at the dashboard (Continue with nothing remembered)", async () => {
     mockApi(signedIn(makeStudent()));
     renderWithProviders(<App />);
+    await userEvent.click(
+      await screen.findByRole("button", { name: "Continue" }),
+    );
 
     expect(
       await screen.findByRole("heading", { name: "Hi, Ada" }),
@@ -208,9 +302,7 @@ describe("dashboard", () => {
   it("guards game screens from signed-out visitors", async () => {
     mockApi(signedOut);
     renderWithProviders(<App />, { route: "/dashboard" });
-    expect(
-      await screen.findByRole("heading", { name: "Welcome back" }),
-    ).toBeVisible();
+    expect(await screen.findByRole("dialog", { name: "Log in" })).toBeVisible();
   });
 });
 

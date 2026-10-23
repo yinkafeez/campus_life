@@ -25,6 +25,14 @@ export const firstMission = (missions = []) =>
       ),
   ) ?? null;
 
+/** The stages with the right wording for this student (stalites move into a hall instead). */
+export const journeyStagesFor = (student) =>
+  student?.studentType === "stalite"
+    ? JOURNEY_STAGES.map((s) =>
+        s.key === "orientation" ? { ...s, label: "Your hall" } : s,
+      )
+    : JOURNEY_STAGES;
+
 /** Index into JOURNEY_STAGES (JOURNEY_STAGES.length = the journey is finished). */
 export function journeyIndex({ student, hasCharacter, missions }) {
   if (!student || student.status === "declined") return 0;
@@ -62,10 +70,15 @@ export function currentObjective({ student, missions }) {
     if (!next) return null;
     return {
       stage: "orientation",
-      title: "Orientation",
+      title: student.studentType === "stalite" ? "Move-in" : "Orientation",
       done: steps.filter((s) => s.completed).length,
       total: steps.length,
-      step: { key: next.key, label: next.title, place: stepPlace(next) },
+      step: {
+        key: next.key,
+        label: next.title,
+        place: stepPlace(next),
+        kind: next.kind,
+      },
     };
   }
   if (["active", "graduated"].includes(student?.status)) {

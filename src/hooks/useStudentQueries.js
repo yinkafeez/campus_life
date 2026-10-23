@@ -46,16 +46,22 @@ export function useAdmissionOptions(slug) {
 }
 
 // every journey step answers { student } — write it straight into the cache
-function useStudentMutation(mutationFn) {
+function useStudentMutation(mutationFn, { newUniversity = false } = {}) {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn,
-    onSuccess: ({ student }) =>
-      queryClient.setQueryData(queryKeys.myStudent, student),
+    onSuccess: ({ student }) => {
+      queryClient.setQueryData(queryKeys.myStudent, student);
+      // the campus world is per university: one fetched before applying (e.g. the
+      // welcome map) is the empty "no university" world
+      if (newUniversity)
+        queryClient.invalidateQueries({ queryKey: queryKeys.campusWorld });
+    },
   });
 }
 
-export const useApply = () => useStudentMutation(applyForAdmission);
+export const useApply = () =>
+  useStudentMutation(applyForAdmission, { newUniversity: true });
 export const useRespondToOffer = () => useStudentMutation(respondToOffer);
 export const useMatriculate = () => useStudentMutation(matriculate);
 export const useCompleteStep = () => useStudentMutation(completeOnboardingStep);

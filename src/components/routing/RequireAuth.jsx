@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { rememberPath, rememberVisit } from "../../lib/lastVisit";
 import { useCurrentUser } from "../../hooks/useAuthQueries";
 import { useRealtimeConnection } from "../../hooks/useRealtime";
 import PageLoader from "../ui/PageLoader";
@@ -10,10 +12,18 @@ import ConnectionBanner from "../ui/ConnectionBanner";
 export default function RequireAuth() {
   const { data: session, isPending } = useCurrentUser();
   const location = useLocation();
+  const where = location.pathname + location.search;
+  const name = session?.player?.displayName;
+
+  // remember the screen, so "Continue" on the start screen brings the player back here
+  useEffect(() => {
+    if (!session) return;
+    rememberPath(where);
+    if (name) rememberVisit({ name });
+  }, [session, where, name]);
 
   if (isPending) return <PageLoader label="Loading your profile…" />;
-  if (!session)
-    return <Navigate to="/login" replace state={{ from: location.pathname }} />;
+  if (!session) return <Navigate to="/login" replace state={{ from: where }} />;
   return (
     <>
       <LiveConnection />

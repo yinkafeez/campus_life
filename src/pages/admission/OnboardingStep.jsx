@@ -8,6 +8,7 @@ import Button from "../../components/ui/Button";
 import Notice from "../../components/ui/Notice";
 import Panel from "../../components/ui/Panel";
 import MatricCard from "../../components/MatricCard";
+import HallChooser from "./HallChooser";
 import styles from "./OnboardingStep.module.css";
 
 const prettySlug = (slug) =>
@@ -30,6 +31,8 @@ export default function OnboardingStep({ student }) {
     (world.data?.locations ?? []).map((l) => [l.slug, l.name]),
   );
   const placeName = (slug) => names.get(slug) ?? prettySlug(slug);
+  const stalite = student.studentType === "stalite";
+  const hallStep = steps.find((s) => s.kind === "hostel" && !s.completed);
 
   return (
     <div className={styles.stack}>
@@ -38,7 +41,13 @@ export default function OnboardingStep({ student }) {
       <Panel>
         <div className={styles.head}>
           <h1 className={styles.heading}>
-            {finished ? "Orientation complete" : "Orientation week"}
+            {finished
+              ? stalite
+                ? "Welcome back to campus"
+                : "Orientation complete"
+              : stalite
+                ? "Move-in day"
+                : "Orientation week"}
           </h1>
           <span className={styles.count}>
             {completed}/{total}
@@ -47,7 +56,9 @@ export default function OnboardingStep({ student }) {
         <p className={styles.sub}>
           {finished
             ? "You're officially a (game) student. Welcome to campus!"
-            : "Walk to each place on campus — the step ticks itself when you arrive. Tap “Guide me” and follow the trail."}
+            : stalite
+              ? "You're a returning student (stalite): choose your hall and move in."
+              : "Walk to each place on campus — the step ticks itself when you arrive. Tap “Guide me” and follow the trail."}
         </p>
 
         {!finished && next && stepPlace(next) && (
@@ -59,6 +70,8 @@ export default function OnboardingStep({ student }) {
             Start orientation on campus
           </Button>
         )}
+
+        {hallStep && <HallChooser />}
 
         {complete.error && (
           <Notice tone="danger">{getErrorMessage(complete.error)}</Notice>
@@ -93,7 +106,7 @@ export default function OnboardingStep({ student }) {
                   >
                     Guide me
                   </Button>
-                ) : (
+                ) : step.kind === "hostel" ? null : (
                   <Button
                     size="sm"
                     variant="secondary"

@@ -14,6 +14,17 @@ export default {
   notToScale: true,
   bounds: { minX: -44, maxX: 44, minZ: -42, maxZ: 46 },
   spawn: { x: 0, z: 34, rotY: Math.PI },
+  // coming up University Road from the Main Gate
+  entries: { "unilag-main-gate": { x: 0, z: 40, rotY: Math.PI } },
+  exits: [
+    {
+      to: "unilag-main-gate",
+      x: 0,
+      z: 45,
+      radius: 3,
+      label: "Walk back to the Main Gate",
+    },
+  ],
   sky: "#a8d2ec",
   ground: "#5b8a43",
   water: { z: -43, depth: 50 }, // the lagoon beyond the waterfront railing

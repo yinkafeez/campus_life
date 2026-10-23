@@ -5,12 +5,11 @@ import GameShell from "./layouts/GameShell";
 import StartLayout from "./layouts/StartLayout";
 import GameLayout from "./layouts/GameLayout";
 import GameEntry from "./components/routing/GameEntry";
-import GuestOnly from "./components/routing/GuestOnly";
 import RequireAuth from "./components/routing/RequireAuth";
 
 // screens load on demand
-const LoginPage = lazy(() => import("./pages/start/LoginPage"));
-const RegisterPage = lazy(() => import("./pages/start/RegisterPage"));
+const StartScreen = lazy(() => import("./pages/start/StartScreen"));
+const CampusMapPage = lazy(() => import("./pages/campus-map/CampusMapPage"));
 const AdmissionPage = lazy(() => import("./pages/admission/AdmissionPage"));
 const DashboardPage = lazy(() => import("./pages/dashboard/DashboardPage"));
 const ProfilePage = lazy(() => import("./pages/profile/ProfilePage"));
@@ -43,16 +42,6 @@ export default function App() {
     <Routes>
       {/* everything sits on the 3D campus scene */}
       <Route element={<GameShell />}>
-        {/* "/" resumes the player where they left off */}
-        <Route index element={<GameEntry />} />
-
-        {/* START SCREEN — signed-out players only */}
-        <Route element={<GuestOnly />}>
-          <Route element={<StartLayout />}>
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
-          </Route>
-        </Route>
         <Route element={<StartLayout />}>
           <Route path="status" element={<StatusPage />} />
           <Route path="privacy" element={<PrivacyPage />} />
@@ -60,6 +49,8 @@ export default function App() {
 
         {/* IN GAME — signed-in players */}
         <Route element={<RequireAuth />}>
+          {/* "Continue" with no remembered screen: the game decides (admission / dashboard) */}
+          <Route path="resume" element={<GameEntry />} />
           <Route element={<GameLayout />}>
             <Route path="admission" element={<AdmissionPage />} />
             <Route path="dashboard" element={<DashboardPage />} />
@@ -85,7 +76,35 @@ export default function App() {
       </Route>
 
       {/* FULL-SCREEN 3D — own canvas, so outside the backdrop shell (one WebGL scene at a time) */}
+      {/* the start screen: the campus (or where you left off) behind Log in / Create account / Continue */}
+      {["/", "/login", "/register"].map((path) => (
+        <Route
+          key={path}
+          path={path}
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <StartScreen />
+            </Suspense>
+          }
+        />
+      ))}
       <Route element={<RequireAuth />}>
+        <Route
+          path="welcome"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <CampusMapPage intro />
+            </Suspense>
+          }
+        />
+        <Route
+          path="campus-map"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <CampusMapPage />
+            </Suspense>
+          }
+        />
         <Route
           path="character"
           element={
